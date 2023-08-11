@@ -1,10 +1,12 @@
 import Link from "next/link"
 
 import { env } from "@/env.mjs"
+import { programs } from "@/config/programs"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants, Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import { Badge } from "@/components/ui/badge"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
@@ -51,10 +53,14 @@ export default async function IndexPage() {
             დაიწყე სწავლა
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            BitCamp - სასწავლო პროგრამები, მენტორები, უფასო კურსები, სუპერ მეგობრული გარემო და ყველაზე დიდი Tech საზოგადოება საქართველოში.
+            BitCamp - სასწავლო პროგრამები, მენტორები, უფასო კურსები, სუპერ
+            მეგობრული გარემო და ყველაზე დიდი Tech საზოგადოება საქართველოში.
           </p>
           <div className="space-x-4">
-            <Link href="/#programs" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link
+              href="/#programs"
+              className={cn(buttonVariants({ size: "lg" }))}
+            >
               სასწავლო პროგრამები
             </Link>
             <Link
@@ -65,7 +71,6 @@ export default async function IndexPage() {
             >
               უფასო კურსები
             </Link>
-            
           </div>
         </div>
       </section>
@@ -75,25 +80,66 @@ export default async function IndexPage() {
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-            სასწავლო პროგრამები
+            სრული პროგრამები
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            გინდა ისწავლო პროგრამირება?
+            ყველაფერი რაც გჭირდება 0 - დან დასაწყებად
+          </p>
+        </div>
+        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          {programs.map((program) => {
+            const Icon = Icons[program.icon];
+            return (
+            
+              <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+                <div className="flex h-[400px] flex-col justify-between rounded-md p-6">
+                  <Icon className="h-12 w-12 " />
+                  <div className="space-y-2">
+                    <h3 className="font-bold">{program.name} <Badge variant="outline" className="mr-2">{program.badge}</Badge></h3>
+                    <p className="text-sm text-muted-foreground">
+                      {program.description}
+                    </p>
+                    <div className="py-4">
+                    {program.technologies.map(technology => <Badge variant="secondary" className="mr-2">{technology}</Badge>)}
+                    </div>
+                    <Link href={program.url} className={buttonVariants({ variant: "default" }) + " mb-4"}>ვრცლად</Link>
+                  </div>
+                </div>
+              </div>)
+        })}
+        </div>
+        <div className="mx-auto text-center md:max-w-[58rem]">
+          <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            Taxonomy also includes a blog and a full-featured documentation site
+            built using Contentlayer and MDX.
+          </p>
+        </div>
+      </section>
+      <section
+        id="subjects"
+        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
+      >
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
+            ცალკეული საგნები
+          </h2>
+          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            აირჩიე მხოლოდ ის საგნები რომლებიც გჭირდება
           </p>
         </div>
         <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
           <Link href="/courses/html">
-          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
-            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-              <Icons.programming className="h-12 w-12 " />
-              <div className="space-y-2">
-                <h3 className="font-bold">Python</h3>
-                <p className="text-sm text-muted-foreground">
-                  პროგრამირების საფუძვლები Python - ით.
-                </p>
+            <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+              <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+                <Icons.programming className="h-12 w-12 " />
+                <div className="space-y-2">
+                  <h3 className="font-bold">Python</h3>
+                  <p className="text-sm text-muted-foreground">
+                    პროგრამირების საფუძვლები Python - ით.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
           </Link>
           <div className="relative overflow-hidden rounded-lg border bg-background p-2">
             <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
@@ -181,8 +227,9 @@ export default async function IndexPage() {
             🔥 სწავლა და ბრძოლა ✊
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-          სასწავლო პროგრამები, მენტორები, უფასო კურსები, სუპერ მეგობრული გარემო და ყველაზე დიდი Tech საზოგადოება საქართველოში. <br />{" "}
-            მოგვწერეთ {" "}
+            სასწავლო პროგრამები, მენტორები, უფასო კურსები, სუპერ მეგობრული
+            გარემო და ყველაზე დიდი Tech საზოგადოება საქართველოში. <br />{" "}
+            მოგვწერეთ{" "}
             <Link
               href={siteConfig.links.facebook}
               target="_blank"

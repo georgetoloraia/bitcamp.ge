@@ -2,6 +2,7 @@ import { User } from "@prisma/client"
 import type { Icon } from "lucide-react"
 
 import { Icons } from "@/components/icons"
+import { ReactComponentElement } from "react"
 
 export type NavItem = {
   title: string
@@ -38,6 +39,15 @@ export type SiteConfig = {
     facebook: string
     discord: string
   }
+}
+
+export type Program = {
+  name: string
+  badge: string
+  description: string
+  url: string
+  icon: string
+  technologies: string[]
 }
 
 export type DocsConfig = {
