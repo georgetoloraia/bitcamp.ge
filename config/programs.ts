@@ -2,20 +2,20 @@ import { Program } from "types"
 
 export const programs: Program[] = [
     {
-        name: "Front-End",
-        badge: "React",
+        name: "React",
+        badge: "Front-End",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე React.",
         url: '/programs/front-end',
         icon: 'programming',
         technologies: ['js', 'html', 'css', 'react']
     },
     {
-        name: "Back-End",
-        badge: "Node.js",
-        description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით.",
+        name: "Python",
+        badge: "Back-End",
+        description: "დაეუფლე Back-end პროგრამირებას Python - ისა და Django - ს შესწავლით.",
         url: '/programs/back-end',
         icon: 'programming',
-        technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB']
+        technologies: ['Python', 'Django', 'API', 'Databases']
     },
     {
         name: "PRO",
@@ -26,20 +26,20 @@ export const programs: Program[] = [
         technologies: ['JS', 'TypeScript', 'Node.js', 'Python']
     },
     {
-        name: "Front-End",
-        badge: "Angular",
+        name: "Angular",
+        badge: "Front-End",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე Angular.",
         url: '/programs/back-end',
         icon: 'programming',
         technologies: ['JS', 'TypeScript', 'Node.js', 'Python']
     },
     {
-        name: "Back-End",
-        badge: "Python",
-        description: "დაეუფლე Back-end პროგრამირებას Python - ისა და Django - ს შესწავლით.",
+        name: "Node.js",
+        badge: "Back-end",
+        description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით.",
         url: '/programs/back-end',
         icon: 'programming',
-        technologies: ['Python', 'Django', 'API', 'Databases']
+        technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB']
     },
     {
         name: "Full-Stack",

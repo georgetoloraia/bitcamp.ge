@@ -50,6 +50,15 @@ export type Program = {
   technologies: string[]
 }
 
+export type Subject = {
+  name: string
+  badge: string
+  description: string
+  url: string
+  icon: string
+  technologies: string[]
+}
+
 export type DocsConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
