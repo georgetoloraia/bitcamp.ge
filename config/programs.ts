@@ -6,7 +6,7 @@ export const programs: Program[] = [
         badge: "Front-End",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე React.",
         url: '/programs/front-end',
-        icon: 'programming',
+        icon: 'react',
         technologies: ['js', 'html', 'css', 'react']
     },
     {
@@ -14,7 +14,7 @@ export const programs: Program[] = [
         badge: "Back-End",
         description: "დაეუფლე Back-end პროგრამირებას Python - ისა და Django - ს შესწავლით.",
         url: '/programs/back-end',
-        icon: 'programming',
+        icon: 'python',
         technologies: ['Python', 'Django', 'API', 'Databases']
     },
     {
@@ -22,7 +22,7 @@ export const programs: Program[] = [
         badge: "სუპერ ინტენსიური",
         description: "ყველაზე ინტენსიური და სრულყოფილი სასწავლო პროგრამა საქართველოში",
         url: '/programs/back-end',
-        icon: 'programming',
+        icon: 'pro',
         technologies: ['JS', 'TypeScript', 'Node.js', 'Python']
     },
     {
@@ -30,7 +30,7 @@ export const programs: Program[] = [
         badge: "Front-End",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე Angular.",
         url: '/programs/back-end',
-        icon: 'programming',
+        icon: 'angular',
         technologies: ['JS', 'TypeScript', 'Node.js', 'Python']
     },
     {
@@ -38,7 +38,7 @@ export const programs: Program[] = [
         badge: "Back-end",
         description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით.",
         url: '/programs/back-end',
-        icon: 'programming',
+        icon: 'nodejs',
         technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB']
     },
     {
@@ -46,7 +46,7 @@ export const programs: Program[] = [
         badge: "კომბინირებული",
         description: "აირჩიე შენთვის სასურველი Front-End და Back-End პროგრამების კომბინაცია. დაეუფლე ვებ-ტექნოლოგიების სრულ სპექტრს.",
         url: '/programs/back-end',
-        icon: 'programming',
+        icon: 'fullstack',
         technologies: ['JavaScript / Python', 'React / Angular', 'Django / Express.js ']
     }
 ]
