@@ -14,6 +14,21 @@ export const dashboardConfig: DashboardConfig = {
   ],
   sidebarNav: [
     {
+      title: "სრული პროგრამები",
+      href: "/dashboard/programs",
+      icon: "post",
+    },
+    {
+      title: "საგნები",
+      href: "/dashboard/subjects",
+      icon: "post",
+    },
+    {
+      title: "შეძენილი სერვისები",
+      href: "/dashboard",
+      icon: "post",
+    },
+    {
       title: "Posts",
       href: "/dashboard",
       icon: "post",
