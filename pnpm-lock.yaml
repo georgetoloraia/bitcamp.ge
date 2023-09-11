@@ -6,158 +6,158 @@ settings:
 
 dependencies:
   '@editorjs/code':
-    specifier: 2.8.0
+    specifier: ^2.8.0
     version: 2.8.0
   '@editorjs/editorjs':
-    specifier: 2.26.5
+    specifier: ^2.26.5
     version: 2.26.5
   '@editorjs/embed':
-    specifier: 2.5.3
+    specifier: ^2.5.3
     version: 2.5.3
   '@editorjs/header':
-    specifier: 2.7.0
+    specifier: ^2.7.0
     version: 2.7.0
   '@editorjs/inline-code':
-    specifier: 1.4.0
+    specifier: ^1.4.0
     version: 1.4.0
   '@editorjs/link':
-    specifier: 2.5.0
+    specifier: ^2.5.0
     version: 2.5.0
   '@editorjs/list':
-    specifier: 1.8.0
+    specifier: ^1.8.0
     version: 1.8.0
   '@editorjs/paragraph':
-    specifier: 2.9.0
+    specifier: ^2.9.0
     version: 2.9.0
   '@editorjs/table':
-    specifier: 2.2.1
+    specifier: ^2.2.1
     version: 2.2.1
   '@hookform/resolvers':
-    specifier: 3.1.0
+    specifier: ^3.1.0
     version: 3.1.0(react-hook-form@7.43.9)
   '@next-auth/prisma-adapter':
-    specifier: 1.0.6
+    specifier: ^1.0.6
     version: 1.0.6(@prisma/client@4.13.0)(next-auth@4.22.1)
   '@prisma/client':
-    specifier: 4.13.0
+    specifier: ^4.13.0
     version: 4.13.0(prisma@4.13.0)
   '@radix-ui/react-accessible-icon':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-accordion':
-    specifier: 1.1.1
+    specifier: ^1.1.1
     version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-alert-dialog':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-aspect-ratio':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-avatar':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-checkbox':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-collapsible':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-context-menu':
-    specifier: 2.1.3
+    specifier: ^2.1.3
     version: 2.1.3(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-dialog':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-dropdown-menu':
-    specifier: 2.0.4
+    specifier: ^2.0.4
     version: 2.0.4(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-hover-card':
-    specifier: 1.0.5
+    specifier: ^1.0.5
     version: 1.0.5(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-label':
-    specifier: 2.0.1
+    specifier: ^2.0.1
     version: 2.0.1(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-menubar':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-navigation-menu':
-    specifier: 1.1.2
+    specifier: ^1.1.2
     version: 1.1.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-popover':
-    specifier: 1.0.5
+    specifier: ^1.0.5
     version: 1.0.5(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-progress':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-radio-group':
-    specifier: 1.1.2
+    specifier: ^1.1.2
     version: 1.1.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-scroll-area':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-select':
-    specifier: 1.2.1
+    specifier: ^1.2.1
     version: 1.2.1(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-separator':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-slider':
-    specifier: 1.1.1
+    specifier: ^1.1.1
     version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-slot':
-    specifier: 1.0.1
+    specifier: ^1.0.1
     version: 1.0.1(react@18.2.0)
   '@radix-ui/react-switch':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-tabs':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-toast':
-    specifier: 1.1.3
+    specifier: ^1.1.3
     version: 1.1.3(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-toggle':
-    specifier: 1.0.2
+    specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-toggle-group':
-    specifier: 1.0.3
+    specifier: ^1.0.3
     version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-tooltip':
-    specifier: 1.0.5
+    specifier: ^1.0.5
     version: 1.0.5(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   '@t3-oss/env-nextjs':
-    specifier: 0.2.2
+    specifier: ^0.2.2
     version: 0.2.2(zod@3.21.4)
   '@typescript-eslint/parser':
-    specifier: 5.59.0
+    specifier: ^5.59.0
     version: 5.59.0(eslint@8.39.0)(typescript@4.7.4)
   '@vercel/analytics':
-    specifier: 1.0.0
+    specifier: ^1.0.0
     version: 1.0.0(react@18.2.0)
   '@vercel/og':
-    specifier: 0.0.21
+    specifier: ^0.0.21
     version: 0.0.21
   class-variance-authority:
-    specifier: 0.4.0
+    specifier: ^0.4.0
     version: 0.4.0(typescript@4.7.4)
   clsx:
-    specifier: 1.2.1
+    specifier: ^1.2.1
     version: 1.2.1
   cmdk:
-    specifier: 0.1.22
+    specifier: ^0.1.22
     version: 0.1.22(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
   concurrently:
-    specifier: 8.0.1
+    specifier: ^8.0.1
     version: 8.0.1
   contentlayer:
-    specifier: 0.3.1
+    specifier: ^0.3.1
     version: 0.3.1(esbuild@0.17.18)
   date-fns:
-    specifier: 2.29.3
+    specifier: ^2.29.3
     version: 2.29.3
   lucide-react:
-    specifier: 0.263.1
-    version: 0.263.1(react@18.2.0)
+    specifier: 0.250.0
+    version: 0.250.0(react@18.2.0)
   next:
     specifier: '13.4'
     version: 13.4.0(@babel/core@7.21.4)(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
@@ -165,75 +165,75 @@ dependencies:
     specifier: 4.22.1
     version: 4.22.1(next@13.4.0)(nodemailer@6.9.1)(react-dom@18.2.0)(react@18.2.0)
   next-contentlayer:
-    specifier: 0.3.1
+    specifier: ^0.3.1
     version: 0.3.1(esbuild@0.17.18)(next@13.4.0)(react-dom@18.2.0)(react@18.2.0)
   next-themes:
-    specifier: 0.2.1
+    specifier: ^0.2.1
     version: 0.2.1(next@13.4.0)(react-dom@18.2.0)(react@18.2.0)
   nodemailer:
-    specifier: 6.9.1
+    specifier: ^6.9.1
     version: 6.9.1
   postmark:
-    specifier: 3.0.15
+    specifier: ^3.0.15
     version: 3.0.15
   prop-types:
-    specifier: 15.8.1
+    specifier: ^15.8.1
     version: 15.8.1
   react:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0
   react-day-picker:
-    specifier: 8.7.1
+    specifier: ^8.7.1
     version: 8.7.1(date-fns@2.29.3)(react@18.2.0)
   react-dom:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-editor-js:
-    specifier: 2.1.0
+    specifier: ^2.1.0
     version: 2.1.0(@editorjs/editorjs@2.26.5)(@editorjs/paragraph@2.9.0)(react@18.2.0)
   react-hook-form:
-    specifier: 7.43.9
+    specifier: ^7.43.9
     version: 7.43.9(react@18.2.0)
   react-textarea-autosize:
-    specifier: 8.4.1
+    specifier: ^8.4.1
     version: 8.4.1(@types/react@18.0.15)(react@18.2.0)
   sharp:
-    specifier: 0.31.3
+    specifier: ^0.31.3
     version: 0.31.3
   shiki:
-    specifier: 0.11.1
+    specifier: ^0.11.1
     version: 0.11.1
   stripe:
-    specifier: 11.18.0
+    specifier: ^11.18.0
     version: 11.18.0
   tailwind-merge:
-    specifier: 1.12.0
+    specifier: ^1.12.0
     version: 1.12.0
   tailwindcss-animate:
-    specifier: 1.0.5
+    specifier: ^1.0.5
     version: 1.0.5(tailwindcss@3.3.1)
   zod:
-    specifier: 3.21.4
+    specifier: ^3.21.4
     version: 3.21.4
 
 devDependencies:
   '@commitlint/cli':
-    specifier: 17.6.1
+    specifier: ^17.6.1
     version: 17.6.1
   '@commitlint/config-conventional':
-    specifier: 17.6.1
+    specifier: ^17.6.1
     version: 17.6.1
   '@ianvs/prettier-plugin-sort-imports':
-    specifier: 3.7.2
+    specifier: ^3.7.2
     version: 3.7.2(prettier@2.8.8)
   '@tailwindcss/line-clamp':
-    specifier: 0.4.4
+    specifier: ^0.4.4
     version: 0.4.4(tailwindcss@3.3.1)
   '@tailwindcss/typography':
-    specifier: 0.5.9
+    specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.1)
   '@types/node':
-    specifier: 18.16.0
+    specifier: ^18.16.0
     version: 18.16.0
   '@types/react':
     specifier: 18.0.15
@@ -242,70 +242,70 @@ devDependencies:
     specifier: 18.0.6
     version: 18.0.6
   autoprefixer:
-    specifier: 10.4.14
+    specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.23)
   eslint:
-    specifier: 8.39.0
+    specifier: ^8.39.0
     version: 8.39.0
   eslint-config-next:
     specifier: 13.0.0
     version: 13.0.0(eslint@8.39.0)(typescript@4.7.4)
   eslint-config-prettier:
-    specifier: 8.8.0
+    specifier: ^8.8.0
     version: 8.8.0(eslint@8.39.0)
   eslint-plugin-react:
-    specifier: 7.32.2
+    specifier: ^7.32.2
     version: 7.32.2(eslint@8.39.0)
   eslint-plugin-tailwindcss:
-    specifier: 3.11.0
+    specifier: ^3.11.0
     version: 3.11.0(tailwindcss@3.3.1)
   husky:
-    specifier: 8.0.3
+    specifier: ^8.0.3
     version: 8.0.3
   mdast-util-toc:
-    specifier: 6.1.1
+    specifier: ^6.1.1
     version: 6.1.1
   postcss:
-    specifier: 8.4.23
+    specifier: ^8.4.23
     version: 8.4.23
   prettier:
-    specifier: 2.8.8
+    specifier: ^2.8.8
     version: 2.8.8
   prettier-plugin-tailwindcss:
-    specifier: 0.1.13
+    specifier: ^0.1.13
     version: 0.1.13(prettier@2.8.8)
   pretty-quick:
-    specifier: 3.1.3
+    specifier: ^3.1.3
     version: 3.1.3(prettier@2.8.8)
   prisma:
-    specifier: 4.13.0
+    specifier: ^4.13.0
     version: 4.13.0
   rehype:
-    specifier: 12.0.1
+    specifier: ^12.0.1
     version: 12.0.1
   rehype-autolink-headings:
-    specifier: 6.1.1
+    specifier: ^6.1.1
     version: 6.1.1
   rehype-pretty-code:
-    specifier: 0.9.5
+    specifier: ^0.9.5
     version: 0.9.5(shiki@0.11.1)
   rehype-slug:
-    specifier: 5.1.0
+    specifier: ^5.1.0
     version: 5.1.0
   remark:
-    specifier: 14.0.2
+    specifier: ^14.0.2
     version: 14.0.2
   remark-gfm:
-    specifier: 3.0.1
+    specifier: ^3.0.1
     version: 3.0.1
   tailwindcss:
-    specifier: 3.3.1
+    specifier: ^3.3.1
     version: 3.3.1(postcss@8.4.23)(ts-node@10.9.1)
   typescript:
     specifier: 4.7.4
     version: 4.7.4
   unist-util-visit:
-    specifier: 4.1.2
+    specifier: ^4.1.2
     version: 4.1.2
 
 packages:
@@ -5333,8 +5333,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.263.1(react@18.2.0):
-    resolution: {integrity: sha512-keqxAx97PlaEN89PXZ6ki1N8nRjGWtDa4021GFYLNj0RgruM5odbpl8GHTExj0hhPq3sF6Up0gnxt6TSHu+ovw==}
+  /lucide-react@0.250.0(react@18.2.0):
+    resolution: {integrity: sha512-AdboVcX2IMQs5NcyFu6vSbZWkn0Z07TjVvb9uPLI2IetNbygE0/6mPbHLwJwgD7AS/t0JJPwmP2vhVD1xA+P+w==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:

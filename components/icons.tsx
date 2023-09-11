@@ -175,7 +175,6 @@ export const Icons = {
           height="38.40"
           rx="0"
           fill="#000000"
-          strokewidth="0"
         ></rect>
       </g>
       <g

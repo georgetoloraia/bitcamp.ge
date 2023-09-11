@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Course, Doc } from "contentlayer/generated"
+import { Course, Doc, Program } from "contentlayer/generated"
 
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
@@ -7,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 interface DocsPagerProps {
-  doc: Doc | Course
+  doc: Doc | Course | Program
 }
 
 export function DocsPager({ doc }: DocsPagerProps) {
@@ -41,7 +41,7 @@ export function DocsPager({ doc }: DocsPagerProps) {
   )
 }
 
-export function getPagerForDoc(doc: Doc | Course) {
+export function getPagerForDoc(doc: Doc | Course | Program) {
   const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav), null]
   const activeIndex = flattenedLinks.findIndex(
     (link) => doc.slug === link?.href
