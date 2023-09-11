@@ -20,6 +20,7 @@ export const env = createEnv({
     STRIPE_PRO_MONTHLY_PLAN_ID: z.string().min(1),
     PAYZE_API_KEY: z.string().min(1),
     PAYZE_API_SECRET: z.string().min(1),
+    MAINTENANCE_MODE: z.string().min(1),
 
   },
   client: {
@@ -42,5 +43,6 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     PAYZE_API_KEY: process.env.PAYZE_API_KEY,
     PAYZE_API_SECRET: process.env.PAYZE_API_SECRET,
+    MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
   },
 })
