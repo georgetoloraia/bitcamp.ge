@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import { Button } from './ui/button';
 
 const SubscribeButton = ({ productId }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,7 @@ const SubscribeButton = ({ productId }) => {
 
       if (res.ok) {
         const data = await res.json();
-        window.location.href = data.subscriptionUrl;  // Redirect to the subscription URL
+        window.location.href = data.subscriptionUrl;
       } else {
         console.error('Failed to create subscription:', await res.text());
         setIsLoading(false);
@@ -29,9 +30,9 @@ const SubscribeButton = ({ productId }) => {
   };
 
   return (
-    <button onClick={handleSubscribe} disabled={isLoading}>
-      {isLoading ? 'Loading...' : 'Subscribe'}
-    </button>
+    <Button onClick={handleSubscribe} disabled={isLoading}>
+      {isLoading ? 'გთხოვთ მოითმინოთ...' : 'შეძენა'}
+    </Button>
   );
 };
 

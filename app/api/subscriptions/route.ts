@@ -39,8 +39,8 @@ export async function POST(req: Request) {
     const subscriptionData = await createSubscription(
       user.email,
       productId,
-      `${env.NEXT_PUBLIC_APP_URL}/dashboard/subscriptions`,
-      `${env.NEXT_PUBLIC_APP_URL}/dashboard/subscriptions`
+      `${env.NEXT_PUBLIC_APP_URL}/dashboard`,
+      `${env.NEXT_PUBLIC_APP_URL}/dashboard`
     )
 
     // Return the subscription URL

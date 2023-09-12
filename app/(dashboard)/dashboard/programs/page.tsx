@@ -57,12 +57,12 @@ export default async function DashboardPage() {
           id="programs"
           className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent "
         >
-          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          <div className="mx-auto grid justify-center gap-4 sm:grid-cols-1 md:max-w-[64rem] md:grid-cols-1">
             {programs.map((program) => {
               const Icon = Icons[program.icon]
               return (
                 <div className="relative overflow-hidden rounded-lg border bg-background p-2">
-                  <div className="flex h-[400px] flex-col justify-between rounded-md p-6">
+                  <div className="flex flex-col justify-between rounded-md p-6">
                     <Icon className="h-12 w-12 " />
                     <div className="space-y-2">
                       <h3 className="font-bold">
@@ -83,8 +83,8 @@ export default async function DashboardPage() {
                       </div>
 
                       <Accordion type="single" collapsible className="w-full">
-                        {program.products.map((product) => (
-                          <AccordionItem value="item-1">
+                        {program.products.map((product, index) => (
+                          <AccordionItem key={index} value={`item-${index}`}>
                             <AccordionTrigger>
                               { product.title }
                             </AccordionTrigger>
