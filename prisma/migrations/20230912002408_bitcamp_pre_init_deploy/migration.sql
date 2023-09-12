@@ -39,8 +39,14 @@ CREATE TABLE `users` (
     `image` VARCHAR(191) NULL,
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updated_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `stripe_customer_id` VARCHAR(191) NULL,
+    `stripe_subscription_id` VARCHAR(191) NULL,
+    `stripe_price_id` VARCHAR(191) NULL,
+    `stripe_current_period_end` DATETIME(3) NULL,
 
     UNIQUE INDEX `users_email_key`(`email`),
+    UNIQUE INDEX `users_stripe_customer_id_key`(`stripe_customer_id`),
+    UNIQUE INDEX `users_stripe_subscription_id_key`(`stripe_subscription_id`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -51,7 +57,8 @@ CREATE TABLE `verification_tokens` (
     `expires` DATETIME(3) NOT NULL,
 
     UNIQUE INDEX `verification_tokens_token_key`(`token`),
-    UNIQUE INDEX `verification_tokens_identifier_token_key`(`identifier`, `token`)
+    UNIQUE INDEX `verification_tokens_identifier_token_key`(`identifier`, `token`),
+    PRIMARY KEY (`identifier`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
