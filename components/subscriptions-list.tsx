@@ -60,14 +60,14 @@ const SubscriptionsList = () => {
           შეგიძლია დაათვალიეროთ{" "}
           <Link
             href="/dashboard/programs"
-            className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
+            className="font-medium text-blue-600 underline hover:no-underline dark:text-blue-500"
           >
             სრული პროგრამები
           </Link>{" "}
           ან ცალკეული{" "}
           <Link
             href="/dashboard/subjects"
-            className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline"
+            className="font-medium text-blue-600 underline hover:no-underline dark:text-blue-500"
           >
             საგნები
           </Link>
@@ -93,7 +93,7 @@ const SubscriptionsList = () => {
             return (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-lg border bg-background p-2 mb-4"
+                className="relative mb-4 overflow-hidden rounded-lg border bg-background p-2"
               >
                 <div className="flex flex-col justify-between rounded-md p-6">
                   <div className="space-y-2">
