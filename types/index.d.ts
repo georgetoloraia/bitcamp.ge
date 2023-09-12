@@ -1,8 +1,8 @@
+import { ReactComponentElement } from "react"
 import { User } from "@prisma/client"
 import type { Icon } from "lucide-react"
 
 import { Icons } from "@/components/icons"
-import { ReactComponentElement } from "react"
 
 export type NavItem = {
   title: string
@@ -48,6 +48,12 @@ export type Program = {
   url: string
   icon: string
   technologies: string[]
+  products: {
+    ProductId: number
+    title: string
+    price: string
+    description: string
+  }[]
 }
 
 export type Subject = {

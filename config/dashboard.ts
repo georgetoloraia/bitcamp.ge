@@ -25,7 +25,7 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: "შეძენილი სერვისები",
-      href: "/dashboard",
+      href: "/dashboard/subscriptions",
       icon: "post",
     },
     {

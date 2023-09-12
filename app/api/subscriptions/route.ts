@@ -1,16 +1,8 @@
 import { getServerSession } from "next-auth/next"
-import * as z from "zod"
 
+import { env } from "@/env.mjs"
 import { authOptions } from "@/lib/auth"
-import { db } from "@/lib/db"
-import { RequiresProPlanError } from "@/lib/exceptions"
-import { getUserSubscriptionPlan } from "@/lib/subscription"
-import { fetchSubscriptionsByEmail, createSubscription } from "@/lib/payze"
-
-const postCreateSchema = z.object({
-  title: z.string(),
-  content: z.string().optional(),
-})
+import { createSubscription, fetchSubscriptionsByEmail } from "@/lib/payze"
 
 export async function GET() {
   try {
@@ -21,11 +13,9 @@ export async function GET() {
     }
 
     const { user } = session
-    // const transactionUrl = await createSubscription(user.email, '1864', "http://localhost:3000/dashboard", "http://localhost:3000/dashboard");
-    // console.log(transactionUrl);
 
-    const email = user.email;
-    const subscriptions = await fetchSubscriptionsByEmail(email, 'Active');
+    const email = user.email
+    const subscriptions = await fetchSubscriptionsByEmail(email, "Active")
 
     return new Response(JSON.stringify(subscriptions.value))
   } catch (error) {
@@ -34,6 +24,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const json = await req.json()
+  const { productId } = json
+
   try {
     const session = await getServerSession(authOptions)
 
@@ -42,54 +35,20 @@ export async function POST(req: Request) {
     }
 
     const { user } = session
-    const subscriptionPlan = await getUserSubscriptionPlan(user.id)
 
-    // If user is on a free plan.
-    // Check if user has reached limit of 3 posts.
-    if (!subscriptionPlan?.isPro) {
-      const count = await db.post.count({
-        where: {
-          authorId: user.id,
-        },
-      })
+    const subscriptionData = await createSubscription(
+      user.email,
+      productId,
+      `${env.NEXT_PUBLIC_APP_URL}/dashboard/subscriptions`,
+      `${env.NEXT_PUBLIC_APP_URL}/dashboard/subscriptions`
+    )
 
-      if (count >= 3) {
-        throw new RequiresProPlanError()
-      }
-    }
-
-    const json = await req.json()
-    const body = postCreateSchema.parse(json)
-
-    const post = await db.post.create({
-      data: {
-        title: body.title,
-        content: body.content,
-        authorId: session.user.id,
-      },
-      select: {
-        id: true,
-      },
-    })
-
-    return new Response(JSON.stringify(post))
+    // Return the subscription URL
+    return new Response(
+      JSON.stringify({ subscriptionUrl: subscriptionData.data.transactionUrl })
+    )
   } catch (error) {
-    if (error instanceof z.ZodError) {
-      return new Response(JSON.stringify(error.issues), { status: 422 })
-    }
-
-    if (error instanceof RequiresProPlanError) {
-      return new Response("Requires Pro Plan", { status: 402 })
-    }
-
+    console.error("Subscription creation failed:", error)
     return new Response(null, { status: 500 })
   }
 }
-
-
-
-
-
-
-
-
