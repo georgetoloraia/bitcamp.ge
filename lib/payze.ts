@@ -32,6 +32,36 @@ export async function fetchSubscriptionsByEmail(email: any, status: string) {
   }
 }
 
+export async function fetchProducts() {
+  const url = `https://payze.io/v2/api/products`
+
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization: authToken
+      },
+    })
+
+    if (response.ok) {
+      const data = await response.json()
+      // Handle success
+      console.log("Fetched products:", data)
+      return data
+    } else {
+      console.error(
+        `Error fetching products: ${response.status} ${response.statusText}`
+      )
+      return null
+    }
+  } catch (error) {
+    // Handle error
+    console.error("Error fetching products:", error)
+    return null
+  }
+}
+
 export async function createSubscription(
     email: any, 
     productId: number, 
