@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import FacebookPixel from "@/components/FacebookPixel"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -88,6 +89,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>
+
+        <FacebookPixel />
       </body>
     </html>
   )

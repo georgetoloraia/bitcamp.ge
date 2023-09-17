@@ -92,3 +92,10 @@ export type UserSubscriptionPlan = SubscriptionPlan &
     stripeCurrentPeriodEnd: number
     isPro: boolean
   }
+
+
+  declare global {
+    interface Window {
+      fbq: Function;
+    }
+  }
