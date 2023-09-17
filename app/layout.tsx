@@ -9,6 +9,7 @@ import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import FacebookPixel from "@/components/FacebookPixel"
+import Script from "next/script"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -91,6 +92,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
 
         <FacebookPixel />
+
+        <Script src="https://www.googletagmanager.com/gtag/js?id=UA-168888380-1" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'UA-168888380-1');
+          `}
+        </Script>
       </body>
     </html>
   )
