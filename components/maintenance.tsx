@@ -15,8 +15,7 @@ export function Maintenance() {
         </Link>
         <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
           BitCamp - ის საიტი განახლების რეჟიმშია. ყველა სასწავლო პროგრამა
-          დაიწყება ერთდროულად, სექტემბრის ბოლომდე. რეგისტრაციები გაიხსნება 18
-          სექტემბრამდე.
+          დაიწყება ერთდროულად, სექტემბრის ბოლომდე.
         </p>
       </div>
     </section>
