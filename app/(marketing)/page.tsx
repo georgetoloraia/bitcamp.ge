@@ -90,7 +90,7 @@ export default async function IndexPage() {
             return (
               <div className="relative overflow-hidden rounded-lg border bg-background p-2">
                 <div className="flex h-[400px] flex-col justify-between rounded-md p-6">
-                  <span className="my-0 mx-auto">
+                  <span className="mx-auto my-0">
                     <Icon className="h-12 w-12" />
                   </span>
                   <div className="space-y-2">
