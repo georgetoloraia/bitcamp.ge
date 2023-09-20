@@ -16,6 +16,7 @@ export async function GET() {
 
     const email = user.email
     const subscriptions = await fetchSubscriptionsByEmail(email, "Active")
+    console.log(subscriptions)
 
     return new Response(JSON.stringify(subscriptions.value))
   } catch (error) {

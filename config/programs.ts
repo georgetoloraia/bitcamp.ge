@@ -2,12 +2,12 @@ import { Program } from "types"
 
 export const programs: Program[] = [
     {
-        name: "React",
-        badge: "Front-End",
+        name: "Front-End",
+        badge: "React",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე React.",
-        url: '/programs/front-end',
+        url: '/programs/front-end/react',
         icon: 'react',
-        technologies: ['js', 'html', 'css', 'react'],
+        technologies: ['js', 'html', 'css', 'react', '...'],
         products: [
             { 
                 ProductId: 1864,
@@ -30,12 +30,12 @@ export const programs: Program[] = [
         ]
     },
     {
-        name: "Python",
-        badge: "Back-End",
+        name: "Back-End",
+        badge: "Python",
         description: "დაეუფლე Back-end პროგრამირებას Python - ისა და Django - ს შესწავლით.",
-        url: '/programs/back-end',
+        url: '/programs/back-end/python',
         icon: 'python',
-        technologies: ['Python', 'Django', 'API', 'Databases'],
+        technologies: ['Python', 'Django', 'API', 'Databases', '...'],
         products: [
             { 
                 ProductId: 1864,
@@ -61,9 +61,9 @@ export const programs: Program[] = [
         name: "PRO",
         badge: "სუპერ ინტენსიური",
         description: "ყველაზე ინტენსიური და სრულყოფილი სასწავლო პროგრამა საქართველოში",
-        url: '/programs/back-end',
+        url: '/programs/full-stack/pro',
         icon: 'pro',
-        technologies: ['JS', 'TypeScript', 'Node.js', 'Python'],
+        technologies: ['Full-Stack', 'JS', 'TypeScript', 'Node.js', 'Python', '...'],
         products: [
             { 
                 ProductId: 1864,
@@ -86,12 +86,12 @@ export const programs: Program[] = [
         ]
     },
     {
-        name: "Angular",
-        badge: "Front-End",
-        description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე Angular.",
-        url: '/programs/back-end',
+        name: "Front-End",
+        badge: "Vue",
+        description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე Vue.js.",
+        url: '/programs/front-end/vue',
         icon: 'angular',
-        technologies: ['JS', 'TypeScript', 'Node.js', 'Python'],
+        technologies: ['JS', 'HTML', 'CSS', 'TypeScript', 'Vue'],
         products: [
             { 
                 ProductId: 1864,

@@ -4,19 +4,15 @@ export const marketingConfig: MarketingConfig = {
   mainNav: [
     {
       title: "პროგრამები",
-      href: "/#features",
+      href: "/programs",
     },
     {
       title: "ფასები",
-      href: "/pricing",
+      href: "/programs/about/pricing",
     },
     {
       title: "ბლოგი",
       href: "/blog",
-    },
-    {
-      title: "კურსები",
-      href: "/docs",
     },
   ],
 }

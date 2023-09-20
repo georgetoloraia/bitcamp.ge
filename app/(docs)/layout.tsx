@@ -7,6 +7,10 @@ import { MainNav } from "@/components/main-nav"
 import { DocsSearch } from "@/components/search"
 import { DocsSidebarNav } from "@/components/sidebar-nav"
 import { SiteFooter } from "@/components/site-footer"
+import { marketingConfig } from "@/config/marketing"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+
 
 interface DocsLayoutProps {
   children: React.ReactNode
@@ -17,23 +21,22 @@ export default function DocsLayout({ children }: DocsLayoutProps) {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-background">
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-          <MainNav items={docsConfig.mainNav}>
+          <MainNav items={marketingConfig.mainNav}>
             <DocsSidebarNav items={docsConfig.sidebarNav} />
           </MainNav>
           <div className="flex flex-1 items-center space-x-4 sm:justify-end">
-            <div className="flex-1 sm:grow-0">
-              <DocsSearch />
-            </div>
-            <nav className="flex space-x-4">
-              <Link
-                href={siteConfig.links.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Icons.gitHub className="h-7 w-7" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </nav>
+   
+          <nav>
+            <Link
+              href="/programs/about/registration"
+              className={cn(
+                buttonVariants({ variant: "secondary", size: "sm" }),
+                "px-4"
+              )}
+            >
+              რეგისტრაცია
+            </Link>
+          </nav>
           </div>
         </div>
       </header>

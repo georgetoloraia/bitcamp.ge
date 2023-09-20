@@ -26,6 +26,41 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
+  aboutProgramsNav: [
+    {
+      title: "სასწავლო პროცესი",
+      items: [
+        {
+          title: "სტრუქტურა",
+          href: "/programs/about/structure",
+        },
+        {
+          title: "ხანგრძლივობა",
+          href: "/programs/about/duration",
+        },
+        {
+          title: "საფასური",
+          href: "/programs/about/pricing",
+        },
+        {
+          title: "ლექტორები",
+          href: "/programs/about/lecturers",
+        },
+        {
+          title: "მენტორები",
+          href: "/programs/about/mentors",
+        },
+        {
+          title: "სწავლის დაწყება",
+          href: "/programs/about/start",
+        },
+        {
+          title: "რეგისტრაცია",
+          href: "/programs/about/registration",
+        },
+      ],
+    },
+  ],
   universalProgramsNav: [
     {
       title: "უნივერსალური პროგრამები",
@@ -41,44 +76,56 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
-  programsNav: [
+  frontendProgramsNav: [
     {
-      title: "BitCamp - ის პროგრამები",
+      title: "Front-End პროგრამები",
       items: [
         {
-          title: "უნივერსალური",
-          href: "/programs/universal",
+          title: "React",
+          href: "/programs/front-end/react",
         },
         {
-          title: "Front-End React",
-          href: "/programs/react",
+          title: "Vue",
+          href: "/programs/front-end/vue",
         },
-        {
-          title: "Front-End Vue",
-          href: "/programs/vue",
-        },
-        {
-          title: "Back-End Python",
-          href: "/programs/python",
-        },
-        {
-          title: "Back-End Node.js",
-          href: "/programs/nodejs",
-        },
-        {
-          title: "Full-Stack",
-          href: "/programs/full-stack",
-        },
-        {
-          title: "PRO - სუპერ ინტენსიური",
-          href: "/programs/pro",
-        },
-        {
-          title: "Kids - საბავშვო",
-          href: "/programs/kids",
-        },
-
       ],
     },
-  ]
+  ],
+  backendProgramsNav: [
+    {
+      title: "Back-End პროგრამები",
+      items: [
+        {
+          title: "Python",
+          href: "/programs/back-end/python",
+        },
+        {
+          title: "Node.js",
+          href: "/programs/back-end/nodejs",
+        },
+      ],
+    },
+  ],
+  fullstackProgramsNav: [
+    {
+      title: "Full-Stack პროგრამები",
+      items: [
+        {
+          title: "🚀 BitCamp PRO",
+          href: "/programs/full-stack/pro",
+        },
+      ],
+    },
+  ],
+  kidsProgramsNav: [
+    {
+      title: "საბავშვო პროგრამები",
+      items: [
+        {
+          title: "👾 BitCamp Kids",
+          href: "/programs/kids",
+        },
+      ],
+    },
+  ],
 }

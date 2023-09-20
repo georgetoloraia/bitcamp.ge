@@ -68,8 +68,12 @@ export type Subject = {
 export type DocsConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
-  programsNav: SidebarNavItem[]
+  aboutProgramsNav: SidebarNavItem[]
   universalProgramsNav: SidebarNavItem[]
+  frontendProgramsNav: SidebarNavItem[]
+  backendProgramsNav: SidebarNavItem[]
+  fullstackProgramsNav: SidebarNavItem[]
+  kidsProgramsNav: SidebarNavItem[]
 }
 
 export type MarketingConfig = {

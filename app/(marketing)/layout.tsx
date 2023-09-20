@@ -17,22 +17,22 @@ export default async function MarketingLayout({
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">
         <div className="flex h-20 items-center justify-between py-6">
-          {/* <MainNav items={marketingConfig.mainNav} />
+          <MainNav items={marketingConfig.mainNav} />
           <nav>
             <Link
-              href="/login"
+              href="/programs/about/registration"
               className={cn(
                 buttonVariants({ variant: "secondary", size: "sm" }),
                 "px-4"
               )}
             >
-              შესვლა
+              რეგისტრაცია
             </Link>
-          </nav> */}
+          </nav>
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      {/* <SiteFooter /> */}
+      <SiteFooter />
     </div>
   )
 }

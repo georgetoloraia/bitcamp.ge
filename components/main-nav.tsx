@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { MobileNav } from "@/components/mobile-nav"
+import { marketingConfig } from "@/config/marketing"
 
 interface MainNavProps {
   items?: MainNavItem[]
@@ -22,7 +23,7 @@ export function MainNav({ items, children }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <img width={"30px"} src="/images/logo.jpg " />
+        <img width={"30px"} height={"30px"} src="/images/logo.jpg" />
         <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
         </span>
@@ -50,11 +51,11 @@ export function MainNav({ items, children }: MainNavProps) {
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ? <Icons.close /> : <Icons.logo />}
-        <span className="font-bold">Menu</span>
+        {showMobileMenu ? <Icons.close /> : <img width={"30px"} height={"30px"} src="/images/logo.jpg " />}
+        <span className="font-bold">ნავიგაცია </span>
       </button>
       {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
+        <MobileNav items={marketingConfig.mainNav}>{children}</MobileNav>
       )}
     </div>
   )
