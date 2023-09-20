@@ -42,18 +42,18 @@ export const docsConfig: DocsConfig = {
           title: "საფასური",
           href: "/programs/about/pricing",
         },
-        {
-          title: "ლექტორები",
-          href: "/programs/about/lecturers",
-        },
-        {
-          title: "მენტორები",
-          href: "/programs/about/mentors",
-        },
-        {
-          title: "სწავლის დაწყება",
-          href: "/programs/about/start",
-        },
+        // {
+        //   title: "ლექტორები",
+        //   href: "/programs/about/lecturers",
+        // },
+        // {
+        //   title: "მენტორები",
+        //   href: "/programs/about/mentors",
+        // },
+        // {
+        //   title: "სწავლის დაწყება",
+        //   href: "/programs/about/start",
+        // },
         {
           title: "რეგისტრაცია",
           href: "/programs/about/registration",
