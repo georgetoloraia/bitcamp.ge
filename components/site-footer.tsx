@@ -15,7 +15,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           თავისუფლების შოვნაი, სჯობს საშოვნელსა ყოველსა - ილია ჭავჭავაძე
           </p>
         </div>
-        <ModeToggle />
       </div>
     </footer>
   )
