@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   description:
     "🔥 სწავლა და ბრძოლა ✊",
   url: "https://www.bitcamp.ge",
-  ogImage: "https://www.bitcamp.ge/images/bitcamp-cover.jpeg",
+  ogImage: "https://www.bitcamp.ge/og.jpg",
   links: {
     twitter: "https://twitter.com/otarza",
     github: "https://github.com/bitcamp.ge",
