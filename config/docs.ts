@@ -63,22 +63,18 @@ export const docsConfig: DocsConfig = {
   ],
   universalProgramsNav: [
     {
-      title: "უნივერსალური პროგრამები",
+      title: "უნივერსალური",
       items: [
         {
           title: "პროგრამირების საფუძვლები",
           href: "/programs/universal/programming",
-        },
-        {
-          title: "ვების საფუძვლები",
-          href: "/programs/universal/web",
         },
       ],
     },
   ],
   frontendProgramsNav: [
     {
-      title: "Front-End პროგრამები",
+      title: "Front-End",
       items: [
         {
           title: "React",
@@ -93,7 +89,7 @@ export const docsConfig: DocsConfig = {
   ],
   backendProgramsNav: [
     {
-      title: "Back-End პროგრამები",
+      title: "Back-End",
       items: [
         {
           title: "Python",
@@ -108,7 +104,7 @@ export const docsConfig: DocsConfig = {
   ],
   fullstackProgramsNav: [
     {
-      title: "Full-Stack პროგრამები",
+      title: "Full-Stack",
       items: [
         {
           title: "🚀 BitCamp PRO",
