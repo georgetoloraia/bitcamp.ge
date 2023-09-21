@@ -133,7 +133,7 @@ export default async function IndexPage() {
             🔥 სწავლა და ბრძოლა ✊
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            BitCamp არის ყველზე დიდი საგანმანათლებლო საზოგადოება საქართველოში. <br />{" "}
+            BitCamp ყველზე დიდი საგანმანათლებლო საზოგადოებაა საქართველოში. <br />{" "}
             <br/>{" "}
             მოგვწერეთ{" "}
             <Link
