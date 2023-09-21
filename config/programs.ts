@@ -116,7 +116,7 @@ export const programs: Program[] = [
     {
         name: "Node.js",
         badge: "Back-end",
-        description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით.",
+        description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით. ისწავლე თანამედროვე ვებ სისტემების შექმნა.",
         url: '/programs/back-end/nodejs',
         icon: 'nodejs',
         technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB'],
@@ -144,7 +144,7 @@ export const programs: Program[] = [
     {
         name: "BitCamp Kids",
         badge: "საბავშვო",
-        description: "BitCamp - ის საბავშვო პროგრამა.",
+        description: "BitCamp - ის საბავშვო პროგრამა მორგებულია 10 - დან 14 წლამდე მოსწავლეებზე და აზიარებს ბავშვებს პროგრამირების საფუძვლებს.",
         url: '/programs/kids',
         icon: 'kids',
         technologies: ['პროგრამირების საფუძვლები', 'JavaScript', 'HTML', 'CSS'],
