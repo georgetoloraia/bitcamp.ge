@@ -90,7 +90,7 @@ export const programs: Program[] = [
         badge: "Vue",
         description: "გახდი Front-End დეველოპერი. დაეუფლე პროგრამირებისა და ვებ ტექნოლოგიების საფუძვლებს. ისწავლე Vue.js.",
         url: '/programs/front-end/vue',
-        icon: 'angular',
+        icon: 'vue',
         technologies: ['JS', 'HTML', 'CSS', 'TypeScript', 'Vue'],
         products: [
             { 
@@ -117,7 +117,7 @@ export const programs: Program[] = [
         name: "Node.js",
         badge: "Back-end",
         description: "დაეუფლე Back-end პროგრამირებას JavaScript - ისა და Node.js ტექნოლოგიების შესწავლით.",
-        url: '/programs/back-end',
+        url: '/programs/back-end/nodejs',
         icon: 'nodejs',
         technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB'],
         products: [
@@ -142,12 +142,12 @@ export const programs: Program[] = [
         ]
     },
     {
-        name: "Full-Stack",
-        badge: "კომბინირებული",
-        description: "აირჩიე შენთვის სასურველი Front-End და Back-End პროგრამების კომბინაცია. დაეუფლე ვებ-ტექნოლოგიების სრულ სპექტრს.",
-        url: '/programs/back-end',
-        icon: 'fullstack',
-        technologies: ['JavaScript / Python', 'React / Angular', 'Django / Express.js '],
+        name: "BitCamp Kids",
+        badge: "საბავშვო",
+        description: "BitCamp - ის საბავშვო პროგრამა.",
+        url: '/programs/kids',
+        icon: 'kids',
+        technologies: ['პროგრამირების საფუძვლები', 'JavaScript', 'HTML', 'CSS'],
         products: [
             { 
                 ProductId: 1864,
