@@ -107,7 +107,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
         <div id="fb-root"></div>
         <div id="fb-customer-chat" className="fb-customerchat"></div>
-        <Script>
+        <Script id="fb-chat-plugin">
           {`
             var chatbox = document.getElementById('fb-customer-chat');
             chatbox.setAttribute("page_id", "108103453902596");
@@ -115,7 +115,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           `}
         </Script>
 
-        <Script>
+        <Script id="fb-sdk">
         {`
           window.fbAsyncInit = function() {
             FB.init({
