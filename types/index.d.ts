@@ -91,6 +91,9 @@ export type DocsConfig = {
   fullstackProgramsNav: SidebarNavItem[]
   kidsProgramsNav: SidebarNavItem[]
   mentorsNav: SidebarNavItem[]
+  classesNav: SidebarNavItem[]
+  javasScript2023ClassNav: SidebarNavItem[]
+  python2023ClassNav: SidebarNavItem[]
 }
 
 export type MarketingConfig = {

@@ -98,6 +98,26 @@ export const Mentor = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Class = defineDocumentType(() => ({
+  name: "Class",
+  filePathPattern: `classes/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+  },
+  computedFields,
+}))
+
 
 export const Guide = defineDocumentType(() => ({
   name: "Guide",
@@ -206,7 +226,7 @@ export const Page = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Page, Doc, Course, Program, Mentor, Guide, Post, Author],
+  documentTypes: [Page, Doc, Course, Program, Mentor, Class, Guide, Post, Author],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

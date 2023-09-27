@@ -9,7 +9,7 @@ export const docsConfig: DocsConfig = {
     {
       title: "საბავშვი პროგრამები",
       href: "/guides",
-    },   
+    },
     {
       title: "კურსები",
       href: "/courses",
@@ -38,7 +38,7 @@ export const docsConfig: DocsConfig = {
         {
           title: "თავი 5 - სურათები",
           href: "/courses/html/5-suratebi",
-        }
+        },
       ],
     },
   ],
@@ -141,7 +141,6 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
-
   mentorsNav: [
     {
       title: "მენტორები",
@@ -182,7 +181,44 @@ export const docsConfig: DocsConfig = {
           title: "თემური ცუცქირიძე",
           href: "/mentors/temuri-tsutskiridze",
         },
+      ],
+    },
+  ],
 
+  classesNav: [
+    {
+      title: "Classes",
+      items: [
+        {
+          title: "JavaScript 2023F",
+          href: "/classes/javascript",
+        },
+        {
+          title: "Python 2023F",
+          href: "/classes/python",
+        },
+      ],
+    },
+  ],
+  javasScript2023ClassNav: [
+    {
+      title: "JavaScript 2023F",
+      items: [
+        {
+          title: "კვირა 0",
+          href: "/classes/javascript/week-0",
+        },
+      ],
+    },
+  ],
+  python2023ClassNav: [
+    {
+      title: "Python 2023",
+      items: [
+        {
+          title: "კვირა 0",
+          href: "/classes/python/week-0",
+        },
       ],
     },
   ],
