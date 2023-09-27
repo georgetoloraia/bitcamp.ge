@@ -206,7 +206,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "კვირა 0",
-          href: "/classes/javascript/week-0",
+          href: "/classes/javascript/2023f/week-0",
         },
       ],
     },
@@ -217,7 +217,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "კვირა 0",
-          href: "/classes/python/week-0",
+          href: "/classes/python/2023f/week-0",
         },
       ],
     },

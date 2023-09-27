@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation"
 
 import { SidebarNavItem } from "types"
 import { cn } from "@/lib/utils"
+import { docsConfig } from "@/config/docs"
 
 export interface DocsSidebarNavProps {
   items: SidebarNavItem[]
@@ -12,6 +13,10 @@ export interface DocsSidebarNavProps {
 
 export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
   const pathname = usePathname()
+
+  if(items.length === 0) {
+    items = getDynamicMenuItems(pathname)
+  }
 
   return items.length ? (
     <div className="w-full">
@@ -28,6 +33,21 @@ export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
     </div>
   ) : null
 }
+
+
+function getDynamicMenuItems(pathname: string | null): SidebarNavItem[]{
+  let items: SidebarNavItem[] = []
+  if (pathname?.includes('javascript/2023f')) {
+    items = docsConfig.javasScript2023ClassNav
+  }
+
+  if (pathname?.includes('python/2023f')) {
+    items = docsConfig.python2023ClassNav
+  }
+
+  return items;
+}
+
 
 interface DocsSidebarNavItemsProps {
   items: SidebarNavItem[]
