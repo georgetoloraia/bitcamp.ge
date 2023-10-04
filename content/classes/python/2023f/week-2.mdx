@@ -26,3 +26,67 @@ description: სასწავლო რესურსები
 
 ### დავალებები
 
+#### პროექტი 14 - Deep Thought
+https://cs50.harvard.edu/python/2022/psets/1/deep/
+
+#### პროექტი 15 - Home Federal Savings Bank
+https://cs50.harvard.edu/python/2022/psets/1/bank/
+
+#### პროექტი 16 - File Extensions
+https://cs50.harvard.edu/python/2022/psets/1/extensions/
+
+#### პროექტი 17 - Math Interpreter
+https://cs50.harvard.edu/python/2022/psets/1/interpreter/
+
+#### პროექტი 18 - Meal Time
+https://cs50.harvard.edu/python/2022/psets/1/meal/
+
+#### პროექტი 19 - Tax Calculator
+შექმენით პროგრამა, რომელიც შეეკითხება მომხმარებელს საერთო ჩეკის ღირებულებას, ხოლო შემდეგ, თუ მომხმარებელი უპასუხებს 'WI' (Wisconsin-ის მოსახლეობა), დააკისრებს მათ 5.5%-იან გადასახადს და გამოიტანს საერთო ჩეკის ღირებულებას გადასახადის ჩათვლით.
+ 
+
+მაგალითად:
+```shell
+$ What is the order amount? 10
+$ What is the state? WI
+$ The subtotal is $10.00.
+$ The tax is $0.55.
+$ The total is $10.55.
+```
+
+ან
+
+```shell
+$ What is the order amount? 10
+$ What is the state? MN
+$ The total is $10.00
+```
+
+აუცილებელი მოთხოვნები:
+1. დარწმუნდი, საერთო ჩეკი მრგვალდება უახლოეს ათეულამდე.
+1. გამოიყენე მხოლოდ ერთი output-ი.
+
+
+#### პროექტი 20 - Password Validation
+შექმენით მარტივი პაროლების ვალიდატორი. ჩათვალე, რომ გაქვს შენახული რაიმე პაროლი ცვლადად. შეეკითხე მომხმარებელს username და password, შემდეგ კი შეამოწმე ემთხვევა თუ არა მომხარებლის მიერ შეყვანილი პაროლი შენს პაროლს, რომლიც ცვლადად გაქვს. თუ ემთხვევა, მაშინ გამოიტანე 'Welcome!', თუ არა - 'I don't know you.'
+
+
+მაგალითად:
+```shell
+$ What is the password? 12345
+$ I don't know you.
+```
+ან
+
+```shell
+$ What is the password? abc.123
+$ Welcome!
+```
+
+
+აუცილებელი მოთხოვნები:
+1. გამოიყენე if/else ბლოკი.
+1. არ აქვს მნიშვნელობა მომხარებელი დიდი ასოებით შეიყვანს ინფუთს, თუ პატარა.
+
+დამატებითი გამოწვევები:
+1. მომავალში შვენ შევქმნით უფრო კომპლექსურ პაროლების ვალიდატორს, მაგრამ შეგიძლია დრო იხელთო და შენით გააკეთო. ცვლადის ნაცვლად მონაცემები ლექსიკონში შეინახე და ვალიდაცია გაართულე.
