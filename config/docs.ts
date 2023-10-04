@@ -205,8 +205,12 @@ export const docsConfig: DocsConfig = {
       title: "JavaScript 2023F",
       items: [
         {
-          title: "კვირა 0",
-          href: "/classes/javascript/2023f/week-0",
+          title: "კვირა 1",
+          href: "/classes/javascript/2023f/week-1",
+        },
+        {
+          title: "კვირა 2",
+          href: "/classes/javascript/2023f/week-2",
         },
       ],
     },
@@ -216,8 +220,12 @@ export const docsConfig: DocsConfig = {
       title: "Python 2023",
       items: [
         {
-          title: "კვირა 0",
-          href: "/classes/python/2023f/week-0",
+          title: "კვირა 1",
+          href: "/classes/python/2023f/week-1",
+        },
+        {
+          title: "კვირა 2",
+          href: "/classes/python/2023f/week-2",
         },
       ],
     },
