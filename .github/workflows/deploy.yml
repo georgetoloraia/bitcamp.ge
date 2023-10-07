@@ -77,7 +77,10 @@ jobs:
         echo "${{ secrets.DROPLET_SSH_KEY }}" | ssh-add -
     
     - name: Add SSH Key to Known Hosts
-      run: ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
+      run: |
+        mkdir -p ~/.ssh
+        touch ~/.ssh/known_hosts
+        ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
 
 
     - name: SCP .next folder to DigitalOcean
