@@ -73,9 +73,8 @@ jobs:
 
     - name: Setup SSH Agent
       run: |
-        mkdir -p ~/.ssh
-        ssh-agent -s
-        ssh-add <(echo "${{ secrets.DROPLET_SSH_KEY }}")
+        eval $(ssh-agent -s)
+        echo "${{ secrets.DROPLET_SSH_KEY }}" | ssh-add -
 
     - name: SCP .next folder to DigitalOcean
       run: scp -r .next/ nodejs@104.248.248.135:/home/nodejs/bitcamp.ge/.next
