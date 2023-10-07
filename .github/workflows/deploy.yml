@@ -75,6 +75,10 @@ jobs:
       run: |
         eval $(ssh-agent -s)
         echo "${{ secrets.DROPLET_SSH_KEY }}" | ssh-add -
+    
+    - name: Add SSH Key to Known Hosts
+      run: ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
+
 
     - name: SCP .next folder to DigitalOcean
       run: scp -r .next/ nodejs@104.248.248.135:/home/nodejs/bitcamp.ge/.next
