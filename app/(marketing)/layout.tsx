@@ -26,7 +26,7 @@ export default async function MarketingLayout({
                 "px-4"
               )}
             >
-              რეგისტრაცია 🔥
+              რეგისტრაცია 🔥 🔥
             </Link>
           </nav>
         </div>

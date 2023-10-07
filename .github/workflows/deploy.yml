@@ -113,5 +113,6 @@ jobs:
           export MAINTENANCE_MODE=$MAINTENANCE_MODE
           export NEXT_PUBLIC_FACEBOOK_PIXEL_ID=$NEXT_PUBLIC_FACEBOOK_PIXEL_ID
           pnpm install
-          pm2 restart all
+          pm2 stop pnpm
+          pm2 start pnpm
         ENDSSH
