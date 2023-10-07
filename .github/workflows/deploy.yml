@@ -84,10 +84,6 @@ jobs:
 
     - name: Adding Known Hosts
       run: ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
-    
-
-    - name: List added keys
-      run: ssh-add -l
 
 
     - name: SCP .next folder to DigitalOcean
