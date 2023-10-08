@@ -54,11 +54,22 @@ jobs:
     - name: Build
       run: pnpm run build
 
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: nextjs-build
+        path: .next/
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: nextjs-build
+        path: .next/
 
     - name: Setup SSH Agent
       run: |
@@ -73,6 +84,10 @@ jobs:
 
     - name: Adding Known Hosts
       run: ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
+
+
+    - name: SCP .next folder to DigitalOcean
+      run: scp -r .next/ nodejs@104.248.248.135:/home/nodejs/bitcamp.ge/.next
 
     - name: Deploy to DigitalOcean and set environment variables
       run: |
@@ -98,7 +113,6 @@ jobs:
           export MAINTENANCE_MODE=$MAINTENANCE_MODE
           export NEXT_PUBLIC_FACEBOOK_PIXEL_ID=$NEXT_PUBLIC_FACEBOOK_PIXEL_ID
           pnpm install
-          pnpm build
-          pm2 stop pnpm
-          pm2 start pnpm
+          pnpm rebuild
+          pm2 restart pnpm
         ENDSSH
