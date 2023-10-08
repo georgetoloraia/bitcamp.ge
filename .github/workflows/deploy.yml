@@ -54,23 +54,11 @@ jobs:
     - name: Build
       run: pnpm run build
 
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: nextjs-build
-        path: .next/
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download build artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: nextjs-build
-        path: .next/
-
     - name: Setup SSH Agent
       run: |
         eval $(ssh-agent -s)
@@ -85,34 +73,12 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H 104.248.248.135 >> ~/.ssh/known_hosts
 
-
-    - name: SCP .next folder to DigitalOcean
-      run: scp -r .next/ nodejs@104.248.248.135:/home/nodejs/bitcamp.ge/.next
-
     - name: Deploy to DigitalOcean and set environment variables
       run: |
         ssh -o StrictHostKeyChecking=no nodejs@104.248.248.135 <<'ENDSSH'
           cd /home/nodejs/bitcamp.ge
           git pull origin main
-          export NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
-          export NEXTAUTH_URL=$NEXTAUTH_URL
-          export NEXTAUTH_SECRET=$NEXTAUTH_SECRET
-          export GH_CLIENT_ID=$GH_CLIENT_ID
-          export GH_CLIENT_SECRET=$GH_CLIENT_SECRET
-          export GH_ACCESS_TOKEN=$GH_ACCESS_TOKEN
-          export DATABASE_URL=$DATABASE_URL
-          export SMTP_FROM=$SMTP_FROM
-          export POSTMARK_API_TOKEN=$POSTMARK_API_TOKEN
-          export POSTMARK_SIGN_IN_TEMPLATE=$POSTMARK_SIGN_IN_TEMPLATE
-          export POSTMARK_ACTIVATION_TEMPLATE=$POSTMARK_ACTIVATION_TEMPLATE
-          export STRIPE_API_KEY=$STRIPE_API_KEY
-          export STRIPE_WEBHOOK_SECRET=$STRIPE_WEBHOOK_SECRET
-          export STRIPE_PRO_MONTHLY_PLAN_ID=$STRIPE_PRO_MONTHLY_PLAN_ID
-          export PAYZE_API_KEY=$PAYZE_API_KEY
-          export PAYZE_API_SECRET=$PAYZE_API_SECRET
-          export MAINTENANCE_MODE=$MAINTENANCE_MODE
-          export NEXT_PUBLIC_FACEBOOK_PIXEL_ID=$NEXT_PUBLIC_FACEBOOK_PIXEL_ID
           pnpm install
-          pnpm rebuild
+          pnpm build
           pm2 restart pnpm
         ENDSSH
