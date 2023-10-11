@@ -177,6 +177,10 @@ export const docsConfig: DocsConfig = {
           title: "თემური ცუცქირიძე",
           href: "/mentors/temuri-tsutskiridze",
         },
+        {
+          title: "ეკა აბაშიძე",
+          href: "/mentors/eka-abashidze",
+        },
       ],
     },
   ],
