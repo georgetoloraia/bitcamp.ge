@@ -151,7 +151,12 @@ const components = {
   Image,
   Callout,
   Card: MdxCard,
-  PinProtected: PinProtected,
+  PinCodeProtectedContent: PinProtected,
+  Locked: ({ className, ...props }) => (
+    <div
+      {...props}
+    />
+  ),
 }
 
 interface MdxProps {

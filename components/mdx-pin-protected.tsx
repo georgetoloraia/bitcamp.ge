@@ -3,6 +3,10 @@
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
 
+import { Input } from "@/components/ui/input"
+
+const pinCode = "1024"
+
 function PinProtected({ 
   href,
   className,
@@ -11,12 +15,13 @@ function PinProtected({
   ...props
 }) {
   const [pin, setPin] = useState("")
-  const [isVerified, setIsVerified] = useState(false)
+  const [isVerified, setIsVerified] = useState(window.localStorage.getItem("pin") === pinCode)
 
   const handlePinSubmit = (event) => {
     event.preventDefault()
 
-    if (pin === "1234") {
+    if (pin === pinCode) {
+      window.localStorage.setItem("pin", pinCode);
       setIsVerified(true)
     }
   }
@@ -32,11 +37,12 @@ function PinProtected({
       {!isVerified ? (
         <form onSubmit={handlePinSubmit}>
           <label>
-            Enter PIN:<br/>
-            <input
+            {children[0]}
+            <Input
               type="password"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
+              placeholder={"x".repeat(pinCode.length)}
             />
           </label>
         </form>
@@ -44,7 +50,7 @@ function PinProtected({
         <div>
           <div className="flex flex-col justify-between space-y-4">
             <div className="space-y-2 [&>h3]:!mt-0 [&>h4]:!mt-0 [&>p]:text-muted-foreground">
-              {children}
+              {children[1]}
             </div>
           </div>
         </div>
