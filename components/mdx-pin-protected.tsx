@@ -42,7 +42,7 @@ function PinProtected({
               type="password"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
-              placeholder={"x".repeat(pinCode.length)}
+              placeholder="შეიყვანეთ პინ კოდი"
             />
           </label>
         </form>
