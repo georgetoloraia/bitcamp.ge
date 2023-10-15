@@ -85,6 +85,43 @@ cp .env.example .env.local
 pnpm dev
 ```
 
+## MDX custom components documentation
+
+| Name         | Syntax                                                  | Description                                             |
+|--------------|---------------------------------------------------------|---------------------------------------------------------|
+| MdxCard      | \<Card\>\</Card\>                                       | Container with rounded gray border                      |
+| Callout      | \<Callout\>\</Callout\>                                 | Styled blockquote element                               |
+| PinProtected | \<PinCodeProtectedContent\>\</PinCodeProtectedContent\> | Requires a pin to be entered before showing the content |
+
+### Examples
+
+*MdxCard* use case:
+```html
+<Card>
+    # Content
+</Card>
+```
+
+*Callout* use case:
+```html
+<Callout>
+    # Content    
+</Callout>
+```
+
+*PinProtected* component uses first *Locked* tag as a message before it's unlocked and uses the second *Locked* tag as an content after the pin was correctly entered. *PinProtected* use case:
+```html
+<PinCodeProtectedContent>
+    <Locked>
+        Please enter a pin
+    </Locked>
+    <Locked>
+        # Content
+    </Locked>
+</PinCodeProtectedContent>
+```
+
+
 ## License
 
 Licensed under the [MIT license](https://github.com/shadcn/taxonomy/blob/main/LICENSE.md).
