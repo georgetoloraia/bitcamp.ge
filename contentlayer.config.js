@@ -220,6 +220,10 @@ export const Page = defineDocumentType(() => ({
     description: {
       type: "string",
     },
+    ogImage: {
+      type: 'string'
+    }
+    
   },
   computedFields,
 }))

@@ -53,7 +53,7 @@ export async function generateMetadata({
       url: absoluteUrl(page.slug),
       images: [
         {
-          url: ogUrl.toString(),
+          url: page.ogImage,
           width: 1200,
           height: 630,
           alt: page.title,
