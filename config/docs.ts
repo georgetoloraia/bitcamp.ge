@@ -251,6 +251,10 @@ export const docsConfig: DocsConfig = {
           title: "კვირა 5",
           href: "/classes/python/2023f/week-5",
         },
+        {
+          title: "კვირა 6",
+          href: "/classes/python/2023f/week-6",
+        },
       ],
     },
   ],
