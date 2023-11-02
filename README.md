@@ -115,9 +115,9 @@ pnpm dev
     <Locked>
         Please enter a pin
     </Locked>
-    <Locked>
+    <Unlocked>
         # Content
-    </Locked>
+    </Unlocked>
 </PinCodeProtectedContent>
 ```
 
