@@ -209,31 +209,31 @@ export const docsConfig: DocsConfig = {
       title: "JavaScript 2023F",
       items: [
         {
-          title: "კვირა 1",
+          title: "თავი 1",
           href: "/classes/javascript/2023f/week-1",
         },
         {
-          title: "კვირა 2",
+          title: "თავი 2",
           href: "/classes/javascript/2023f/week-2",
         },
         {
-          title: "კვირა 3",
+          title: "თავი 3",
           href: "/classes/javascript/2023f/week-3",
         },
         {
-          title: "კვირა 4",
+          title: "თავი 4",
           href: "/classes/javascript/2023f/week-4",
         },
         {
-          title: "კვირა 5",
+          title: "თავი 5",
           href: "/classes/javascript/2023f/week-5",
         },
         {
-          title: "კვირა 6",
+          title: "თავი 6",
           href: "/classes/javascript/2023f/week-6",
         },
         {
-          title: "კვირა 7",
+          title: "თავი 7",
           href: "/classes/javascript/2023f/week-7",
         },
       ],
