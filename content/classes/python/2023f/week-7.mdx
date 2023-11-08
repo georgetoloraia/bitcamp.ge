@@ -34,3 +34,84 @@ https://cs50.harvard.edu/python/2022/psets/6/scourgify/
 
 #### პროექტი 75 - CS50 P-Shirt
 https://cs50.harvard.edu/python/2022/psets/6/shirt/
+
+#### პროექტი 76 - Name Sorter
+
+შექმენით პროგრამა, რომელიც წაიკითხავს შემდეგი სახელების სიას:
+- Ling, Mai
+- Johnson, Jim
+- Zarnecki, Sabrina
+- Jones, Chris
+- Jones, Aaron
+- Swift, Geoffrey
+- Xiong, Fong
+
+ამის შემდეგ შეინახეთ სახელები სორტირებულ ლისტში და ჩაწერეთ ახალ ფაილში ისე, როგორც მაგალითშია ნაჩვენები.
+
+მაგალითად:
+```shell
+$ Total of 7 names
+$ -----------------
+$ Ling, Mai
+$ Johnson, Jim
+$ Jones, Aaron
+$ Jones, Chris
+$ Swift, Geoffrey
+$ Xiong, Fong
+$ Zarnecki, Sabrina
+```
+
+აუცილებელი მოთხოვნები:
+1. მაგალითში ნაჩვენებია 'Total of 7 names'. ხელით არ ჩაწეროთ სახელების რაოდენობა. გამოიყენეთ შესაბამისი მეთოდები.
+
+
+#### პროექტი 76 - Parsing a Data File
+
+მაგალითად მოცემული გაქვთ ფაილი შემდეგი მონაცემებით csv ფორმატში:
+```shell
+Ling,Mai,55900
+Johnson,Jim,56500
+Jones,Aaron,46000
+Jones,Chris,34500
+Swift,Geoffrey,14200
+Xiong,Fong,65000
+Zarnecki,Sabrina,51500
+```
+შექმენით პროგრამა, რომელიც დაამუშავებს მოცემულ ფაილს და გამოიტანს მონაცემებს მაგალითში ნაჩვენები ფორმატით:
+
+მაგალითად:
+```shell
+$ Last                | First             | Salary
+$ --------------------|-------------------|----------------
+$ Ling                | Mai               | 55900
+$ Johnson             | Jim               | 56500
+$ Jones               | Aaron             | 46000
+$ Jones               | Chris             | 34500
+$ Swift               | Fong              | 65000
+$ Zarnecki            | Sabrina           | 51500
+```
+
+აუცილებელი მოთხოვნები:
+1. csv ფაილებთან მუშაობისთვისაც და ცხრილის დასაბეჭდათაც გამოიყენეთ შესაბამისი ბიბლიოთეკები.
+
+
+#### პროექტი 76 - Website Generator
+შექმენით პროგრამა, რომელიც დააგენერირებს მარტივი ვებსაიტის ჩონჩხს შემდეგი მოთხოვნებით:
+
+- შეეკითხეთ მომხმარებელს საიტის სახელი
+- შეეკითხეთ მომხმარებელს საიტის ავტორის სახელი
+- შეეკითხეთ მომხმარებელს, უნდა თუ არა Javscript-ის ფაილები თავის საიტში. თუ კი, მაშინ უბრალოდ შექმენით ფოლდერი, სახელად js საიტის ფოლდერში.
+- შეეკითხეთ მომხმარებელს, უნდა თუ არა CSS-ის ფაილები თავის საიტში. თუ კი, მაშინ უბრალოდ შექმენით ფოლდერი, სახელად css საიტის ფოლდერში.
+- დააგენერირეთ index.html ფაილი, რომელცი შეიცავს საიტის სახელს title თეგში და ავტორის სახელს.
+
+მაგალითად:
+```shell
+$ Site name: awesomeco
+$ Author: Max Power
+$ Do you want a folder for JavaScript? y
+$ Do you want a folder for CSS? y
+$ Created ./awesomeco
+$ Created ./awesomeco/index.html
+$ Created ./awesomeco/js/
+$ Created ./awesomeco/css/
+```
