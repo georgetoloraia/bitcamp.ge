@@ -30,9 +30,7 @@ export function generateDefaultMetaData(page) {
   ogUrl.searchParams.set("type", siteConfig.name)
   ogUrl.searchParams.set("mode", "light")
 
-  let ogImage = page.ogImage ? page.ogImage : siteConfig.ogImage
-  console.log(page.ogImage)
-  console.log(ogImage)
+  let ogImage = page.ogImage ? url + page.ogImage : siteConfig.ogImage
   
   return {
     title: page.title,
