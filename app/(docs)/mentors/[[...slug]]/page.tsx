@@ -11,7 +11,7 @@ import "@/styles/mdx.css"
 import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
 
 interface MentorPageProps {
   params: {
@@ -32,44 +32,14 @@ async function getMentorFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: MentorPageProps): Promise<Metadata> {
-  const mentor = await getMentorFromParams(params)
+}: MentorPageProps) {
+  const page = await getMentorFromParams(params)
 
-  if (!mentor) {
+  if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", mentor.description ?? mentor.title)
-  ogUrl.searchParams.set("type", "Documentation")
-  ogUrl.searchParams.set("mode", "dark")
-
-  return {
-    title: mentor.title,
-    description: mentor.description,
-    openGraph: {
-      title: mentor.title,
-      description: mentor.description,
-      type: "article",
-      url: absoluteUrl(mentor.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: mentor.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: mentor.title,
-      description: mentor.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
 
 export async function generateStaticParams(): Promise<

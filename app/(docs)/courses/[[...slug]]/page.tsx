@@ -11,7 +11,7 @@ import "@/styles/mdx.css"
 import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
 
 interface CoursePageProps {
   params: {
@@ -32,45 +32,16 @@ async function getCourseFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: CoursePageProps): Promise<Metadata> {
-  const course = await getCourseFromParams(params)
+}: CoursePageProps) {
+  const page = await getCourseFromParams(params)
 
-  if (!course) {
+  if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", course.description ?? course.title)
-  ogUrl.searchParams.set("type", "Documentation")
-  ogUrl.searchParams.set("mode", "dark")
-
-  return {
-    title: course.title,
-    description: course.description,
-    openGraph: {
-      title: course.title,
-      description: course.description,
-      type: "article",
-      url: absoluteUrl(course.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: course.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: course.title,
-      description: course.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
+
 
 export async function generateStaticParams(): Promise<
   CoursePageProps["params"][]
