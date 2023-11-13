@@ -7,11 +7,22 @@ description: სასწავლო რესურსები
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5ZMFuUxHRY4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### პრაქტიკული სემინარები
-- ორშაბათი: https://us06web.zoom.us/rec/share/EvU1ymsDUApXyiChFQ0TFkLHPIoU3RyOhqpxcrt0HY57-AMRIJPxQ28jrNFQjtmP.X4pvNeGT-IvCgBHj?startTime=1699286768000
-- ოთხშაბათი: ჯერ არ ჩატარებულა
-- პარასკევი: ჯერ არ ჩატარებულა
 
-**ყურადღება! პრაქტიკული სემინარების გასახსნელი პაროლები გამოართვით თქვენს მენტორს ან სასწავლო მენეჯერს.**
+<Card>
+<PinCodeProtectedContent>
+    <Locked>
+        ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის.
+        პინ კოდი მოითხოვეთ მენტორთან!
+    </Locked>
+    <Unlocked>
+        - ორშაბათი: https://youtu.be/xN6x5oKyupU
+        - ოთხშაბათი: https://youtu.be/ibl4XJmzwQk
+        - პარასკევი: https://youtu.be/Wjh-yldttCE
+    </Unlocked>
+</PinCodeProtectedContent>
+</Card>
+
+
 
 ### რესურსები
 - [Python - ის დოკუმენტაცია](https://docs.python.org/3/library/)
@@ -34,3 +45,154 @@ https://cs50.harvard.edu/python/2022/psets/6/scourgify/
 
 #### პროექტი 75 - CS50 P-Shirt
 https://cs50.harvard.edu/python/2022/psets/6/shirt/
+
+#### პროექტი 76 - Name Sorter
+
+შექმენით პროგრამა, რომელიც წაიკითხავს შემდეგი სახელების სიას:
+- Ling, Mai
+- Johnson, Jim
+- Zarnecki, Sabrina
+- Jones, Chris
+- Jones, Aaron
+- Swift, Geoffrey
+- Xiong, Fong
+
+ამის შემდეგ შეინახეთ სახელები სორტირებულ ლისტში და ჩაწერეთ ახალ ფაილში ისე, როგორც მაგალითშია ნაჩვენები.
+
+მაგალითად:
+```shell
+$ Total of 7 names
+$ -----------------
+$ Ling, Mai
+$ Johnson, Jim
+$ Jones, Aaron
+$ Jones, Chris
+$ Swift, Geoffrey
+$ Xiong, Fong
+$ Zarnecki, Sabrina
+```
+
+აუცილებელი მოთხოვნები:
+1. მაგალითში ნაჩვენებია 'Total of 7 names'. ხელით არ ჩაწეროთ სახელების რაოდენობა. გამოიყენეთ შესაბამისი მეთოდები.
+
+
+#### პროექტი 77 - Parsing a Data File
+
+მაგალითად მოცემული გაქვთ ფაილი შემდეგი მონაცემებით csv ფორმატში:
+```shell
+Ling,Mai,55900
+Johnson,Jim,56500
+Jones,Aaron,46000
+Jones,Chris,34500
+Swift,Geoffrey,14200
+Xiong,Fong,65000
+Zarnecki,Sabrina,51500
+```
+შექმენით პროგრამა, რომელიც დაამუშავებს მოცემულ ფაილს და გამოიტანს მონაცემებს მაგალითში ნაჩვენები ფორმატით:
+
+მაგალითად:
+```shell
+$ Last                | First             | Salary
+$ --------------------|-------------------|----------------
+$ Ling                | Mai               | 55900
+$ Johnson             | Jim               | 56500
+$ Jones               | Aaron             | 46000
+$ Jones               | Chris             | 34500
+$ Swift               | Fong              | 65000
+$ Zarnecki            | Sabrina           | 51500
+```
+
+აუცილებელი მოთხოვნები:
+1. csv ფაილებთან მუშაობისთვისაც და ცხრილის დასაბეჭდათაც გამოიყენეთ შესაბამისი ბიბლიოთეკები.
+
+
+#### პროექტი 78 - Website Generator
+შექმენით პროგრამა, რომელიც დააგენერირებს მარტივი ვებსაიტის ჩონჩხს შემდეგი მოთხოვნებით:
+
+- შეეკითხეთ მომხმარებელს საიტის სახელი
+- შეეკითხეთ მომხმარებელს საიტის ავტორის სახელი
+- შეეკითხეთ მომხმარებელს, უნდა თუ არა Javscript-ის ფაილები თავის საიტში. თუ კი, მაშინ უბრალოდ შექმენით ფოლდერი, სახელად js საიტის ფოლდერში.
+- შეეკითხეთ მომხმარებელს, უნდა თუ არა CSS-ის ფაილები თავის საიტში. თუ კი, მაშინ უბრალოდ შექმენით ფოლდერი, სახელად css საიტის ფოლდერში.
+- დააგენერირეთ index.html ფაილი, რომელცი შეიცავს საიტის სახელს title თეგში და ავტორის სახელს.
+
+მაგალითად:
+```shell
+$ Site name: awesomeco
+$ Author: Max Power
+$ Do you want a folder for JavaScript? y
+$ Do you want a folder for CSS? y
+$ Created ./awesomeco
+$ Created ./awesomeco/index.html
+$ Created ./awesomeco/js/
+$ Created ./awesomeco/css/
+```
+
+#### პროექტი 79 - Product Search
+შექმენით პროგრამა, რომელიც მომხმარებელს ეკითხება პროდუქტის დასახელებას და პასუხად აბრუნებს ამ პროდუქტის
+ფასსა და რაოდენობას. მონაცემები უნდა ინახებოდეს json ფაილში შემდეგი სახით:
+
+
+```shell
+{
+    "products" : [
+        {"name": "Widget", "price": 25.00, "quantity": 5 },
+        {"name": "Thing", "price": 15.00, "quantity": 5 },
+        {"name": "Doodad", "price": 5.00, "quantity": 10 }
+    ]
+}
+```
+
+იმ შემთხვევაში თუ პროდუქტი არ მოიძებნება, გამოიტანეთ შესაბამისი შეტყობინება და თავიდან შეეკითხეთ მომხმარებელს პროდუქტი.
+თუ პროდუქტი ნამდვილად არის ფაილში, გამოიტანეთ როგორც მისი ფასი და რაოდენობა, ასევე დასახელება.
+
+მაგალითად:
+```shell
+$ What is the product name? iPad
+$ Sorry, that product was not found in our inventory.
+$ What is the product name? Widget
+$ Name: Widget
+$ Price: $25.00
+$ Quantity on hand: 5
+```
+აუცილებელი მოთხოვნები:
+1. არ უნდა ჰქონდეს მნიშვნელობა პროდუქტის დასახელებას მომხმარებელი დიდი ასოებით შეიყვანს თუ პატარა.
+1. თუ პროდუქტი ვერ მოიძებნა, თავიდან იკითხეთ input-ი.
+
+#### პროექტი 80 - Word Finder
+
+შექმნით პროგრამა, რომელიც წაიკითხავს ტექსტურ ფაილს და ამავე ფაილში ყველა სიტყვა "utilize" ჩაანაცვლებს სიტყვა "use"-ით.
+შეცვლილი ტექსტი შეინახეთ ახალ ფაილში.
+
+მაგალითად, თუ თქვენს სატესტო ტექსტურ ფაილში წერია:
+```shell
+One should never utilize the word "utilize" in
+writing. Use "use" instead.
+```
+
+პროგრამამ ახალ ფაილში უნდა ჩაწეროს:
+```shell
+One should never use the word "use" in
+writing. Use "use" instead.
+```
+
+აუცილებელი მოთხოვნები:
+1. მომხმარებელს შეეკითხეთ ახალი ფაილის სახელი.
+
+#### პროექტი 81 - Word Frequency Finder
+შექმენით პროგრამა, რომელიც წაიკითხავს ტექსტურ ფაილს და დაითვლის კონკრეტული სიტყვის სიხშირეს მასში (ანუ რამდენჯერ არის ეს სიტყვა გამოყენებული მოცემულ ტექსტში).
+საბოლოოდ გამოიტანეთ ტექსტში თითოეული სიტყვის სიხშირე.
+
+მაგალითად, თუ ფაილში words.txt წერია:
+```shell
+badger badger badger badger mushroom mushroom
+snake badger badger badger
+```
+
+output-ი უნდა იყოს ასეთი (თითო ფიფქი ასახავს 1 სიტყვას):
+```shell
+$ badger: *******
+$ mushroom: **
+$ snake: *
+```
+აუცილებელი მოთხოვნები:
+1. ყველაზე ხშირად გამოყენებული სიტყვა უნდა იყოს output-ის თავში.

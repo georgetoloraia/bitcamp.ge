@@ -11,7 +11,7 @@ import "@/styles/mdx.css"
 import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
 
 interface ProgramPageProps {
   params: {
@@ -32,44 +32,14 @@ async function getProgramFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: ProgramPageProps): Promise<Metadata> {
-  const program = await getProgramFromParams(params)
+}: ProgramPageProps) {
+  const page = await getProgramFromParams(params)
 
-  if (!program) {
+  if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", program.description ?? program.title)
-  ogUrl.searchParams.set("type", "Documentation")
-  ogUrl.searchParams.set("mode", "dark")
-
-  return {
-    title: program.title,
-    description: program.description,
-    openGraph: {
-      title: program.title,
-      description: program.description,
-      type: "article",
-      url: absoluteUrl(program.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: program.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: program.title,
-      description: program.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
 
 export async function generateStaticParams(): Promise<
