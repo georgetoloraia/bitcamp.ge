@@ -240,6 +240,10 @@ export const docsConfig: DocsConfig = {
           title: "თავი 8",
           href: "/classes/javascript/2023f/week-8",
         },
+        {
+          title: "თავი 9",
+          href: "/classes/javascript/2023f/week-9",
+        },
       ],
     },
   ],
