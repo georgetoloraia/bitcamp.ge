@@ -162,6 +162,7 @@ const components = {
       {...props}
     />
   ),
+  ExerciseCard,
 }
 
 interface MdxProps {
