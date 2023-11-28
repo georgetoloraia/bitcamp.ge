@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"
+
+import React, { useEffect } from "react"
 import { MdxCard } from './mdx-card';
 
 const ExerciseCard = ({ exerciseId, children }) => {
@@ -7,14 +9,14 @@ const ExerciseCard = ({ exerciseId, children }) => {
             {children}
             <div className="space-y-2 [&>h3]:!mt-0 [&>h4]:!mt-0 [&>p]:text-muted-foreground">
                 <p>დავალების შესამოწმებლად:</p>
-                <pre className="bg-black p-3 rounded-md border border-gray-700 overflow-x-auto">
-                    <code className="font-normal block">check50 bitcamp50/problems/2023/python/{exerciseId}</code>
+                <pre className="m-auto flex h-auto overflow-x-auto border-2 border-gray-800 bg-black p-3 lg:m-auto">
+                    <code className="block whitespace-nowrap font-normal text-white">check50 bitcamp50/problems/2023/python/{exerciseId}</code>
                 </pre>
             </div>
             <div className="space-y-2 [&>h3]:!mt-0 [&>h4]:!mt-0 [&>p]:text-muted-foreground">
                 <p>დავალების დადასტურება (submit):</p>
-                <pre className="bg-black p-3 rounded-md border border-gray-700 overflow-x-auto">
-                    <code className="font-normal block whitespace-nowrap">submit50 bitcamp50/problems/2023/python/{exerciseId}</code>
+                <pre className="m-auto flex h-auto overflow-x-auto border-2 border-gray-800 bg-black p-3 lg:m-auto">
+                    <code className="block whitespace-nowrap font-normal text-white">submit50 bitcamp50/problems/2023/python/{exerciseId}</code>
                 </pre>
             </div>
         </MdxCard>
