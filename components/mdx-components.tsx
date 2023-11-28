@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { Callout } from "@/components/callout"
 import { MdxCard } from "@/components/mdx-card"
 import PinProtected from "@/components/mdx-pin-protected"
+import ExerciseCard from '@/components/exercise-card';
 
 const components = {
   h1: ({ className, ...props }) => (
