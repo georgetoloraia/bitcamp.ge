@@ -11,7 +11,7 @@ import "@/styles/mdx.css"
 import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
 
 interface ClassPageProps {
   params: {
@@ -32,45 +32,16 @@ async function getClassFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: ClassPageProps): Promise<Metadata> {
-  const study_class = await getClassFromParams(params)
+}: ClassPageProps) {
+  const page = await getClassFromParams(params)
 
-  if (!study_class) {
+  if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", study_class.description ?? study_class.title)
-  ogUrl.searchParams.set("type", "Documentation")
-  ogUrl.searchParams.set("mode", "dark")
-
-  return {
-    title: study_class.title,
-    description: study_class.description,
-    openGraph: {
-      title: study_class.title,
-      description: study_class.description,
-      type: "article",
-      url: absoluteUrl(study_class.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: study_class.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: study_class.title,
-      description: study_class.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
+
 
 export async function generateStaticParams(): Promise<
   ClassPageProps["params"][]
