@@ -8,7 +8,7 @@ import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
 import { siteConfig } from "@/config/site"
-import { absoluteUrl } from "@/lib/utils"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
 
 interface PageProps {
   params: {
@@ -29,44 +29,14 @@ async function getPageFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
+}: PageProps) {
   const page = await getPageFromParams(params)
 
   if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", page.title)
-  ogUrl.searchParams.set("type", siteConfig.name)
-  ogUrl.searchParams.set("mode", "light")
-
-  return {
-    title: page.title,
-    description: page.description,
-    openGraph: {
-      title: page.title,
-      description: page.description,
-      type: "article",
-      url: absoluteUrl(page.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: page.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: page.title,
-      description: page.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {

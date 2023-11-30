@@ -12,7 +12,7 @@ import "@/styles/mdx.css"
 import { Metadata } from "next"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl, cn } from "@/lib/utils"
+import { absoluteUrl, cn, generateDefaultMetaData } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
 interface GuidePageProps {
@@ -34,45 +34,16 @@ async function getGuideFromParams(params) {
 
 export async function generateMetadata({
   params,
-}: GuidePageProps): Promise<Metadata> {
-  const guide = await getGuideFromParams(params)
+}: GuidePageProps) {
+  const page = await getGuideFromParams(params)
 
-  if (!guide) {
+  if (!page) {
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", guide.title)
-  ogUrl.searchParams.set("type", "Guide")
-  ogUrl.searchParams.set("mode", "dark")
-
-  return {
-    title: guide.title,
-    description: guide.description,
-    openGraph: {
-      title: guide.title,
-      description: guide.description,
-      type: "article",
-      url: absoluteUrl(guide.slug),
-      images: [
-        {
-          url: ogUrl.toString(),
-          width: 1200,
-          height: 630,
-          alt: guide.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: guide.title,
-      description: guide.description,
-      images: [ogUrl.toString()],
-    },
-  }
+  return generateDefaultMetaData(page);
 }
+
 
 export async function generateStaticParams(): Promise<
   GuidePageProps["params"][]
