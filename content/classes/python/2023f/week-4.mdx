@@ -1,0 +1,154 @@
+---
+title: თავი 4 - Exceptions - Python 2023F
+description: სასწავლო რესურსები
+---
+
+### ლექცია 4
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vZrYLfCXSFk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+### პრაქტიკული სემინარები
+
+<Card>
+<PinCodeProtectedContent>
+    <Locked>
+        ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის.
+        პინ კოდი მოითხოვეთ მენტორთან!
+    </Locked>
+    <Unlocked>
+        - ორშაბათი: https://youtu.be/bEXPMilHO1Q
+        - ოთხშაბათი: https://youtu.be/jT_FuiIzjUk
+        - პარასკევი: https://youtu.be/u5SX5EdGqCg
+    </Unlocked>
+</PinCodeProtectedContent>
+</Card>
+
+### რესურსები
+- [Python - ის დოკუმენტაცია](https://docs.python.org/3/library/)
+- [Harvard - ის კურსი](https://cs50.harvard.edu/python/2022/)
+- ედიტორი: [cs50.dev](https://cs50.dev/)
+
+### წასაკითხი
+- ჰარვარდის კონსპექტები - [კვირა 3](https://cs50.harvard.edu/python/2022/notes/3/)
+
+### დავალებები
+
+#### პროექტი 42 - Fuel Gauge
+https://cs50.harvard.edu/python/2022/psets/3/fuel/
+
+#### პროექტი 43 - Felipe's Taqueria
+https://cs50.harvard.edu/python/2022/psets/3/taqueria/
+
+#### პროექტი 44 - Grocery List
+https://cs50.harvard.edu/python/2022/psets/3/grocery/
+
+#### პროექტი 45 - Outdated
+https://cs50.harvard.edu/python/2022/psets/3/outdated/
+
+#### პროექტი 46 - Blood Alcohol Calculator
+
+შექმენით პროგრამა, რომელიც მომხმარებელს შეეკითხება წონას, სქესს, დალეული ალკოჰოლის ჭიქების რაოდენობას,
+მიღებული ალკოჰოლის რაოდენობას ჭიქების ტევადობის მიხედვით, ბოლო მიღებული სასმელიდან გასულ დროს.
+დაითვალეთ (BAC) - Blood Alcohol Content - სისხლში ალკოჰოლის რაოდენობის მაჩვენებელი.
+გამოიყენეთ ფორმულა:
+- BAC = (A * 5.14 /W * r) - .015 * H
+- A არის მთლიანი მიღებული ალკოჰოლი, უნციებში (oz). ანუ ჭიქების რაოდენობა უნდა გაამრავლოთ ტევადობაზე, რომელსაც ეკითხებით input-ში.
+- W არის წონა ფუნტებში.
+- r არის ალკოჰოლის კოეფიციენტი. ანუ იმ შემთხვევაში თუ მომხმარებელი არის ქალი, ეს მაჩვენებელი არის 0.66. ხოლო იმ შემთხვევაში, თუ მომხმარებელი არის კაცი, მაშინ ეს მაჩვენებელი 0.73-ის ტოლია.
+- H არის ბოლო მიღებული სასმელიდან გასული საათების რაოდენობა.
+
+დაითვალეთ BAC და უთხარით იუზერს არის თუ არა ლეგალური მისთვის მანქანის ტარება. თუ BAC 0.08-ზე მეტია, მაშინ არალეგალურია. თუ 0.08-ზე დაბალი, მაშინ ნებადართული.
+
+
+მაგალითად:
+```shell
+$ What is your weight?
+$ Male or Female? 
+$ Number of drinks?
+$ Amount of alcohol in one drink? 
+$ Hours since your last drink? 
+$ Your BAC is 0.08
+$ It is not legal for you to drive.
+```
+
+აუცილებელი მოთხოვნები:
+1. გამოიყენე try/except ბლოკები და ციკლები input-ის ვალიდაციის გასაკეთებლად.
+1. შეფუთე კოდი ფუნქციებში და აუცილებლად გაიტანე ვალიდაციის ფუნქცია ცალკე.
+
+დამატებითი გამოწვევები:
+1. შეგიძლია კოდის მეტრიკა გადაიყვანო კილოგრამებსა და მილიგრამებში. BAC ამის გათვალიწინებით დაითვალე.
+
+#### პროექტი 47 - Anagram Checker
+შექმენით პროგრამა, რომელიც შეეიკითხება მომხმარებელს ორ სიტყვა. შემდეგ კი გაარკვევს ეს ორი სიტყვა ანაგრამაა, თუ არა.
+ანაგრამა არის სიტყვა, რომელიც წარმოიქმნება სხვა სიტყვის ასოების შეთავსებით. მაგალითად note და tone ანაგრამებია.
+
+მაგალითად:
+```shell
+$ Enter two strings and I ll tell you if they
+$ are anagrams:
+$ Enter the first string: note
+$ Enter the second string: tone
+$ "note" and "tone" are anagrams.
+```
+
+აუცილებელი მოთხოვნები:
+1. შექმენი ფუნქცია, სახელად isAnagram, რომელიც მიიღებს ორ არგუმენტს (ორ სიტყვას, რომელიც მომხმარებელს შეეკითხეთ). შემდეგ კი დააბრუნებს True-ს, თუ ეს ორი სიტყვა ანაგრამაა და False თუ არა. 
+1. გააკეთეთ input-ის ვალიდაცია try/except-ის გამოყენებით.
+1. შეამოწმეთ არის თუ არა ორივე სიტყვა ერთი სიგრძის. (length)
+
+#### პროექტი 48 - Password Strength Indicator
+შექმენით პროგრამა, რომელიც შეამოწმებს, თუ რამდენად ძლიერია ესა თუ ის პაროლი. გამოიყენეთ შემდეგი წესები:
+- ძალიან სუსტი პაროლი შეიცავს მხოლოდ რიცხვებს და სიმბოლოების რაოდენობა 8-ზე ნაკლებია.
+- სუსტი პაროლი შეიცავს მხოლოდ ასოებს და სიმბოლოების რაოდენობა 8-ზე ნაკლებია.
+- ძლიერი პაროლი შეიცავს ასოებს და როგორც მინიმუმ 1 ციფრს და სიმბოლოების რაოდენობა მინიმუმ 8 არის.
+- ძალიან ძლიერი პაროლი შეიცავს ასოებს, ციფრებს, სპეციალურ სიმბოლოებს და სიმბოლოების რაოდენობა მინიმუმ 8 არის.
+
+მაგალითად:
+```shell
+$ The password '12345' is a very weak password.
+$ The password 'abcdef' is a weak password.
+$ The password 'abc123xyz' is a strong password.
+$ The password '1337h@xor!' is a very strong password.
+```
+
+აუცილებელი მოთხოვნები:
+1. შექმენით ფუნქცია სახელად passwordValidator, რომელიც არგუმენტად იღებს მომხმარებლის მიერ შეყვანილ პაროლს. ფუნქციამ უნდა დააბრუნოს ამ პაროლის სიძლიერის შესაბამისი მნიშვნელობა.
+1. გამოიყენეთ მხოლოდ ერთი output-ი.
+
+
+#### პროექტი 49 - Months to Pay Off a Credit Card
+მალე დაემატება
+
+#### პროექტი 50 - Validating Inputs
+შექმენით პროგრამა, რომელიც მომხმარებელს შეეკითხება სახელს, გვარს, თანამშრომლის ID-ს და ZIP კოდს. გამოიყენეთ წესები:
+- სახელის input-ის შევსება აუცილებელია.
+- გვარის input-ის შევსება აუცილებელია.
+- სახელისა და გვარის სიმბოლოების რაოდენობა უნდა იყოს მინიმუმ 2 სიმბოლო.
+- თანამშრომლის ID უნდა ჩაიწეროს შემდეგ ფორმატში, მაგ: AA-1234 - 2 ასო, ტირე და შემდეგ 4 ციფრი.
+- ZIP კოდი უნდა იყოს აუცილებლად რიცხვი.
+
+გამოიტანეთ შესაბამისი შეცდომების შეტყობინებები შესაბამის სიტუაციებში.
+
+
+მაგალითად:
+```shell
+$ Enter the first name: J
+$ Enter the last name:
+$ Enter the ZIP code: ABCDE
+$ Enter an employee ID: A12-1234
+$ "J" is not a valid first name. It is too short.
+$ The last name must be filled in.
+$ The ZIP code must be numeric.
+$ A12-1234 is not a valid ID.
+```
+- ან
+```shell
+$ Enter the first name: Jimmy
+$ Enter the last name: James
+$ Enter the ZIP code: 55555
+$ Enter an employee ID: TK-4213
+$ There were no errors found.
+```
+აუცილებელი მოთხოვნები:
+- თითო ვალიდაციისთვის შექმენით შესაბამისი ფუნქციები.
+- გამოიყენეთ მხოლოდ ერთი output-ი.

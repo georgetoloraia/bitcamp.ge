@@ -177,6 +177,14 @@ export const docsConfig: DocsConfig = {
           title: "თემური ცუცქირიძე",
           href: "/mentors/temuri-tsutskiridze",
         },
+        {
+          title: "ეკა აბაშიძე",
+          href: "/mentors/eka-abashidze",
+        },
+        {
+          title: "ნოდარ სვანიძე",
+          href: "/mentors/nodar-svanidze",
+        },
       ],
     },
   ],
@@ -201,16 +209,44 @@ export const docsConfig: DocsConfig = {
       title: "JavaScript 2023F",
       items: [
         {
-          title: "კვირა 1",
+          title: "თავი 1",
           href: "/classes/javascript/2023f/week-1",
         },
         {
-          title: "კვირა 2",
+          title: "თავი 2",
           href: "/classes/javascript/2023f/week-2",
         },
         {
-          title: "კვირა 3",
+          title: "თავი 3",
           href: "/classes/javascript/2023f/week-3",
+        },
+        {
+          title: "თავი 4",
+          href: "/classes/javascript/2023f/week-4",
+        },
+        {
+          title: "თავი 5",
+          href: "/classes/javascript/2023f/week-5",
+        },
+        {
+          title: "თავი 6",
+          href: "/classes/javascript/2023f/week-6",
+        },
+        {
+          title: "თავი 7",
+          href: "/classes/javascript/2023f/week-7",
+        },
+        {
+          title: "თავი 8",
+          href: "/classes/javascript/2023f/week-8",
+        },
+        {
+          title: "თავი 9",
+          href: "/classes/javascript/2023f/week-9",
+        },
+        {
+          title: "თავი 10",
+          href: "/classes/javascript/2023f/week-10",
         },
       ],
     },
@@ -220,16 +256,44 @@ export const docsConfig: DocsConfig = {
       title: "Python 2023",
       items: [
         {
-          title: "კვირა 1",
+          title: "თავი 1",
           href: "/classes/python/2023f/week-1",
         },
         {
-          title: "კვირა 2",
+          title: "თავი 2",
           href: "/classes/python/2023f/week-2",
         },
         {
-          title: "კვირა 3",
+          title: "თავი 3",
           href: "/classes/python/2023f/week-3",
+        },
+        {
+          title: "თავი 4",
+          href: "/classes/python/2023f/week-4",
+        },
+        {
+          title: "თავი 5",
+          href: "/classes/python/2023f/week-5",
+        },
+        {
+          title: "თავი 6",
+          href: "/classes/python/2023f/week-6",
+        },
+        {
+          title: "თავი 7",
+          href: "/classes/python/2023f/week-7",
+        },
+        {
+          title: "თავი 8",
+          href: "/classes/python/2023f/week-8",
+        },
+        {
+          title: "თავი 9",
+          href: "/classes/python/2023f/week-9",
+        },
+        {
+          title: "თავი 10",
+          href: "/classes/python/2023f/week-10",
         },
       ],
     },
