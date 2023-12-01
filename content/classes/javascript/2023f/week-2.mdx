@@ -222,13 +222,22 @@ amount to = (amount from × rate from ) / rate to
 > After 4 years at 4.3%, the investment will be worth $1758.
 ```
 
-#### პროექტი 19 - Computing Simple Interest - მარტივი პროცენტის გამოთვლა
+#### პროექტი 19 - Determining Compound Interest - რთული პროცენტის გამოთვლა
 ინვესტიციების უმეტესობა იყენებს რთული პროცენტის ფორმულას, რომელიც ბევრად უფრო ზუსტია. ეს ფორმულა მოითხოვს, რომ პროგრამებში ხარისხის მაჩვენებლები ჩავრთოთ. დაწერეთ პროგრამა, რომ გამოვთვალოთ ინვესტიციის ღირებულება დროთა განმავლობაში. პროგრამამ უნდა მოითხოვოს საწყისი თანხა, ინვესტიციის წლების რაოდენობა, საპროცენტო განაკვეთი და წლიური პერიოდების რაოდენობა. ფორმულა შემდეგია: A = P(1 + r/n)nt, სადაც:
 * P არის ძირითადი თანხა.
 * r არის წლიური საპროცენტო განაკვეთი.
 * t არის წლების რაოდენობა.
 * n არის პროცენტის დარიცხვის რაოდენობა წელიწადში.
 * A არის თანხა ინვესტიციის ბოლოს.
+
+მაგალითად:
+```shell
+> What is the principal amount? 1500
+> What is the rate? 4.3
+> What is the number of years? 6
+> What is the number of times the interest is compounded per year? 4
+> $1500 invested at 4.3% for 6 years compounded 4 times per year is $1938.84.
+```
 
 #### პროექტი 20 - Deep Thought - ღრმა ფიქრი
 “All right,” said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
@@ -523,14 +532,6 @@ Example Output
 < Replace cables and try again.
 ```
 
-მაგალითად:
-```shell
-> What is the principal amount? 1500
-> What is the rate? 4.3
-> What is the number of years? 6
-> What is the number of times the interest is compounded per year? 4
-> $1500 invested at 4.3% for 6 years compounded 4 times per year is $1938.84.
-```
 
 * განაკვეთი მოითხოვეთ პროცენტის სახით (როგორიცაა 15 და არა = .15). გაყავით input 100-ზე.
 * დარწმუნდით, რომ output ფორმატირებულია, როგორც ვალუტა.
