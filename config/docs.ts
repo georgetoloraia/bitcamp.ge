@@ -201,6 +201,10 @@ export const docsConfig: DocsConfig = {
           title: "Python 2023F",
           href: "/classes/python",
         },
+        {
+          title: "Reactor 2022w",
+          href: "/classes/reactor",
+        },
       ],
     },
   ],
