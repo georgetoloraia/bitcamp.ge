@@ -298,4 +298,16 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
+  reactor2022ClassNav: [
+    {
+      title: "Reactor 2022",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/reactor/2022w/week-1",
+        },
+        
+      ],
+    },
+  ],
 }
