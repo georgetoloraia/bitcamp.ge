@@ -14,7 +14,7 @@ export interface DocsSidebarNavProps {
 export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
   const pathname = usePathname()
 
-  if(items.length === 0) {
+  if (items.length === 0) {
     items = getDynamicMenuItems(pathname)
   }
 
@@ -35,7 +35,7 @@ export function DocsSidebarNav({ items }: DocsSidebarNavProps) {
 }
 
 
-function getDynamicMenuItems(pathname: string | null): SidebarNavItem[]{
+function getDynamicMenuItems(pathname: string | null): SidebarNavItem[] {
   let items: SidebarNavItem[] = []
   if (pathname?.includes('javascript/2023f')) {
     items = docsConfig.javasScript2023ClassNav
@@ -44,7 +44,9 @@ function getDynamicMenuItems(pathname: string | null): SidebarNavItem[]{
   if (pathname?.includes('python/2023f')) {
     items = docsConfig.python2023ClassNav
   }
-
+  if (pathname?.includes('reactor/2022w')) {
+    items = docsConfig.reactor2022ClassNav;
+  }
   return items;
 }
 
