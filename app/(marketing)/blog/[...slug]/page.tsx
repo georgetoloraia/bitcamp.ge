@@ -71,7 +71,7 @@ export default async function PostPage({ params }: PostPageProps) {
         )}
       >
         <Icons.chevronLeft className="mr-2 h-4 w-4" />
-        See all posts
+        ყველა სტატია
       </Link>
       <div>
         {post.date && (
@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PostPageProps) {
             dateTime={post.date}
             className="block text-sm text-muted-foreground"
           >
-            Published on {formatDate(post.date)}
+            გამოქვეყნების თარიღი {formatDate(post.date)}
           </time>
         )}
         <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
@@ -89,9 +89,8 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="mt-4 flex space-x-4">
             {authors.map((author) =>
               author ? (
-                <Link
+                <div
                   key={author._id}
-                  href={`https://twitter.com/${author.twitter}`}
                   className="flex items-center space-x-2 text-sm"
                 >
                   <Image
@@ -103,11 +102,8 @@ export default async function PostPage({ params }: PostPageProps) {
                   />
                   <div className="flex-1 text-left leading-tight">
                     <p className="font-medium">{author.title}</p>
-                    <p className="text-[12px] text-muted-foreground">
-                      @{author.twitter}
-                    </p>
                   </div>
-                </Link>
+                </div>
               ) : null
             )}
           </div>
@@ -128,7 +124,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <div className="flex justify-center py-6 lg:py-10">
         <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }))}>
           <Icons.chevronLeft className="mr-2 h-4 w-4" />
-          See all posts
+          ყველა სტატია
         </Link>
       </div>
     </article>
