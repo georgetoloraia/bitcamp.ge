@@ -52,6 +52,40 @@ $ You should watch this movie right now!
 1. მოიძიეთ და გამოიყენეთ რომელიმე ღია ფილმების API
 
 
+#### პროექტი 86 - Todo List
+შექმენით Todo აპლიკაცია, რომელიც უნდა ითვალისწინებდეს შემდეგ კრიტერიუმებს:
+- შეეკითხეთ მომხმარებელს რაიმე დავალება/თასქი. შეინახეთ აღნიშნული დავალება/თასქი რაიმე ფაილში ან მონაცემთა ბაზაში, რომ პროგრამის დასრულების შემდეგ, შეყვანილი input-ი ინახებოდეს.
+- მოხმარებელს უნდა შეეძლოს იმდენი დავალების/თასქის დამატება, რამდენიც უნდა. თუმცა, თუ მომხამრებელი input-ში არაფერს არ შეიყვანს, ანუ ცარიელს დატოვებს, მაშინ შეწყვიტეთ მისთვის input-ის დასმა. (ცარიელი თასქი არ შეინახოთ)
+- უნდა შეგეძლოთ ყველა დავალების/თასქის გამოტანა.
+- უნდა შეგეძლოთ კონკრეტული თასქის წაშლა, იმის აღსანიშნავად, რომ თასქი შესრულდა.
+
+მაგალითად:
+```shell
+$ Enter a task or press ENTER to finish: Buy groceries
+$ Enter a task or press ENTER to finish: Call the dentist
+$ Enter a task or press ENTER to finish: 
+$
+$ Your tasks:
+$ 1. Buy groceries
+$ 2. Call the dentist
+$
+$ Enter task number to remove, or press ENTER to exit: 1
+$ 
+$ Task removed.
+$ 
+$ Your tasks:
+$ 1. Call the dentist
+$
+$ Enter task number to remove, or press ENTER to exit: 
+$
+$ Exiting. Tasks saved.
+```
+
+აუცილებელი მოთხოვნები:
+1. შეინახეთ მონაცემები 'მუდმივ' მონაცემთა წყაროში (ფაილში, მონაცემთა ბაზაში, ან სხვა).
+
+
+
 #### ფინალური პროექტი
 https://cs50.harvard.edu/python/2022/project/
 
@@ -66,5 +100,3 @@ https://cs50.harvard.edu/python/2022/project/
 1. ნებისმიერი pip ინსტალირებადი ბიბლიოთეკა, რასაც გამოიყენებთ, უნდა ჩაწეროთ requirements.txt ფაილში, რომელიც ასევე იქნება თქვენი მთავარი პროექტის ფაილის დირექტორიაში.
 
 
-#### პროექტი 86 - Todo List
-მალე დაემატება
