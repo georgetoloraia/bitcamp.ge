@@ -1,0 +1,109 @@
+---
+title: თავი - Fetch API - JavaScript 2023F
+description: სასწავლო რესურსები
+---
+
+### ლექცია 10
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/RVQhC4jCiW0?si=lHI1h2lTRjx1HFhg"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+### პრაქტიკული სემინარები
+
+<Card>
+  <PinCodeProtectedContent>
+    <Locked>
+      ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის. პინ კოდი მოითხოვეთ
+      მენტორთან!
+    </Locked>
+    <Unlocked>
+      - ორშაბათი: https://www.youtube.com/watch?v=AGg0stVxCLs
+      - ოთხშაბათი: https://www.youtube.com/watch?v=RVLhEBm_s_Y
+      - პარასკევი: https://youtu.be/KWnJ0zVCK4o
+    </Unlocked>
+  </PinCodeProtectedContent>
+</Card>
+
+### წასაკითხი
+
+- წაიკითხეთ სტატია/კონსპექტი - https://dev.to/duhbhavesh/how-to-use-fetch-api-for-crud-operations-57a0
+
+
+### დავალებები
+
+#### პროექტი  - Who’s in Space? - ვინ არის კოსმოსში?
+
+იცოდით, რომ ზუსტად შეგიძლიათ გაიგოთ, ვინ არის ახლა კოსმოსში? ამის შესახებ ინფორმაციას Open Notify API გვაწვდის. ეწვიეთ ბმულს: http://api.open-notify.org/astros.json, რომ ნახოთ არა მხოლოდ რამდენი ადამიანი იმყოფება ამჟამად კოსმოსში, არამედ - მათი სახელები და ის, თუ რომელ კოსმოსურ ხომალდზე იმყოფებიან.
+
+შექმენით პროგრამა, რომელიც ამოიღებს ამ მონაცემებს და აჩვენებს ინფორმაციას ამ API-დან ცხრილის ფორმატში.
+
+მაგალითად:
+```shell
+| **Name** | **Craft** | 
+| --------- | ------------ | 
+| Gennady Padalka | ISS |
+| Mikhail Kornienko | ISS |
+| Scott Kelly |  ISS |  
+
+```
+
+#### პროექტი 57 - Grabbing the Weather - ამინდის გაგება
+
+დღეს კარგი ამინდი იქნება? თუ ქურთუკი უნდა ვიქონიი? OpenWeatherMap API-ის გამოყენებით, ბმულით: http://openweathermap.org/ , შექმენით პროგრამა, რომელიც მოგთხოვთ ქალაქის სახელს და დააბრუნებს ქალაქის მიმდინარე ტემპერატურას.
+
+მაგალითად:
+```shell
+> Where are you? Chicago IL
+> Chicago weather:
+> 65 degrees Fahrenheit
+```
+
+#### პროექტი 58 - Grabbing the Weather - ამინდის გაგება
+
+ნეტავ, დღეს კარგი ამინდი იქნება? თუ ქურთუკი უნდა ვიქონიი? OpenWeatherMap API-ის გამოყენებით, ბმულით: http://openweathermap.org/ , შექმენით პროგრამა, რომელიც მოგთხოვთ ქალაქის სახელს და დააბრუნებს ქალაქის მიმდინარე ტემპერატურას.
+
+მაგალითად:
+```shell
+> Where are you? Chicago IL
+> Chicago weather:
+> 65 degrees Fahrenheit
+```
+
+#### პროექტი 59 - Flickr Photo Search - ფოტოს ძებნა Flickr-ზე
+
+ზოგიერთი სერვისი ძიების ფუნქციებს უზრუნველჰყოფს და გაძლევთ კონტროლი საშუალებას თქვენ მიერ მიღებულ შედეგებზე. თქვენ მხოლოდ სწორი მოთხოვნის (request) ჩამოყალიბება გჭირდებათ. შექმენით პროგრამა გრაფიკული ინტერფეისით, რომელიც იღებს საძიებო სტრიქონს (string) და აჩვენებს ფოტოებს, რომლებიც შეესაბამება ამ ძიებას. სერვისად გამოიყენეთ Flickr-ის საჯარო ფოტოების ბმული: https://www.flickr.com/services/feeds/docs/photos_public/ 
+
+#### პროექტი 60 - Movie Recommendations - ფილმის რეკომენდაციები
+
+დაწერეთ პროგრამა, რომელიც აჩვენებს ინფორმაციას მოცემული ფილმის შესახებ. გამოიყენეთ Rotten Tomatoes-ს API მისამართზე: http://developer.rottentomatoes.com/ და მიიღეთ API key. მოითხოვეთ საძიებო input და აჩვენეთ შემდეგი მონაცემები: სათაური, წელი, რეიტინგი, გამოშვების დრო და მოკლე შინაარსი, თუ ასეთი არსებობს. მაშინ, თუ ფილმისთვის აუდიტორიის მიერ მიცემული შეფასება 80%-ს აღემატება, პროგრამა რეკომენდაციას უწევს მომხმარებელს, რომ ეს ფილმი ახლავე ნახოს. თუ ქულა 50%-ზე დაბალია, რეკომენდაციაა, რომ მომხმარებელმა ფილმის ყურებას თავი აარიდოს. 
+
+მაგალითად:
+```shell
+> Enter the name of a movie: Guardians of the Galaxy
+> Title: Guardians of the Galaxy
+> Year: 2014
+> Rating: PG-13
+> Running Time: 121 minutes
+> Description: From Marvel...
+> You should watch this movie right now!
+```
+
+### სავარჯიშოები
+
+1. Retrieve User Profile: Create a function using Fetch API to retrieve a user's profile information from the server
+2. Add New Blog Post: Implement a function to add a new blog post using Fetch API, sending the post data to the server.
+3. Delete Product from Inventory: Write a function that uses Fetch API to delete a specific product from the inventory by sending a DELETE request.
+4. Update Contact Details: Create a function to update contact details on the server using Fetch API, sending the updated data for a specific contact.
+5. Create a Note: Implement a function to create a new note on the server using Fetch API, sending the note content.
+6. Edit Recipe: Write a function that uses Fetch API to edit the details of a specific recipe on the server.
+7. Send Message: Create a function to send a new message using Fetch API, sending the message content to the server.
+8. Add Task to Tracker: Implement a function to add a new task to the task tracker on the server using Fetch API.
+9. Delete Book from Catalog: Write a function that uses Fetch API to delete a specific book from the catalog by sending a DELETE request.
+10. Update Job Application Status: Create a function to update the status of a job application on the server using Fetch API, sending the updated status.

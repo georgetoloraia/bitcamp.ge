@@ -201,6 +201,10 @@ export const docsConfig: DocsConfig = {
           title: "Python 2023F",
           href: "/classes/python",
         },
+        {
+          title: "Reactor 2022w",
+          href: "/classes/reactor",
+        },
       ],
     },
   ],
@@ -236,6 +240,22 @@ export const docsConfig: DocsConfig = {
           title: "თავი 7",
           href: "/classes/javascript/2023f/week-7",
         },
+        {
+          title: "თავი 8",
+          href: "/classes/javascript/2023f/week-8",
+        },
+        {
+          title: "თავი 9",
+          href: "/classes/javascript/2023f/week-9",
+        },
+        {
+          title: "თავი 10",
+          href: "/classes/javascript/2023f/week-10",
+        },
+        {
+          title: "თავი 11",
+          href: "/classes/javascript/2023f/week-11",
+        },
       ],
     },
   ],
@@ -270,6 +290,33 @@ export const docsConfig: DocsConfig = {
         {
           title: "თავი 7",
           href: "/classes/python/2023f/week-7",
+        },
+        {
+          title: "თავი 8",
+          href: "/classes/python/2023f/week-8",
+        },
+        {
+          title: "თავი 9",
+          href: "/classes/python/2023f/week-9",
+        },
+        {
+          title: "თავი 10",
+          href: "/classes/python/2023f/week-10",
+        },
+        {
+          title: "თავი 11",
+          href: "/classes/python/2023f/week-11",
+        },
+      ],
+    },
+  ],
+  reactor2022ClassNav: [
+    {
+      title: "Reactor 2022",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/reactor/2022w/week-1",
         },
       ],
     },
