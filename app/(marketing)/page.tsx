@@ -7,10 +7,11 @@ import { subjects } from "@/config/subjects"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button, buttonVariants } from "@/components/ui/button"
+import BlogComponent from "@/components/blog-component"
 import { Icons } from "@/components/icons"
 import { Maintenance } from "@/components/maintenance"
-import BlogComponent from "@/components/blog-component"
 import MentorsComponent from "@/components/mentors-component"
+import PricingCardComponent from "@/components/price-component"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
@@ -41,7 +42,7 @@ async function getGitHubStars(): Promise<string | null> {
 
 export default async function IndexPage() {
   if (env.MAINTENANCE_MODE == "true") {
-    return <Maintenance/>
+    return <Maintenance />
   }
 
   const stars = await getGitHubStars()
@@ -52,8 +53,9 @@ export default async function IndexPage() {
         id="programs"
         className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
       >
-        <BlogComponent columns="3"/>
+        <BlogComponent columns="3" />
         <MentorsComponent columns="4" />
+        <PricingCardComponent />
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
             სრული პროგრამები
@@ -92,7 +94,8 @@ export default async function IndexPage() {
                       <Link
                         href={program.url}
                         className={
-                          buttonVariants({ variant: "default" }) + " mb-4 w-full"
+                          buttonVariants({ variant: "default" }) +
+                          " mb-4 w-full"
                         }
                       >
                         ვრცლად
@@ -111,9 +114,8 @@ export default async function IndexPage() {
             🔥 სწავლა და ბრძოლა ✊
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            BitCamp ყველზე დიდი საგანმანათლებლო საზოგადოებაა საქართველოში. <br />{" "}
-            <br/>{" "}
-            მოგვწერეთ{" "}
+            BitCamp ყველზე დიდი საგანმანათლებლო საზოგადოებაა საქართველოში.{" "}
+            <br /> <br /> მოგვწერეთ{" "}
             <Link
               href={siteConfig.links.facebook}
               target="_blank"
