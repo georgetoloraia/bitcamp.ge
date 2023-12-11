@@ -58,7 +58,9 @@ const PricingCard = ({
 }: PricingCardProps) => (
   <Card
     className={cn(
-      `flex w-72 flex-col justify-between py-1 ${
+      `flex ${
+        title === "BitCamp Kids" ? "w-full" : "w-72"
+      } flex-col justify-between py-1 ${
         popular ? "border-rose-400" : "border-zinc-700"
       } mx-auto sm:mx-0`,
       {
@@ -68,7 +70,9 @@ const PricingCard = ({
     )}
   >
     <div>
-      <CardHeader className="pb-8 pt-4">
+      <CardHeader
+        className={`w-full ${title === "BitCamp Kids" ? "pb-1" : "pb-8"} pt-4`}
+      >
         {isYearly && yearlyPrice && monthlyPrice ? (
           <div className="flex justify-between">
             <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
@@ -180,15 +184,28 @@ export default function PricingCardComponent() {
       exclusive: true,
     },
   ]
+  const kidsPlan = [
+    {
+      title: "BitCamp Kids",
+      monthlyPrice: "50",
+      yearlyPrice: "0",
+      description: "დაიწყე პროგრამირების სწავლა უფასოდ",
+      features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
+      actionLabel: "ვრცლად",
+    },
+  ]
   return (
     <div className="py-8">
       <PricingHeader
         title="საფასური"
         subtitle="Choose the plan that's right for you"
       />
-      <section className="mt-8 flex flex-col justify-center gap-8 sm:flex-row sm:flex-wrap">
-        {plans.map((plan, index) => {
-          return <PricingCard key={index} {...plan} />
+      <section className="mt-8 flex flex-col justify-between gap-8 sm:flex-row sm:flex-wrap">
+        {plans.map((plan) => {
+          return <PricingCard key={plan.title} {...plan} />
+        })}
+        {kidsPlan.map((plan) => {
+          return <PricingCard key={plan.title} {...plan} />
         })}
       </section>
     </div>
