@@ -85,3 +85,13 @@ model Post {
 
   @@map(name: "posts")
 }
+
+model Comment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  mobile    String
+  source    String
+  createdAt DateTime @default(now())
+  comment   String
+}

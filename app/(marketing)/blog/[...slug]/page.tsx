@@ -9,8 +9,14 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl, cn, formatDate, generateDefaultMetaData } from "@/lib/utils"
+import {
+  absoluteUrl,
+  cn,
+  formatDate,
+  generateDefaultMetaData,
+} from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
+import BlogCommentForm from "@/components/blog-comment-form"
 import { Icons } from "@/components/icons"
 
 interface PostPageProps {
@@ -30,16 +36,14 @@ async function getPostFromParams(params) {
   return post
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps) {
+export async function generateMetadata({ params }: PostPageProps) {
   const page = await getPostFromParams(params)
 
   if (!page) {
     return {}
   }
 
-  return generateDefaultMetaData(page);
+  return generateDefaultMetaData(page)
 }
 
 export async function generateStaticParams(): Promise<
@@ -127,6 +131,11 @@ export default async function PostPage({ params }: PostPageProps) {
           ყველა სტატია
         </Link>
       </div>
+      <BlogCommentForm
+        formTitle={"დატოვეთ კომენტარი"}
+        postRoute={params?.slug?.join("/")}
+        postId={post._id}
+      />
     </article>
   )
 }
