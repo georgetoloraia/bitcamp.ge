@@ -94,7 +94,7 @@ export type DocsConfig = {
   classesNav: SidebarNavItem[]
   javasScript2023ClassNav: SidebarNavItem[]
   python2023ClassNav: SidebarNavItem[]
-  reactor2022ClassNav: SidebarNavItem[]
+  react2022ClassNav: SidebarNavItem[]
 }
 
 export type MarketingConfig = {

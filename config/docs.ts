@@ -202,8 +202,8 @@ export const docsConfig: DocsConfig = {
           href: "/classes/python",
         },
         {
-          title: "Reactor 2022w",
-          href: "/classes/reactor",
+          title: "React 2022w",
+          href: "/classes/react",
         },
       ],
     },
@@ -314,89 +314,89 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
-  reactor2022ClassNav: [
+  react2022ClassNav: [
     {
-      title: "Reactor 2022",
+      title: "React 2022",
       items: [
         {
           title: "თავი 1",
-          href: "/classes/reactor/2022w/week-1",
+          href: "/classes/react/2022w/week-1",
         },
         {
           title: "თავი 2",
-          href: "/classes/reactor/2022w/week-2",
+          href: "/classes/react/2022w/week-2",
         },
         {
           title: "თავი 3",
-          href: "/classes/reactor/2022w/week-3",
+          href: "/classes/react/2022w/week-3",
         },
         {
           title: "თავი 4",
-          href: "/classes/reactor/2022w/week-4",
+          href: "/classes/react/2022w/week-4",
         },
         {
           title: "თავი 5",
-          href: "/classes/reactor/2022w/week-5",
+          href: "/classes/react/2022w/week-5",
         },
         {
           title: "თავი 6",
-          href: "/classes/reactor/2022w/week-6",
+          href: "/classes/react/2022w/week-6",
         },
         {
           title: "თავი 7",
-          href: "/classes/reactor/2022w/week-7",
+          href: "/classes/react/2022w/week-7",
         },
         {
           title: "თავი 8",
-          href: "/classes/reactor/2022w/week-8",
+          href: "/classes/react/2022w/week-8",
         },
         {
           title: "თავი 9",
-          href: "/classes/reactor/2022w/week-9",
+          href: "/classes/react/2022w/week-9",
         },
         {
           title: "თავი 10",
-          href: "/classes/reactor/2022w/week-10",
+          href: "/classes/react/2022w/week-10",
         },
         {
           title: "თავი 11",
-          href: "/classes/reactor/2022w/week-11",
+          href: "/classes/react/2022w/week-11",
         },
         {
           title: "თავი 12",
-          href: "/classes/reactor/2022w/week-12",
+          href: "/classes/react/2022w/week-12",
         },
         {
           title: "თავი 13",
-          href: "/classes/reactor/2022w/week-13",
+          href: "/classes/react/2022w/week-13",
         },
         {
           title: "თავი 14",
-          href: "/classes/reactor/2022w/week-14",
+          href: "/classes/react/2022w/week-14",
         },
         {
           title: "თავი 15",
-          href: "/classes/reactor/2022w/week-15",
+          href: "/classes/react/2022w/week-15",
         },
         {
           title: "თავი 16",
-          href: "/classes/reactor/2022w/week-16",
+          href: "/classes/react/2022w/week-16",
         },
         {
           title: "თავი 17",
-          href: "/classes/reactor/2022w/week-17",
+          href: "/classes/react/2022w/week-17",
         },
         {
           title: "თავი 18",
-          href: "/classes/reactor/2022w/week-18",
+          href: "/classes/react/2022w/week-18",
         },
         {
           title: "თავი 19",
-          href: "/classes/reactor/2022w/week-19",
+          href: "/classes/react/2022w/week-19",
         },
         {
           title: "თავი 20",
-          href: "/classes/reactor/2022w/week-20",
+          href: "/classes/react/2022w/week-20",
         },
       ],
     },
