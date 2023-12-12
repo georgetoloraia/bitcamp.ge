@@ -6,15 +6,20 @@ import { Label } from "@/components/ui/label"
 
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card"
+import { Separator } from "./ui/separator"
+import Link from "next/link"
 
-export default function PreRegistrationForm({ formTitle }) {
+export default function PreRegistrationForm({ formTitle, formDescription }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     mobile: "",
     message: "",
-  })
+  });
+
+  const [submitted, setSubmitted] = useState(false);
 
 
   const handleChange = (
@@ -51,100 +56,115 @@ export default function PreRegistrationForm({ formTitle }) {
 
       if (!response.ok) throw new Error("Failed to save message")
 
-      // Reset form after successful submission
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        mobile: "",
-        message: "",
-      })
+      setSubmitted(true);
     } catch (error) {
       console.error("Error saving message:", error)
     }
   }
 
   return (
-    <form className="mt-8" onSubmit={handleSubmit}>
-      <h2 className="mb-4 text-2xl font-semibold ">{formTitle}</h2>
-      <div className="mb-4 flex flex-col">
-        <Label htmlFor="firstName" className="mb-2">
-          სახელი
-        </Label>
-        <Input
-          type="text"
-          placeholder="John Doe"
-          id="firstName"
-          name="firstName"
-          required
-          onChange={handleChange}
-          value={formData.firstName}
-        />
-      </div>
-      <div className="mb-4 flex flex-col">
-        <Label htmlFor="lastName" className="mb-2">
-          გვარი
-        </Label>
-        <Input
-          type="text"
-          placeholder="John Doe"
-          id="lastName"
-          name="lastName"
-          required
-          onChange={handleChange}
-          value={formData.lastName}
-        />
-      </div>
-      <div className="mb-4 flex flex-col">
-        <Label htmlFor="email" className="mb-2">
-          იმეილი:
-        </Label>
-        <Input
-          type="email"
-          placeholder="name@example.com"
-          id="email"
-          name="email"
-          autoCapitalize="none"
-          autoComplete="email"
-          autoCorrect="off"
-          onChange={handleChange}
-          value={formData.email}
-          required
-        />
-      </div>
-      <div className="mb-4 flex flex-col">
-        <Label htmlFor="mobile" className="mb-2">
-          მობილურის ნომერი:
-        </Label>
-        <Input
-          type="tel"
-          placeholder="+995 000 000 000"
-          id="mobile"
-          name="mobile"
-          onChange={handleChange}
-          value={formData.mobile}
-          required
-        />
-      </div>
+    <Card className="mt-5">
+      <CardHeader>
+        <CardTitle>{formTitle}</CardTitle>
+        <CardDescription className="leading-7 pt-2">{formDescription}</CardDescription>
+      </CardHeader>
+      <Separator />
+      <CardContent>
+        <form onSubmit={handleSubmit}>
 
-      <div className="mb-4 flex flex-col">
-        <Label htmlFor="message" className="mb-2">
-          კომენტარი:
-        </Label>
-        <Textarea
-          onChange={handleChange}
-          value={formData.message}
-          id="message"
-          name="message"
-          required
-        ></Textarea>
-      </div>
-      <button
-        type="submit"
-        className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-      >
-        Submit
-      </button>
-    </form>
+        <p className={submitted ? "leading-7 py-5": "hidden"}>
+          გმადლობთ {formData.firstName}! ✅
+          <br />
+          <br />
+          თქვენი ინფორმაცია მიღებულია, ჩვენი წარმომადგენელი დაგიკავშირდებათ უახლოეს მომავალში. 🎉
+          <br />
+          <br />
+          თუ ახლავე გსურთ ჩვენთან დაკავშირება, მოგვწერეთ Facebook გვერდზე <Link className="underline" href="https://www.facebook.com/bitcamp.ge" target="_blank">https://www.facebook.com/bitcamp.ge</Link> 🙏
+          
+          </p>
+
+          <div className={submitted ? "hidden": ""}>
+          <div className="my-4 flex flex-col">
+            <Label htmlFor="firstName" className="mb-2">
+              სახელი
+            </Label>
+            <Input
+              type="text"
+              placeholder="თქვენი სახელი"
+              id="firstName"
+              name="firstName"
+              required
+              onChange={handleChange}
+              value={formData.firstName}
+            />
+          </div>
+          <div className="mb-4 flex flex-col">
+            <Label htmlFor="lastName" className="mb-2">
+              გვარი
+            </Label>
+            <Input
+              type="text"
+              placeholder="თქვენი გვარი"
+              id="lastName"
+              name="lastName"
+              required
+              onChange={handleChange}
+              value={formData.lastName}
+            />
+          </div>
+          <div className="mb-4 flex flex-col">
+            <Label htmlFor="email" className="mb-2">
+              ელ.ფოსტა
+            </Label>
+            <Input
+              type="email"
+              placeholder="მისამართი"
+              id="email"
+              name="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              onChange={handleChange}
+              value={formData.email}
+              required
+            />
+          </div>
+          <div className="mb-4 flex flex-col">
+            <Label htmlFor="mobile" className="mb-2">
+              მობილურის ნომერი
+            </Label>
+            <Input
+              type="tel"
+              placeholder="5** ** ** **"
+              id="mobile"
+              name="mobile"
+              onChange={handleChange}
+              value={formData.mobile}
+              required
+            />
+          </div>
+
+          <div className="mb-4 flex flex-col">
+            <Label htmlFor="message" className="mb-2">
+              დამატებითი ინფორმაცია
+            </Label>
+            <Textarea
+              onChange={handleChange}
+              value={formData.message}
+              id="message"
+              name="message"
+              placeholder="შეიყვანეთ დამატებით ისეთი ინფორმაცია რაც გსურთ რომ გავითვალისწინოთ..."
+            ></Textarea>
+          </div>
+          <button
+            type="submit"
+            className="rounded-md bg-green-800 px-4 py-2 text-white hover:bg-green-700"
+          >
+            📨 გაგზავნა
+          </button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   )
 }
