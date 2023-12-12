@@ -66,13 +66,13 @@ export default function PreRegistrationForm({ formTitle, formDescription }) {
     <Card className="mt-5">
       <CardHeader>
         <CardTitle>{formTitle}</CardTitle>
-        <CardDescription className="leading-7 pt-2">{formDescription}</CardDescription>
+        <CardDescription className="pt-2 leading-7">{formDescription}</CardDescription>
       </CardHeader>
       <Separator />
       <CardContent>
         <form onSubmit={handleSubmit}>
 
-        <p className={submitted ? "leading-7 py-5": "hidden"}>
+        <p className={submitted ? "py-5 leading-7": "hidden"}>
           გმადლობთ {formData.firstName}! ✅
           <br />
           <br />
