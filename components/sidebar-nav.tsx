@@ -44,8 +44,8 @@ function getDynamicMenuItems(pathname: string | null): SidebarNavItem[] {
   if (pathname?.includes('python/2023f')) {
     items = docsConfig.python2023ClassNav
   }
-  if (pathname?.includes('reactor/2022w')) {
-    items = docsConfig.reactor2022ClassNav;
+  if (pathname?.includes('react/2022w')) {
+    items = docsConfig.react2022ClassNav;
   }
   return items;
 }
