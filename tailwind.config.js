@@ -10,6 +10,7 @@ module.exports = {
   ],
   darkMode: ["class"],
   theme: {
+
     container: {
       center: true,
       padding: "2rem",
@@ -19,6 +20,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        'bitcamp-red': '#db3943',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
