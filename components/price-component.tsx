@@ -58,8 +58,8 @@ const PricingCard = ({
 }: PricingCardProps) => (
   <Card
     className={cn(
-      `flex ${
-        title === "BitCamp Kids" ? "w-full" : "w-72"
+      `flex w-full ${
+        title === "BitCamp Kids" || title === "PRO" || "lg:w-[370px]"
       } flex-col justify-between py-1 ${
         popular ? "border-rose-400" : "border-zinc-700"
       } mx-auto sm:mx-0`,
@@ -71,7 +71,9 @@ const PricingCard = ({
   >
     <div>
       <CardHeader
-        className={`w-full ${title === "BitCamp Kids" ? "pb-1" : "pb-8"} pt-4`}
+        className={`w-full ${
+          title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
+        } pt-4`}
       >
         {isYearly && yearlyPrice && monthlyPrice ? (
           <div className="flex justify-between">
@@ -200,7 +202,7 @@ export default function PricingCardComponent() {
         title="საფასური"
         subtitle="Choose the plan that's right for you"
       />
-      <section className="mt-8 flex flex-col justify-between gap-8 sm:flex-row sm:flex-wrap">
+      <section className="mt-8 flex flex-col justify-center gap-8 sm:flex-wrap lg:flex-row xl:justify-between">
         {plans.map((plan) => {
           return <PricingCard key={plan.title} {...plan} />
         })}
