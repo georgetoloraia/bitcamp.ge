@@ -85,3 +85,14 @@ model Post {
 
   @@map(name: "posts")
 }
+
+model PreRegistartion {
+  id        String   @id @default(cuid())
+  firstName      String
+  lastName      String
+  email     String
+  mobile    String
+  source    String
+  createdAt DateTime @default(now())
+  message   String
+}

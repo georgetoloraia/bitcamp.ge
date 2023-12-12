@@ -9,9 +9,15 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { env } from "@/env.mjs"
-import { absoluteUrl, cn, formatDate, generateDefaultMetaData } from "@/lib/utils"
+import {
+  absoluteUrl,
+  cn,
+  formatDate,
+  generateDefaultMetaData,
+} from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+import PreRegistrationForm from "@/components/pre-registration-form"
 
 interface PostPageProps {
   params: {
@@ -30,16 +36,14 @@ async function getPostFromParams(params) {
   return post
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps) {
+export async function generateMetadata({ params }: PostPageProps) {
   const page = await getPostFromParams(params)
 
   if (!page) {
     return {}
   }
 
-  return generateDefaultMetaData(page);
+  return generateDefaultMetaData(page)
 }
 
 export async function generateStaticParams(): Promise<
