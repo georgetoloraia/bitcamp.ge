@@ -16,8 +16,8 @@ import {
   generateDefaultMetaData,
 } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import BlogCommentForm from "@/components/blog-comment-form"
 import { Icons } from "@/components/icons"
+import PreRegistrationForm from "@/components/pre-registration-form"
 
 interface PostPageProps {
   params: {
@@ -131,11 +131,6 @@ export default async function PostPage({ params }: PostPageProps) {
           ყველა სტატია
         </Link>
       </div>
-      <BlogCommentForm
-        formTitle={"დატოვეთ კომენტარი"}
-        postRoute={params?.slug?.join("/")}
-        postId={post._id}
-      />
     </article>
   )
 }

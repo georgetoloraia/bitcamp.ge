@@ -86,12 +86,13 @@ model Post {
   @@map(name: "posts")
 }
 
-model Comment {
+model PreRegistartion {
   id        String   @id @default(cuid())
-  name      String
+  firstName      String
+  lastName      String
   email     String
   mobile    String
   source    String
   createdAt DateTime @default(now())
-  comment   String
+  message   String
 }

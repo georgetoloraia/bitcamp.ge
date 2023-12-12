@@ -2,27 +2,17 @@ import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
-interface RequestBody {
-  name: string
-  email: string
-  mobile: string
-  comment: string
-  postId: string
-  source: string
-}
-
 export async function POST(req: Request) {
   try {
     const body = await req.json()
 
-    console.log("esaaa post id", body.postId)
-
-    await prisma.comment.create({
+    await prisma.preRegistartion.create({
       data: {
-        name: body.name,
+        firstName: body.firstName,
+        lastName: body.lastName,
         email: body.email,
         mobile: body.mobile,
-        comment: body.comment,
+        message: body.message,
         source: body.source,
       },
     })

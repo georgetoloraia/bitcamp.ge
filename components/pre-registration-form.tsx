@@ -7,13 +7,15 @@ import { Label } from "@/components/ui/label"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 
-export default function BlogCommentForm({ formTitle, postRoute, postId }) {
+export default function PreRegistrationForm({ formTitle }) {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     mobile: "",
-    comment: "",
+    message: "",
   })
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,37 +27,40 @@ export default function BlogCommentForm({ formTitle, postRoute, postId }) {
     }))
   }
 
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     try {
-      const response = await fetch("/api/comments", {
+      const postRoute = window.location.pathname;
+
+      const response = await fetch("/api/pre-registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           email: formData.email,
           mobile: formData.mobile,
-          comment: formData.comment,
+          message: formData.message,
           source: postRoute,
         }),
       })
 
-      if (!response.ok) {
-        throw new Error("Failed to save comment")
-      } else {
-        // Reset form after successful submission
-        setFormData({
-          name: "",
-          email: "",
-          mobile: "",
-          comment: "",
-        })
-      }
+      if (!response.ok) throw new Error("Failed to save message")
+
+      // Reset form after successful submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        mobile: "",
+        message: "",
+      })
     } catch (error) {
-      console.error("Error saving comment:", error)
+      console.error("Error saving message:", error)
     }
   }
 
@@ -63,17 +68,31 @@ export default function BlogCommentForm({ formTitle, postRoute, postId }) {
     <form className="mt-8" onSubmit={handleSubmit}>
       <h2 className="mb-4 text-2xl font-semibold ">{formTitle}</h2>
       <div className="mb-4 flex flex-col">
-        <Label htmlFor="name" className="mb-2">
+        <Label htmlFor="firstName" className="mb-2">
           სახელი
         </Label>
         <Input
           type="text"
           placeholder="John Doe"
-          id="name"
-          name="name"
+          id="firstName"
+          name="firstName"
           required
           onChange={handleChange}
-          value={formData.name}
+          value={formData.firstName}
+        />
+      </div>
+      <div className="mb-4 flex flex-col">
+        <Label htmlFor="lastName" className="mb-2">
+          გვარი
+        </Label>
+        <Input
+          type="text"
+          placeholder="John Doe"
+          id="lastName"
+          name="lastName"
+          required
+          onChange={handleChange}
+          value={formData.lastName}
         />
       </div>
       <div className="mb-4 flex flex-col">
@@ -109,14 +128,14 @@ export default function BlogCommentForm({ formTitle, postRoute, postId }) {
       </div>
 
       <div className="mb-4 flex flex-col">
-        <Label htmlFor="comment" className="mb-2">
+        <Label htmlFor="message" className="mb-2">
           კომენტარი:
         </Label>
         <Textarea
           onChange={handleChange}
-          value={formData.comment}
-          id="comment"
-          name="comment"
+          value={formData.message}
+          id="message"
+          name="message"
           required
         ></Textarea>
       </div>
