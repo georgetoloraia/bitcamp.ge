@@ -10,6 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model Account {
   id                String   @id @default(cuid())
   userId            String
@@ -64,7 +66,7 @@ model User {
 }
 
 model VerificationToken {
-  identifier String
+  identifier String   @id
   token      String   @unique
   expires    DateTime
 
@@ -96,3 +98,4 @@ model PreRegistartion {
   createdAt DateTime @default(now())
   message   String
 }
+
