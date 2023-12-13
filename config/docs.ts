@@ -259,6 +259,17 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
+  frontEndBasics2023ClassNav: [
+    {
+      title: "Front-End Basics 2023F",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/frontendbasics/2023f/week-1",
+        },
+      ],
+    },
+  ],
   python2023ClassNav: [
     {
       title: "Python 2023",

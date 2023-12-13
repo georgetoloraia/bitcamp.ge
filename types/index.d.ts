@@ -71,7 +71,6 @@ export type Mentor = {
   }[]
 }
 
-
 export type Subject = {
   name: string
   badge: string
@@ -93,6 +92,7 @@ export type DocsConfig = {
   mentorsNav: SidebarNavItem[]
   classesNav: SidebarNavItem[]
   javasScript2023ClassNav: SidebarNavItem[]
+  frontEndBasics2023ClassNav: SidebarNavItem[]
   python2023ClassNav: SidebarNavItem[]
   react2022ClassNav: SidebarNavItem[]
 }
@@ -118,9 +118,8 @@ export type UserSubscriptionPlan = SubscriptionPlan &
     isPro: boolean
   }
 
-
-  declare global {
-    interface Window {
-      fbq: Function;
-    }
+declare global {
+  interface Window {
+    fbq: Function
   }
+}
