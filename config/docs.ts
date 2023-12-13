@@ -205,6 +205,10 @@ export const docsConfig: DocsConfig = {
           title: "React 2022w",
           href: "/classes/react",
         },
+        {
+          title: "Front-End Basics 2023F",
+          href: "/classes/frontendbasics",
+        },
       ],
     },
   ],
