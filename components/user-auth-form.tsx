@@ -19,7 +19,7 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 type FormData = z.infer<typeof userAuthSchema>
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export function UserSignupForm({ className, ...props }: UserAuthFormProps) {
   const {
     register,
     handleSubmit,
@@ -34,21 +34,16 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   async function onSubmit(data: FormData) {
     setIsLoading(true)
 
-    const signInResult = await signIn("email", {
+    const signInResult = await signIn("credentials", {
+      username: data.username,
       email: data.email.toLowerCase(),
+      phone_number: data.phone_number.replace(/\s/g, ""),
+      password: data.password,
       redirect: false,
       callbackUrl: searchParams?.get("from") || "/dashboard",
     })
 
     setIsLoading(false)
-
-    if (!signInResult?.ok) {
-      return toast({
-        title: "Something went wrong.",
-        description: "Your sign in request failed. Please try again.",
-        variant: "destructive",
-      })
-    }
 
     return toast({
       title: "Check your email",
@@ -60,6 +55,20 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     <div className={cn("grid gap-6", className)} {...props}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid gap-2">
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="username">
+              Username
+            </Label>
+            <Input
+              id="username"
+              placeholder="username"
+              type="text"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("username")}
+            />
+          </div>
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
               Email
@@ -80,40 +89,42 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               </p>
             )}
           </div>
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="phone_number">
+              Phone Number
+            </Label>
+            <Input
+              id="phone_number"
+              placeholder="xxx xx xx xx"
+              type="text"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("phone_number")}
+            />
+          </div>
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="password">
+              Password
+            </Label>
+            <Input
+              id="password"
+              placeholder="password"
+              type="password"
+              autoCapitalize="none"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("password")}
+            />
+          </div>
           <button className={cn(buttonVariants())} disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign In with Email
+            Sign Up
           </button>
         </div>
       </form>
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
-            Or continue with
-          </span>
-        </div>
-      </div>
-      <button
-        type="button"
-        className={cn(buttonVariants({ variant: "outline" }))}
-        onClick={() => {
-          setIsGitHubLoading(true)
-          signIn("github")
-        }}
-        disabled={isLoading || isGitHubLoading}
-      >
-        {isGitHubLoading ? (
-          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-        ) : (
-          <Icons.gitHub className="mr-2 h-4 w-4" />
-        )}{" "}
-        Github
-      </button>
     </div>
   )
 }
