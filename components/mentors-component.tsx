@@ -20,8 +20,8 @@ export default function MentorsComponent({columns, ...props}: MentorsComponentPo
   return (
     <div>
       <h2 className="
-      font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl
-      mb-7
+      mb-7 font-heading text-3xl leading-[1.1] sm:text-3xl
+      md:text-6xl
       ">
         მენტორები
       </h2>

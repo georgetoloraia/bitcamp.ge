@@ -59,7 +59,7 @@ const PricingCard = ({
   <Card
     className={cn(
       `flex w-full ${
-        title === "BitCamp Kids" || title === "PRO" || "lg:w-[370px]"
+        title === "BitCamp Kids" || title === "PRO"
       } flex-col justify-between py-1 ${
         popular ? "border-rose-400" : "border-zinc-700"
       } mx-auto sm:mx-0`,
@@ -172,19 +172,19 @@ export default function PricingCardComponent() {
       actionLabel: "ვრცლად",
       popular: true,
     },
-    {
-      title: "PRO",
-      monthlyPrice: 2000,
-      description: "PRO - სუპერ ინტენსიური პროგრამა",
-      features: [
-        "10 საათიანი სამენტორო მომსახურება მთელი დღის განმალვობაში",
-        "რეზიუმეს/CV - ს და სამოტივაციო წერილის მომზადებაში დახმარებ",
-        "რეალურ პროექტში ჩართვის შესაძლებლობა",
-        "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
-      ],
-      actionLabel: "ვრცლად",
-      exclusive: true,
-    },
+    // {
+    //   title: "PRO",
+    //   monthlyPrice: 2000,
+    //   description: "PRO - სუპერ ინტენსიური პროგრამა",
+    //   features: [
+    //     "10 საათიანი სამენტორო მომსახურება მთელი დღის განმალვობაში",
+    //     "რეზიუმეს/CV - ს და სამოტივაციო წერილის მომზადებაში დახმარებ",
+    //     "რეალურ პროექტში ჩართვის შესაძლებლობა",
+    //     "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
+    //   ],
+    //   actionLabel: "ვრცლად",
+    //   exclusive: true,
+    // },
   ]
   const kidsPlan = [
     {
@@ -199,16 +199,16 @@ export default function PricingCardComponent() {
   return (
     <div className="py-8">
       <PricingHeader
-        title="საფასური"
-        subtitle="Choose the plan that's right for you"
+        title="მომსახურებები და საფასური"
+        subtitle="აირჩიე სასურველი"
       />
-      <section className="mt-8 flex flex-col justify-center gap-8 sm:flex-wrap lg:flex-row xl:justify-between">
+      <section className="mt-8 flex flex-col gap-4  md:flex-row lg:flex-row ">
         {plans.map((plan) => {
           return <PricingCard key={plan.title} {...plan} />
         })}
-        {kidsPlan.map((plan) => {
+        {/* {kidsPlan.map((plan) => {
           return <PricingCard key={plan.title} {...plan} />
-        })}
+        })} */}
       </section>
     </div>
   )
