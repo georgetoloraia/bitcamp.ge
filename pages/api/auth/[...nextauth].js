@@ -7,24 +7,22 @@ export default NextAuth({
       name: "credentials",
       credentials: {
         username: { label: "username", type: "text" },
-        email: { label: "email", type: "email" },
-        phone_number: { label: "phone_number", type: "text" },
-        password: { label: "password", type: "password" },
+        password: { label: "password", type: "password" }
       },
       async authorize(credentials) {
-        const res = await fetch(`${process.env.BACKEND_API_URL}/auth/signup`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`, {
           method: "POST",
           body: JSON.stringify(credentials),
           headers: { "Content-Type": "application/json" },
-        })
+        });
 
-        const user = await res.json()
+        const user = await res.json();
 
         if (res.ok && user) {
-          return user
+          return user;
         }
 
-        return null
+        return null;
       },
     }),
   ],
