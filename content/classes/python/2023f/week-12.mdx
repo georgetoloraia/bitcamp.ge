@@ -88,3 +88,30 @@ Views და Template-ები:
 - პროგრამას ასევე უნდა ჰქონდეს სტატისტიკის გვერდი მოკლე URL-ისთვის. მაგალითად /abc1234/stats.
 როდესაც ამ გვერდზე გადავა მომხმარებელი, უნდა ჩანდეს მოკლედ URL, გრძელი URL და რაოდენობა მოკლედ URL-ზე ვიზიტებისა.
 
+### სავარჯიშოები (SQL)
+
+1. შექმენით ცხრილი. (დაწერეთ SQL ბრძანება)
+შექმენით ცხრილი, სახელად 'Students' შემდეგი ველებით:
+- StudentID (integer, primary key)
+- FirstName (varchar)
+- LastName (varchar)
+- BirthDate (date)
+- Major (varchar)
+
+1. შეიყვანეთ მონაცემები 'Students' ცხრილში.
+დაწერეთ ბრძანება, რომელიც შექმნით ცხრილში შეიყვანს შემდეგ მონაცემებს:
+- StudentID: 101, FirstName: Alice, LastName: Smith, BirthDate: 2001-05-14, Major: Computer Science
+- StudentID: 102, FirstName: Bob, LastName: Johnson, BirthDate: 2002-09-23, Major: Mathematics
+
+1. დაწერეთ SQL ბრძანება, რომელიც გამოიტანს სახელებს, გვარებსა და კურსებს იმ სტუდენტებისა, რომლებიც დაიბადნენ პირველი იანვრის 2002 წლის შემდეგ.
+
+1. შეცვალეთ ინფორმაცია ცხრილში. დაწერეთ ბრძანება, რომელიც Bob-ის კურსს შეცვლის 'Physics'-ზე.
+
+1. შექმენით მეორე ცხრილი, სახელად 'Enrollments' და დაამყარეთ კავშირი ცხრილებს შორის.
+ველები:
+- EnrollmentID (integer, primary key)
+- StudentID (integer, გასაღები Students-ის)
+- CourseName (varchar)
+- Semester (varchar)
+
+1. დაწერეთ ბრძანება, რომელიც გამოიტანს ყველა სტუდენტის სახელს, ვინც არის ჩარიცხული 'Computer Science 101'-ში 'Fall 2023' სემესტრში.
