@@ -15,31 +15,49 @@ import { Label } from "@/components/ui/label"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
+  showAdditionalFields?: boolean;
+}
 
 type FormData = z.infer<typeof userAuthSchema>
 
-export function UserSignupForm({ className, ...props }: UserAuthFormProps) {
+export function UserAuthForm({ className, showAdditionalFields = true, ...props }: UserAuthFormProps) {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
-    resolver: zodResolver(userAuthSchema),
+    resolver: zodResolver(userAuthSchema)
   })
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams()
 
+  React.useEffect(() => {
+    if (!showAdditionalFields) {
+      setValue("email", "none@example.com");
+      setValue("phone_number", "000000000");
+    }
+  }, [showAdditionalFields, setValue]);
+
   async function onSubmit(data: FormData) {
     setIsLoading(true)
 
+    if (showAdditionalFields) {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signup`, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      }).then((response) => {
+        response
+      })
+    }
+
     const signInResult = await signIn("credentials", {
       username: data.username,
-      email: data.email.toLowerCase(),
-      phone_number: data.phone_number.replace(/\s/g, ""),
       password: data.password,
-      redirect: false,
+      redirect: true,
       callbackUrl: searchParams?.get("from") || "/dashboard",
     })
 
@@ -69,40 +87,44 @@ export function UserSignupForm({ className, ...props }: UserAuthFormProps) {
               {...register("username")}
             />
           </div>
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
-              Email
-            </Label>
-            <Input
-              id="email"
-              placeholder="name@example.com"
-              type="email"
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
-              {...register("email")}
-            />
-            {errors?.email && (
-              <p className="px-1 text-xs text-red-600">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="phone_number">
-              Phone Number
-            </Label>
-            <Input
-              id="phone_number"
-              placeholder="xxx xx xx xx"
-              type="text"
-              autoCapitalize="none"
-              autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
-              {...register("phone_number")}
-            />
-          </div>
+          {showAdditionalFields && (
+            <>
+              <div className="grid gap-1">
+                <Label className="sr-only" htmlFor="email">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  placeholder="name@example.com"
+                  type="email"
+                  autoCapitalize="none"
+                  autoComplete="email"
+                  autoCorrect="off"
+                  disabled={isLoading || isGitHubLoading}
+                  {...register("email")}
+                />
+                {errors?.email && (
+                  <p className="px-1 text-xs text-red-600">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+              <div className="grid gap-1">
+                <Label className="sr-only" htmlFor="phone_number">
+                  Phone Number
+                </Label>
+                <Input
+                  id="phone_number"
+                  placeholder="xxx xx xx xx"
+                  type="text"
+                  autoCapitalize="none"
+                  autoCorrect="off"
+                  disabled={isLoading || isGitHubLoading}
+                  {...register("phone_number")}
+                />
+              </div>
+            </>
+          )}
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="password">
               Password
