@@ -33,10 +33,10 @@ export default function LoginPage() {
             Welcome back
           </h1>
           <p className="text-sm text-muted-foreground">
-            Enter your email to sign in to your account
+            Enter your username and password to sign in to your account
           </p>
         </div>
-        <UserAuthForm />
+        <UserAuthForm showAdditionalFields={false} />
         <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
             href="/register"
