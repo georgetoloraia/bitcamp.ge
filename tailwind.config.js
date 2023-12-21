@@ -34,6 +34,7 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        mainBorderColor: "rgb(120,47,54)",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -96,10 +97,11 @@ module.exports = {
         "background-shine": "background-shine 2s linear infinite",
       },
       backgroundImage: {
-        'bitcamp-red': 'linear-gradient(135deg, rgba(180,38,53,1) 19%, rgba(217,56,66,1) 46%, rgba(183,39,54,1) 73%, rgba(217,56,66,1) 96%)',
+        "bitcamp-red":
+          "linear-gradient(135deg, rgba(180,38,53,1) 19%, rgba(217,56,66,1) 46%, rgba(183,39,54,1) 73%, rgba(217,56,66,1) 96%)",
       },
       backgroundColor: {
-        'solid-color': 'rgb(180,38,53)',
+        "solid-color": "rgb(180,38,53)",
       },
     },
   },
