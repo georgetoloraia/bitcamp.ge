@@ -15,8 +15,8 @@ export const marketingConfig: MarketingConfig = {
       href: "/blog",
     },
     {
-      title: "HTML",
-      href: "/courses/html/1-shesavali",
+      title: "მენტორები",
+      href: "/mentors",
     },
   ],
 }
