@@ -5,10 +5,10 @@ import { env } from "@/env.mjs"
 import { siteConfig } from "@/config/site"
 import { authOptions } from "@/lib/auth"
 import { getCurrentUser } from "@/lib/session"
+import { Button } from "@/components/ui/button"
 import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
 import SubscriptionsList from "@/components/subscriptions-list"
-import { Button } from "@/components/ui/button"
 
 export const metadata = {
   title: "შეძენილი სერვისები",
@@ -23,17 +23,12 @@ export default async function DashboardPage() {
 
   return (
     <DashboardShell>
-      <DashboardHeader
-        heading="ჩემი სივრცე"
-        text=""
-      >
+      <DashboardHeader heading="ჩემი სივრცე" text="">
         {/* <PostCreateButton /> */}
       </DashboardHeader>
       <div>
-        <section
-          className="container space-y-6 bg-slate-50 dark:bg-transparent "
-        >
-            <SubscriptionsList />
+        <section className="container space-y-6 bg-slate-50 dark:bg-transparent ">
+          <SubscriptionsList />
         </section>
       </div>
     </DashboardShell>
