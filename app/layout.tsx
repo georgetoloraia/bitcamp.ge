@@ -68,7 +68,7 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
+    shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
@@ -116,7 +116,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </Script>
 
         <Script id="fb-sdk">
-        {`
+          {`
           window.fbAsyncInit = function() {
             FB.init({
               xfbml            : true,
