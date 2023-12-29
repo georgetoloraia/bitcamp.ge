@@ -5,11 +5,11 @@ import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 
 import { MainNavItem } from "types"
+import { marketingConfig } from "@/config/marketing"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { MobileNav } from "@/components/mobile-nav"
-import { marketingConfig } from "@/config/marketing"
 
 interface MainNavProps {
   items?: MainNavItem[]
@@ -23,10 +23,10 @@ export function MainNav({ items, children }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <img width={"30px"} height={"30px"} src="/images/logo.jpg" />
-        <span className="hidden font-bold sm:inline-block">
+        <img width={"90px"} height={"90px"} src="/images/logo.jpg" />
+        {/* <span className="hidden font-bold sm:inline-block">
           {siteConfig.name}
-        </span>
+        </span> */}
       </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
@@ -51,7 +51,11 @@ export function MainNav({ items, children }: MainNavProps) {
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
-        {showMobileMenu ? <Icons.close /> : <img width={"30px"} height={"30px"} src="/images/logo.jpg " />}
+        {showMobileMenu ? (
+          <Icons.close />
+        ) : (
+          <img width={"60px"} height={"60px"} src="/images/logo.jpg " />
+        )}
         <span className="font-bold">ნავიგაცია </span>
       </button>
       {showMobileMenu && items && (
