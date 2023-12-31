@@ -18,5 +18,9 @@ export const marketingConfig: MarketingConfig = {
       title: "მენტორები",
       href: "/mentors",
     },
+    {
+      title: "უფასო კურსები",
+      href: "/classes",
+    },
   ],
 }
