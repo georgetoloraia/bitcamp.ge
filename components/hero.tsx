@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import astronaut from "@/public/images/hero/astronaut.png"
@@ -11,7 +11,7 @@ import python from "@/public/images/hero/python-planet.png"
 import react from "@/public/images/hero/react-planet.png"
 import { motion } from "framer-motion"
 
-import { Button, buttonVariants } from "./ui/button"
+import { buttonVariants } from "./ui/button"
 
 const planets = [
   { name: "JavaScript", image: js },
@@ -20,9 +20,9 @@ const planets = [
 ]
 
 const programs = [
-  { url: "#", title: "უფასო კურსები" },
-  { url: "#", title: "სასწავლო პროგრამები" },
-  { url: "#", title: "აიყვანე პირადი მენტორი" },
+  { url: "/classes", title: "უფასო კურსები" },
+  { url: "/programs", title: "სასწავლო პროგრამები" },
+  { url: "/mentors", title: "აიყვანე პირადი მენტორი" },
 ]
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
     const radius = parentDiv.offsetWidth / 2
 
     const orbitAnimation = () => {
-      const speed = 0.0001 // Adjust the speed as needed
+      const speed = 0.0001
       const angle = performance.now() * speed
       const rotationAngle = angle
 
@@ -69,23 +69,23 @@ export default function Hero() {
   }, [parentDivRef, planetRefs])
 
   return (
-    <div className="relative -mt-16 h-screen">
+    <div className="relative -mt-16 h-screen max-sm:h-full">
       <Image
         src={bg_code}
         alt="background"
         className="absolute -z-10 -mt-24 opacity-25"
       />
-      <div className="flex h-full">
-        <div className="flex w-1/2 flex-col justify-center">
-          <h1 className="text-[40px] font-bold">გინდა ისწავლო პროგრამირება?</h1>
-          <div className="flex flex-col gap-4">
+      <div className="flex h-full max-sm:mt-24 max-sm:flex-col-reverse max-sm:justify-end">
+        <div className="flex w-1/2 flex-col justify-center max-sm:w-full">
+          <h1 className="text-[40px] font-bold max-md:text-[30px] max-sm:text-[40px] max-sm:font-semibold">გინდა ისწავლო პროგრამირება?</h1>
+          <div className="mt-4 flex flex-col gap-4">
             {programs.map((program) => {
               return (
                 <Link
                   href={program.url}
                   className={
                     buttonVariants({ variant: "default" }) +
-                    " text-[19px] w-fit"
+                    " text-[20px] w-fit max-md:text-[16px] bg-[#5a3ca0] text-white rounded-3xl"
                   }
                 >
                   {program.title}
@@ -94,8 +94,8 @@ export default function Hero() {
             })}
           </div>
         </div>
-        <div className="flex w-1/2 justify-end self-center rounded-full">
-          <div className="relative flex w-9/12 items-center justify-center">
+        <div className="flex w-1/2 justify-end self-center rounded-full max-sm:w-8/12 max-sm:justify-start max-[500px]:w-9/12 max-[424px]:w-full">
+          <div className="relative right-10 -z-10 flex w-9/12 items-center justify-center max-lg:w-11/12 max-md:right-0 max-sm:w-full">
             <div ref={parentDivRef} className="relative z-10 rounded-full ">
               <Image src={orbit} alt="orbit" />
             </div>
