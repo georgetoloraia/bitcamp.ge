@@ -29,7 +29,7 @@ export default function Hero() {
       const x = Math.cos(angle) * radius
       const y = Math.sin(angle) * radius
 
-      planet.style.transform = ` translate(${x}px, ${y}px)`
+      planet.style.transform = `translate(-44%, -52%) translate(${x}px, ${y}px)`
 
       requestAnimationFrame(orbitAnimation)
     }
@@ -44,14 +44,19 @@ export default function Hero() {
         alt="background"
         className="absolute top-20 -mt-16 h-screen w-full opacity-25"
       />
-      <div className="absolute right-0 top-1/2 w-3/6 -translate-y-1/2 rounded-full bg-red-300">
-        <div className="relative" ref={parentDivRef}>
-          <Image src={orbit} alt="orbit" className="relative z-10" />
+      <div className="h-5/12 absolute right-0 top-1/2 w-5/12 -translate-y-1/2 rounded-full bg-red-300 ">
+        <div className="relative">
+          <div
+            ref={parentDivRef}
+            className="relative z-10 rounded-full bg-blue-200"
+          >
+            <Image src={orbit} alt="orbit" />
+          </div>
 
           <motion.div
             // transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-            className="absolute left-1/2 top-1/2 z-[99] w-1/3 bg-red-300"
-            // ref={planetRef}
+            className="absolute left-1/2 top-1/2 z-[99] w-1/3 -translate-x-1/2 -translate-y-1/2 "
+            ref={planetRef}
           >
             <Image src={js} alt="javascript planet" className="h-full w-full" />
           </motion.div>
