@@ -55,6 +55,14 @@ export const docsConfig: DocsConfig = {
           href: "/programs/about/duration",
         },
         {
+          title: "საერთო სამენტორო მომსახურება",
+          href: "/programs/about/saerto-samentoro",
+        },
+        {
+          title: "პირადი მენტორის მომსახურება",
+          href: "/programs/about/piradi-mentoris-momsaxureba",
+        },
+        {
           title: "საფასური",
           href: "/programs/about/pricing",
         },
