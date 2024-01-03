@@ -31,6 +31,10 @@ export default function Hero() {
   )
   const parentDivRef = useRef<HTMLDivElement | null>(null)
 
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+  }
+
   useEffect(() => {
     const parentDiv = parentDivRef.current
 
@@ -39,11 +43,16 @@ export default function Hero() {
     }
 
     const radius = parentDiv.offsetWidth / 2
+    const duration = 1000
+    const speed = 0.0001
+
+    const startTime = performance.now()
 
     const orbitAnimation = () => {
-      const speed = 0.0001
-      const angle = performance.now() * speed
-      const rotationAngle = angle
+      const currentTime = performance.now() - startTime
+      const progress = (currentTime % duration) / duration
+      const easedProgress = easeInOutQuad(progress)
+      const angle = currentTime * speed
 
       planets.forEach((planet, index) => {
         const planetRef = planetRefs.current[index]
@@ -57,7 +66,9 @@ export default function Hero() {
           const distanceFromCenter = Math.sqrt(x ** 2 + y ** 2)
 
           if (distanceFromCenter <= radius) {
-            planetRef.current.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${rotationAngle}rad)`
+            const transformValue = `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${angle}deg)`
+            planetRef.current.style.transition = "transform 0.2s"
+            planetRef.current.style.transform = transformValue
           }
         }
       })
@@ -100,9 +111,8 @@ export default function Hero() {
             </div>
 
             {planets.map((planet, index) => (
-              <motion.div
+              <div
                 key={index}
-                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
                 className="absolute left-1/2 top-1/2 z-30 w-2/6 -translate-x-1/2 -translate-y-1/2 transition-all"
                 ref={planetRefs.current[index]}
               >
@@ -111,7 +121,7 @@ export default function Hero() {
                   alt={`${planet.name} planet`}
                   className="h-full w-full"
                 />
-              </motion.div>
+              </div>
             ))}
 
             <motion.div
