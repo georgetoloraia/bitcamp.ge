@@ -69,24 +69,23 @@ export default function Hero() {
   }, [parentDivRef, planetRefs])
 
   return (
-    <div className="relative -mt-16 h-screen max-sm:h-full">
+    <div className="relative h-fit py-14 max-sm:py-7">
       <Image
         src={bg_code}
         alt="background"
-        className="absolute -z-10 -mt-24 opacity-25"
+        className="absolute -top-28 -z-10 opacity-25 max-md:-top-20 max-md:h-full"
       />
-      <div className="flex h-full max-sm:mt-24 max-sm:flex-col-reverse max-sm:justify-end">
+      <div className="flex h-full max-sm:flex-col-reverse max-sm:justify-end">
         <div className="flex w-1/2 flex-col justify-center max-sm:w-full">
-          <h1 className="text-[40px] font-bold max-md:text-[30px] max-sm:text-[40px] max-sm:font-semibold">გინდა ისწავლო პროგრამირება?</h1>
+          <h1 className="text-[40px] font-bold max-md:text-[30px] max-sm:text-[40px] max-sm:font-semibold">
+            გინდა ისწავლო პროგრამირება?
+          </h1>
           <div className="mt-4 flex flex-col gap-4">
             {programs.map((program) => {
               return (
                 <Link
                   href={program.url}
-                  className={
-                    buttonVariants({ variant: "default" }) +
-                    " text-[20px] w-fit max-md:text-[16px] bg-[#5a3ca0] text-white rounded-3xl"
-                  }
+                  className="w-fit rounded-3xl bg-[#5a3ca0] px-4 py-2 text-[18px] text-white max-md:text-[16px] "
                 >
                   {program.title}
                 </Link>

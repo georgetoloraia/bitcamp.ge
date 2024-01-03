@@ -7,13 +7,13 @@ import { subjects } from "@/config/subjects"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import BlogComponent from "@/components/blog-component"
+import Hero from "@/components/hero"
 import { Icons } from "@/components/icons"
 import { Maintenance } from "@/components/maintenance"
 import MentorsComponent from "@/components/mentors-component"
 import PricingCardComponent from "@/components/price-component"
-import { Separator } from "@/components/ui/separator"
-import Hero from "@/components/hero"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
