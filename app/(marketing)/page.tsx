@@ -7,12 +7,13 @@ import { subjects } from "@/config/subjects"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import BlogComponent from "@/components/blog-component"
+import Hero from "@/components/hero"
 import { Icons } from "@/components/icons"
 import { Maintenance } from "@/components/maintenance"
 import MentorsComponent from "@/components/mentors-component"
 import PricingCardComponent from "@/components/price-component"
-import { Separator } from "@/components/ui/separator"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
@@ -52,15 +53,9 @@ export default async function IndexPage() {
     <>
       <section
         id="programs"
-        className="container space-y-6 bg-slate-50 py-2 dark:bg-transparent md:py-2 lg:py-4"
+        className="container space-y-6 overflow-hidden bg-slate-50 py-2 dark:bg-transparent md:py-2 lg:py-4"
       >
-
-        <div className="mx-auto flex flex-col  space-y-4">
-          <h2 className="inline-block font-heading text-3xl tracking-tight lg:text-5xl">
-            ბლოგი
-          </h2>
-          <BlogComponent columns="2" postsLimit={2} random={true} />
-        </div>
+        <Hero />
         <Separator />
         <div className="mx-auto flex flex-col  space-y-4">
           <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
@@ -116,6 +111,12 @@ export default async function IndexPage() {
 
         {/* <PricingCardComponent /> */}
 
+        <div className="mx-auto flex flex-col  space-y-4">
+          <h2 className="inline-block font-heading text-3xl tracking-tight lg:text-5xl">
+            ბლოგი
+          </h2>
+          <BlogComponent columns="2" postsLimit={2} random={true} />
+        </div>
       </section>
       <section id="open-source" className="container py-8 md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
