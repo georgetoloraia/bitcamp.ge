@@ -51,6 +51,12 @@ export const Course = defineDocumentType(() => ({
     description: {
       type: "string",
     },
+    date:{
+      type:"string"
+    },
+    author:{
+      type:"string"
+    },
     ogImage: {
       type: 'string'
     },
@@ -74,6 +80,9 @@ export const Program = defineDocumentType(() => ({
     },
     ogImage: {
       type: 'string'
+    },
+    image:{
+      type:"string"
     },
     description: {
       type: "string",
@@ -121,6 +130,9 @@ export const Class = defineDocumentType(() => ({
     },
     ogImage: {
       type: 'string'
+    },
+    image:{
+      type:"string"
     },
     description: {
       type: "string",
