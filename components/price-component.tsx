@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ReactNode } from "react"
+import React, { ReactNode, useEffect } from "react"
 import { CheckCircle2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -18,6 +18,10 @@ import { pl } from "date-fns/locale"
 
 import { ModalDrawer } from "./modal-drawer"
 import { UserAuthForm } from "./user-auth-form"
+import { useSession } from "next-auth/react"
+import local from "next/font/local"
+
+
 type PricingCardProps = {
   isYearly?: boolean
   title: string
@@ -26,9 +30,11 @@ type PricingCardProps = {
   description: string
   features: string[]
   actionLabel: string
+  loggedInActionLabel: string
   popular?: boolean
   exclusive?: boolean
 }
+
 
 const PricingHeader = ({
   title,
@@ -44,6 +50,22 @@ const PricingHeader = ({
   </section>
 )
 
+const getFilterByIntent = (intent) => {
+  switch (intent) {
+    case "pro":
+      return ["pro", "private", "common", "kids"]
+    case "common":
+      return ["common", "private", "pro", "kids"]
+    case "private":
+      return ["private", "common", "pro", "kids"]
+    case "kids":
+      return ["kids", "common", "private", "pro"]
+    default:
+      return ["free", "common", "private", "pro", "kids"]
+  }
+}
+
+
 const PricingCard = ({
   isYearly,
   title,
@@ -52,79 +74,90 @@ const PricingCard = ({
   description,
   features,
   actionLabel,
+  loggedInActionLabel,
   popular,
   exclusive,
-}: PricingCardProps) => (
-  <Card
-    className={cn(
-      `flex w-full ${title === "BitCamp Kids" || title === "PRO"
-      } flex-col justify-between py-1 ${popular ? "border-rose-400" : "border-zinc-700"
-      } mx-auto sm:mx-0`,
-      {
-        "animate-background-shine bg-white dark:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors":
-          exclusive,
-      }
-    )}
-  >
-    <div>
-      <CardHeader
-        className={`w-full ${title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
-          } pt-4`}
-      >
-        {isYearly && yearlyPrice && monthlyPrice ? (
-          <div className="flex justify-between">
+}: PricingCardProps) => {
+  const {status, data} = useSession();
+
+  console.log("status");
+  console.log(status);
+
+  return (
+    <Card
+      className={cn(
+        `flex w-full ${title === "BitCamp Kids" || title === "PRO"
+        } flex-col justify-between py-1 ${popular ? "border-rose-400" : "border-zinc-700"
+        } mx-auto sm:mx-0`,
+        {
+          "animate-background-shine bg-white dark:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors":
+            exclusive,
+        }
+      )}
+    >
+      <div>
+        <CardHeader
+          className={`w-full ${title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
+            } pt-4`}
+        >
+          {isYearly && yearlyPrice && monthlyPrice ? (
+            <div className="flex justify-between">
+              <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
+                {title}
+              </CardTitle>
+              <div
+                className={cn(
+                  "h-fit rounded-xl bg-zinc-200 px-2.5 py-1 text-sm text-black dark:bg-zinc-800 dark:text-white",
+                  {
+                    "bg-gradient-to-r from-orange-400 to-rose-400 dark:text-black ":
+                      popular,
+                  }
+                )}
+              >
+                Save ₾{Number(monthlyPrice) * 12 - Number(yearlyPrice)}
+              </div>
+            </div>
+          ) : (
             <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
               {title}
             </CardTitle>
-            <div
-              className={cn(
-                "h-fit rounded-xl bg-zinc-200 px-2.5 py-1 text-sm text-black dark:bg-zinc-800 dark:text-white",
-                {
-                  "bg-gradient-to-r from-orange-400 to-rose-400 dark:text-black ":
-                    popular,
-                }
-              )}
-            >
-              Save ₾{Number(monthlyPrice) * 12 - Number(yearlyPrice)}
-            </div>
+          )}
+          <div className="flex gap-0.5">
+            <h3 className="text-3xl font-bold">
+              {yearlyPrice && isYearly
+                ? "₾" + yearlyPrice
+                : monthlyPrice
+                  ? "₾" + monthlyPrice
+                  : "Custom"}
+            </h3>
+            <span className="mb-1 flex flex-col justify-end text-sm">
+              {yearlyPrice && isYearly ? "/year" : monthlyPrice ? "/თვეში" : null}
+            </span>
           </div>
-        ) : (
-          <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
-            {title}
-          </CardTitle>
-        )}
-        <div className="flex gap-0.5">
-          <h3 className="text-3xl font-bold">
-            {yearlyPrice && isYearly
-              ? "₾" + yearlyPrice
-              : monthlyPrice
-                ? "₾" + monthlyPrice
-                : "Custom"}
-          </h3>
-          <span className="mb-1 flex flex-col justify-end text-sm">
-            {yearlyPrice && isYearly ? "/year" : monthlyPrice ? "/თვეში" : null}
-          </span>
-        </div>
-        <CardDescription className="h-12 pt-1.5">{description}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-2">
-        {features &&
-          Array.isArray(features) &&
-          features.map((feature: string | ReactNode, index: number) => (
-            <CheckItem key={index} text={feature} />
-          ))}
-      </CardContent>
-    </div>
-    <CardFooter className="mt-2">
-
-    <ModalDrawer 
-      content={<UserAuthForm showAdditionalFields={true}/>} 
-      triggerButtonLabel="რეგისტრაცია"
-      
-    />
-    </CardFooter>
-  </Card>
-)
+          <CardDescription className="h-12 pt-1.5">{description}</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-2">
+          {features &&
+            Array.isArray(features) &&
+            features.map((feature: string | ReactNode, index: number) => (
+              <CheckItem key={index} text={feature} />
+            ))}
+        </CardContent>
+      </div>
+      <CardFooter className="mt-2">
+        {status === 'authenticated'
+          ? (<Button className="text-white bg-green-700">
+          {loggedInActionLabel}
+        </Button>)
+          : (<ModalDrawer
+            content={<UserAuthForm showAdditionalFields={true} />}
+            triggerButtonLabel="რეგისტრაცია"
+          />)
+        }
+      </CardFooter>
+    </Card>
+  )
+}
 
 const CheckItem = ({ text }: { text: string | React.ReactNode }) => (
   <div className="flex gap-2">
@@ -137,11 +170,30 @@ const CheckItem = ({ text }: { text: string | React.ReactNode }) => (
   </div>
 )
 
-type PricingCardComponentProps = {
-  filter?: string[]
+interface PricingCardComponentProps {
+  intent?: string
 }
 
-export default function PricingCardComponent({ filter }: PricingCardComponentProps) {
+
+export default function PricingCardComponent({ intent }: PricingCardComponentProps) {
+  let [filter, setFilter] = React.useState<string[]>([]);
+
+  useEffect(() => { 
+    const getIntent = () => {
+      return localStorage.getItem("intent") || "free"
+    }
+
+    if (intent) {
+      localStorage.setItem("intent", intent)
+    }
+
+    setFilter(getFilterByIntent(getIntent()));  
+  }, []);
+
+
+
+
+ 
   const plans = [
     {
       machine_name: "free",
@@ -151,6 +203,7 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
       description: "დაიწყე პროგრამირების სწავლა უფასოდ",
       features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
       actionLabel: "ვრცლად",
+      loggedInActionLabel: "დაწყება",
     },
     {
       machine_name: "common",
@@ -163,6 +216,7 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
         "მენტორის მომსახურეობა კვირაში სამჯერ 2 საათით",
       ],
       actionLabel: "ვრცლად",
+      loggedInActionLabel: "შეძენა",
     },
     {
       machine_name: "private",
@@ -175,6 +229,7 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
         "ყოველდღიური კომუნიკაცია მენტორთან",
       ],
       actionLabel: "ვრცლად",
+      loggedInActionLabel: "შეძენა",
       popular: true,
     },
     {
@@ -189,6 +244,7 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
         "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
       ],
       actionLabel: "ვრცლად",
+      loggedInActionLabel: "შეძენა",
       exclusive: true,
     },
     {
@@ -199,6 +255,7 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
       description: "დაიწყე პროგრამირების სწავლა უფასოდ",
       features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
       actionLabel: "ვრცლად",
+      loggedInActionLabel: "შეძენა",
     },
   ];
 
@@ -211,17 +268,17 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
   })
 
 
-  let sections: [any] = [{width: 'full', plans: []}];
+  let sections: [any] = [{ width: 'full', plans: [] }];
   let sectionIndex = 0;
 
-  if (filteredPlans){
+  if (filteredPlans) {
     for (let plan of filteredPlans) {
       if (plan?.machine_name === 'pro' || plan?.machine_name === 'kids') {
         sectionIndex++;
-        sections[sectionIndex] = {width: 'full', plans: [plan]};
+        sections[sectionIndex] = { width: 'full', plans: [plan] };
         sectionIndex++;
       } else {
-        if(!sections[sectionIndex]) sections[sectionIndex] = {width: 'col', plans: []};
+        if (!sections[sectionIndex]) sections[sectionIndex] = { width: 'col', plans: [] };
         sections[sectionIndex].plans.push(plan);
       }
     }
@@ -264,3 +321,5 @@ export default function PricingCardComponent({ filter }: PricingCardComponentPro
     </div>
   )
 }
+
+

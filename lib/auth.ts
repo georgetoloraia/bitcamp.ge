@@ -1,57 +1,92 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
-import { NextAuthOptions } from "next-auth"
-import EmailProvider from "next-auth/providers/email"
-import GitHubProvider from "next-auth/providers/github"
-import { Client } from "postmark"
+import { NextAuthOptions } from "next-auth";
+import CredentialsProvider from 'next-auth/providers/credentials';
 
-import { env } from "@/env.mjs"
-import { siteConfig } from "@/config/site"
-import { db } from "@/lib/db"
 
-const postmarkClient = new Client(env.POSTMARK_API_TOKEN)
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+async function loginUser(credentials) {
+  const response = await fetch(`${BACKEND_URL}/auth/login`, {
+    method: "POST",
+    body: JSON.stringify(credentials),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!response.ok) {
+    throw new Error('Invalid credentials');
+  }
+
+  const user = await response.json();
+  return user.token;
+}
+
+async function getUserProfile(token) {
+  const profileResponse = await fetch(`${BACKEND_URL}/auth/profile`, {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  });
+
+  if (!profileResponse.ok) {
+    throw new Error('Failed to fetch user profile');
+  }
+
+  return profileResponse.json();
+}
+
 
 export const authOptions: NextAuthOptions = {
-  // huh any! I know.
-  // This is a temporary fix for prisma client.
-  // @see https://github.com/prisma/prisma/issues/16117
   session: {
     strategy: "jwt",
   },
   pages: {
     signIn: "/login",
   },
-  providers: [],
-  callbacks: {
-    async session({ token, session }) {
-      if (token) {
-        session.user.id = token.id
-        session.user.name = token.name
-        session.user.email = token.email
-        session.user.image = token.picture
-      }
+  providers: [
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        try {
+          const token = await loginUser(credentials);
+          const profile = await getUserProfile(token);
 
-      return session
+          return {
+            accessToken: token,
+            id: profile.id,
+            name: profile.username,
+            email: profile.email
+          };
+        } catch (error) {
+          console.error('Login error:', error);
+          return null;
+        }
+      },
+    }),
+  ],
+  callbacks: {
+    async session({ session, token }) {
+      if (token) {
+        session.user = {
+          ...session.user,
+          id: token.id ?? session.user.id,
+          name: token.name ?? session.user.name,
+          email: token.email ?? session.user.email,
+          accessToken: token.accessToken,
+        };
+      }
+      return session;
     },
     async jwt({ token, user }) {
-      const fetchedUser = await (await fetch("http://localhost/auth/profile", {
-        headers: {
-          Authorization: `Token ${(token.user as any).token}`, // Type assertion to 'any'
-        },
-      })).json();
-
-      if (!fetchedUser) {
-        if (user) {
-          token.id = user?.id
-        }
-        return token
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+        token.accessToken = user.accessToken;
       }
-
-      return {
-        id: fetchedUser.id,
-        name: fetchedUser.username,
-        email: fetchedUser.email,
-        picture: fetchedUser.image,
-      }
+      return token;
     },
   },
 }
