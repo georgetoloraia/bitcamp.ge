@@ -170,14 +170,6 @@ export const docsConfig: DocsConfig = {
           href: "/mentors/lasha-megrelishvili",
         },
         {
-          title: "ლევან იაკობიძე",
-          href: "/mentors/levan-iakobidze",
-        },
-        {
-          title: "ნიკოლოზ ყიფშიძე",
-          href: "/mentors/nika-kipshidze",
-        },
-        {
           title: "თედო ჯანელიძე",
           href: "/mentors/tedo-janelidze",
         },
