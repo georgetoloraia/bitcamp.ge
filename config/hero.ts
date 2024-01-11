@@ -1,4 +1,4 @@
-import js from "@/public/images/hero/JS-planet.png"
+import js from "@/public/images/hero/javascript-planet.png"
 import python from "@/public/images/hero/python-planet.png"
 import react from "@/public/images/hero/react-planet.png"
 
