@@ -10,7 +10,6 @@ import React from "react"
 import animationHero from "@/public/images/hero/animation-hero.png"
 import bg_code from "@/public/images/hero/bg-code.png"
 import { buttonVariants } from "./ui/button"
-import { motion } from "framer-motion"
 import orbit from "@/public/images/hero/orbit.png"
 
 export default function Hero() {
@@ -23,7 +22,7 @@ export default function Hero() {
       />
       <div className="flex h-full max-sm:flex-col-reverse max-sm:justify-end">
         <div className="flex w-1/2  flex-col justify-center gap-7 max-sm:w-full">
-          <h1 className="text-[45px] font-bold max-md:text-[30px] max-sm:text-[40px] max-sm:font-semibold">
+          <h1 className="text-[45px] font-bold max-md:text-[30px] max-sm:mt-5 max-sm:text-[40px] max-sm:font-semibold">
             გინდა ისწავლო პროგრამირება?
           </h1>
           <div className="mt-2 flex flex-col gap-4">
@@ -54,8 +53,13 @@ export default function Hero() {
                     animation: `rotatePlanet${index} 40s linear infinite`,
                   }}
                 >
-                  <div className={`w-2/5 -translate-x-1/2 `}>
+                  <div
+                 
+                  className={`${planet.name ==='react'? 'w-1/4' :'w-4/12'} -translate-x-1/2 `}>
                     <Image
+                     style={{
+                      animation: `rotateEachPlanet 15s linear infinite`,
+                    }}
                       src={planet.image}
                       alt="js"
                       className="h-full w-full"
@@ -65,19 +69,15 @@ export default function Hero() {
               )
             })}
 
-            <motion.div
-              animate={{
-                y: [-3, 3, -3],
-              }}
-              transition={{ repeat: Infinity, duration: 5 }}
-              className="absolute top-0 z-30 h-full"
+            <div
+              className="absolute z-30"
+              style={{ animation: "bounceAnimation 5s infinite linear" }}
             >
               <Image
                 src={animationHero}
-                alt="astronaut"
-                className="h-full w-full"
+                alt="hero animation logo"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
