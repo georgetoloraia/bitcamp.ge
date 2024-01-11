@@ -1,3 +1,4 @@
+"use client"
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -24,21 +25,17 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function  ModalDrawer({content, triggerButtonLabel}) {
-  const [open, setOpen] = React.useState(false)
+export function ModalDrawer({modalTitle, modalDescription, content, open, setOpen }) {
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black px-6 font-medium text-white transition-colors  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-white dark:text-black" variant="outline">{triggerButtonLabel}</Button>
-        </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>{modalTitle}</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
+              {modalDescription}
             </DialogDescription>
           </DialogHeader>
           {content}
@@ -49,18 +46,15 @@ export function  ModalDrawer({content, triggerButtonLabel}) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline">{triggerButtonLabel}</Button>
-      </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Edit profile</DrawerTitle>
+          <DrawerTitle>{modalTitle}</DrawerTitle>
           <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
+            {modalDescription}
           </DrawerDescription>
         </DrawerHeader>
         <div className="p-4">
-        {content}
+          {content}
         </div>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
@@ -69,21 +63,5 @@ export function  ModalDrawer({content, triggerButtonLabel}) {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  )
-}
-
-function ProfileForm({ className }: React.ComponentProps<"form">) {
-  return (
-    <form className={cn("grid items-start gap-4", className)}>
-      <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
-        <Input type="email" id="email" defaultValue="shadcn@example.com" />
-      </div>
-      <div className="grid gap-2">
-        <Label htmlFor="username">Username</Label>
-        <Input id="username" defaultValue="@shadcn" />
-      </div>
-      <Button type="submit">Save changes</Button>
-    </form>
   )
 }

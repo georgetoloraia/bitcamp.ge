@@ -7,6 +7,9 @@ import { buttonVariants } from "@/components/ui/button"
 import { MainNav } from "@/components/main-nav"
 import { DocsSidebarNav } from "@/components/sidebar-nav"
 import { SiteFooter } from "@/components/site-footer"
+import { UserAccountNav } from "@/components/user-account-nav"
+import { getCurrentUser } from "@/lib/session"
+import { SignInUpNav } from "@/components/sing-in-up-nav"
 
 interface MarketingLayoutProps {
   children: React.ReactNode
@@ -15,6 +18,8 @@ interface MarketingLayoutProps {
 export default async function MarketingLayout({
   children,
 }: MarketingLayoutProps) {
+  const user = await getCurrentUser();
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b border-mainBorderColor bg-background">
@@ -24,16 +29,15 @@ export default async function MarketingLayout({
           </MainNav>
           <div className="flex flex-1 items-center space-x-4 sm:justify-end">
             <nav>
-              <Link
-                href="/programs/about/registration"
-                className={cn(
-                  buttonVariants({ variant: "secondary", size: "sm" }),
-                  "px-4"
-                )}
-              >
-                რეგისტრაცია 🔥
-              </Link>
             </nav>
+            {user ? (<UserAccountNav
+              user={{
+                name: user.name,
+                email: user.email,
+              }}
+            />): (
+              <SignInUpNav />
+            )}
           </div>
         </div>
       </header>

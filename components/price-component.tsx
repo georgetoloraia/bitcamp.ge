@@ -78,10 +78,12 @@ const PricingCard = ({
   popular,
   exclusive,
 }: PricingCardProps) => {
-  const {status, data} = useSession();
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = React.useState(false);
+  const toggleSignUpModal = () => {
+    setIsSignUpModalOpen(!isSignUpModalOpen);
+  }
 
-  console.log("status");
-  console.log(status);
+  const { status, data } = useSession();
 
   return (
     <Card
@@ -147,12 +149,22 @@ const PricingCard = ({
       <CardFooter className="mt-2">
         {status === 'authenticated'
           ? (<Button className="text-white bg-green-700">
-          {loggedInActionLabel}
-        </Button>)
-          : (<ModalDrawer
-            content={<UserAuthForm showAdditionalFields={true} />}
-            triggerButtonLabel="რეგისტრაცია"
-          />)
+            {loggedInActionLabel}
+          </Button>)
+          : (
+            <>
+              <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black px-6 font-medium text-white transition-colors  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-white dark:text-black" variant="outline" onClick={toggleSignUpModal}>{actionLabel}</Button>
+
+              <ModalDrawer
+                content={<UserAuthForm showAdditionalFields={true} />}
+                modalTitle="რეგისტრაცია"
+                modalDescription={"გთხოვთ შეიყვანოთ თქვენი მონაცემები"}
+                open={isSignUpModalOpen}
+                setOpen={setIsSignUpModalOpen}
+              />
+            </>
+
+          )
         }
       </CardFooter>
     </Card>
@@ -178,7 +190,7 @@ interface PricingCardComponentProps {
 export default function PricingCardComponent({ intent }: PricingCardComponentProps) {
   let [filter, setFilter] = React.useState<string[]>([]);
 
-  useEffect(() => { 
+  useEffect(() => {
     const getIntent = () => {
       return localStorage.getItem("intent") || "free"
     }
@@ -187,13 +199,13 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
       localStorage.setItem("intent", intent)
     }
 
-    setFilter(getFilterByIntent(getIntent()));  
+    setFilter(getFilterByIntent(getIntent()));
   }, []);
 
 
 
 
- 
+
   const plans = [
     {
       machine_name: "free",
@@ -202,7 +214,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
       yearlyPrice: "0",
       description: "დაიწყე პროგრამირების სწავლა უფასოდ",
       features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-      actionLabel: "ვრცლად",
+      actionLabel: "რეგისტრაცია",
       loggedInActionLabel: "დაწყება",
     },
     {
@@ -215,7 +227,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
         "კვირაში ერთი თეორიული და ორი პრაქტიკული სემინარი",
         "მენტორის მომსახურეობა კვირაში სამჯერ 2 საათით",
       ],
-      actionLabel: "ვრცლად",
+      actionLabel: "რეგისტრაცია",
       loggedInActionLabel: "შეძენა",
     },
     {
@@ -228,7 +240,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
         "თეორიული და პრაქტიკული სემინარები",
         "ყოველდღიური კომუნიკაცია მენტორთან",
       ],
-      actionLabel: "ვრცლად",
+      actionLabel: "რეგისტრაცია",
       loggedInActionLabel: "შეძენა",
       popular: true,
     },
@@ -243,7 +255,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
         "რეალურ პროექტში ჩართვის შესაძლებლობა",
         "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
       ],
-      actionLabel: "ვრცლად",
+      actionLabel: "რეგისტრაცია",
       loggedInActionLabel: "შეძენა",
       exclusive: true,
     },
@@ -254,7 +266,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
       yearlyPrice: "0",
       description: "დაიწყე პროგრამირების სწავლა უფასოდ",
       features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-      actionLabel: "ვრცლად",
+      actionLabel: "რეგისტრაცია",
       loggedInActionLabel: "შეძენა",
     },
   ];
