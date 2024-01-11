@@ -1,24 +1,43 @@
 @keyframes rotatePlanet0 {
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
-  
-  @keyframes rotatePlanet1 {
-    from {
-      transform: rotate(120deg);
-    }
-    to {
-      transform: rotate(480deg);
-    }
+}
+
+@keyframes rotatePlanet1 {
+  from {
+    transform: rotate(120deg);
   }
-  
-  @keyframes rotatePlanet2 {
-    from {
-      transform: rotate(240deg);
-    }
-    to {
-      transform: rotate(600deg);
-    }
+  to {
+    transform: rotate(480deg);
   }
+}
   
+@keyframes rotatePlanet2 {
+  from {
+    transform: rotate(240deg);
+  }
+  to {
+    transform: rotate(600deg);
+  }
+}
+  
+
+@keyframes rotateEachPlanet {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+  
+
+@keyframes bounceAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

@@ -1,6 +1,6 @@
-import js from "@/public/images/hero/javascript-planet.png"
-import python from "@/public/images/hero/python-planet.png"
-import react from "@/public/images/hero/react-planet.png"
+import js from "@/public/images/hero/javasscriptPlanet.png"
+import python from "@/public/images/hero/pythonPlanet.png"
+import react from "@/public/images/hero/reactPlanet.png"
 
 export const planets = [
     { name: "JavaScript", image: js },
