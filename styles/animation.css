@@ -1,0 +1,24 @@
+@keyframes rotatePlanet0 {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotatePlanet1 {
+    from {
+      transform: rotate(120deg);
+    }
+    to {
+      transform: rotate(480deg);
+    }
+  }
+  
+  @keyframes rotatePlanet2 {
+    from {
+      transform: rotate(240deg);
+    }
+    to {
+      transform: rotate(600deg);
+    }
+  }
+  
