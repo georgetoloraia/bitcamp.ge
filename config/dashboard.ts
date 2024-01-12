@@ -1,17 +1,8 @@
 import { DashboardConfig } from "types"
+import { marketingConfig } from "./marketing"
 
 export const dashboardConfig: DashboardConfig = {
-  mainNav: [
-    {
-      title: "Documentation",
-      href: "/docs",
-    },
-    {
-      title: "Support",
-      href: "/support",
-      disabled: true,
-    },
-  ],
+  mainNav: marketingConfig.mainNav,
   sidebarNav: [
     {
       title: "ჩემი სივრცე",
