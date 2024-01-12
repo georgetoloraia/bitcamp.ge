@@ -1,0 +1,5 @@
+
+GET http://localhost/enrollments/14/check-payze-subscription-status
+# enrollments/<int:id>/check-payze-subscription-status
+Content-Type: application/json
+Authorization: Token 46898005350336ba116eb052dda659b973bf82e9
