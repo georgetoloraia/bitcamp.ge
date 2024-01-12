@@ -74,7 +74,6 @@ export const authOptions: NextAuthOptions = {
           id: token.id ?? session.user.id,
           name: token.name ?? session.user.name,
           email: token.email ?? session.user.email,
-          accessToken: token.accessToken,
         };
       }
       return session;
@@ -84,7 +83,6 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id;
         token.name = user.name;
         token.email = user.email;
-        token.accessToken = user.accessToken;
       }
       return token;
     },

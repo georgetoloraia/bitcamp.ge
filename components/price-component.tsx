@@ -148,7 +148,7 @@ const PricingCard = ({
       </div>
       <CardFooter className="mt-2">
         {status === 'authenticated'
-          ? (<Button className="text-white bg-green-700">
+          ? (<Button className="bg-green-700 text-white">
             {loggedInActionLabel}
           </Button>)
           : (
