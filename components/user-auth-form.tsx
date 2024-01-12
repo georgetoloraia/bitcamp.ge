@@ -34,12 +34,6 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams()
 
-  React.useEffect(() => {
-    if (!showAdditionalFields) {
-      setValue("email", "none@example.com");
-      setValue("phone_number", "000000000");
-    }
-  }, [showAdditionalFields, setValue]);
 
   async function onSubmit(data: FormData) {
     setIsLoading(true)
@@ -89,30 +83,30 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
           </div>
 
           <div className="grid gap-1">
-                <Label className="sr-only" htmlFor="email">
-                  ელ.ფოსტა
-                </Label>
-                <Input
-                  id="email"
-                  placeholder="ელ.ფოსტის მისამართი"
-                  type="email"
-                  autoCapitalize="none"
-                  autoComplete="email"
-                  autoCorrect="off"
-                  disabled={isLoading || isGitHubLoading}
-                  {...register("email")}
-                  onChange={(e) => { setValue("username", e.target.value);}}
-                />
-                {errors?.email && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
+            <Label className="sr-only" htmlFor="email">
+              ელ.ფოსტა
+            </Label>
+            <Input
+              id="email"
+              placeholder="ელ.ფოსტის მისამართი"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("email")}
+              onChange={(e) => { setValue("username", e.target.value); }}
+            />
+            {errors?.email && (
+              <p className="px-1 text-xs text-red-600">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
 
           {showAdditionalFields && (
             <>
-            <div className="grid gap-1">
+              <div className="grid gap-1">
                 <Label className="sr-only" htmlFor="first_name">
                   სახელი
                 </Label>
@@ -152,7 +146,7 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
                   </p>
                 )}
               </div>
-              
+
               <div className="grid gap-1">
                 <Label className="sr-only" htmlFor="phone_number">
                   ტელეფონი
@@ -166,6 +160,11 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
                   disabled={isLoading || isGitHubLoading}
                   {...register("phone_number")}
                 />
+                {errors?.phone_number && (
+                  <p className="px-1 text-xs text-red-600">
+                    {errors.phone_number.message}
+                  </p>
+                )}
               </div>
             </>
           )}
@@ -182,12 +181,18 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
               disabled={isLoading || isGitHubLoading}
               {...register("password")}
             />
+            {errors?.password && (
+              <p className="px-1 text-xs text-red-600">
+                {errors.password.message}
+              </p>
+            )}
           </div>
+
           <button className={cn(buttonVariants())} disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign Up
+            {showAdditionalFields ? "რეგისტრაცია" : "შესვლა"}
           </button>
         </div>
       </form>

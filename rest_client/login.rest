@@ -1,0 +1,7 @@
+POST http://localhost/auth/login
+Content-Type: application/json
+
+{
+  "username": "oto2@bitcamp.ge",
+  "password": "12345678"
+}

@@ -23,17 +23,17 @@ export default function LoginPage() {
       >
         <>
           <Icons.chevronLeft className="mr-2 h-4 w-4" />
-          Back
+          უკან
         </>
       </Link>
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
-          <Icons.logo className="mx-auto h-6 w-6" />
+          <img width={"120px"} height={"120px"} className="mx-auto" src="/images/logo.jpg" />
           <h1 className="text-2xl font-semibold tracking-tight">
-            Welcome back
+            შესვლა
           </h1>
           <p className="text-sm text-muted-foreground">
-            Enter your username and password to sign in to your account
+            სისტემაში შესასვლელად შეიყვანეთ თქვენი ელ.ფოსტის მისამართი და პაროლი
           </p>
         </div>
         <UserAuthForm showAdditionalFields={false} />
@@ -42,7 +42,7 @@ export default function LoginPage() {
             href="/register"
             className="hover:text-brand underline underline-offset-4"
           >
-            Don&apos;t have an account? Sign Up
+            თუ ჯერ არ გაქვთ BitCamp - ის ექაუნთი გაიარეთ რეგისტრაცია
           </Link>
         </p>
       </div>

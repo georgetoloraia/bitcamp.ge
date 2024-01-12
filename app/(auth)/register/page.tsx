@@ -26,31 +26,17 @@ export default function RegisterPage() {
       <div className="lg:p-8">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
-            <Icons.logo className="mx-auto h-6 w-6" />
+          <img width={"120px"} height={"120px"} className="mx-auto" src="/images/logo.jpg" />
             <h1 className="text-2xl font-semibold tracking-tight">
-              Create an account
+              რეგისტრაცია
             </h1>
             <p className="text-sm text-muted-foreground">
-              Enter your username, email, phone number and password below to create your account
+              შეიყვანეთ მონაცემები და გაიარეთ რეგისტრაცია
             </p>
           </div>
           <UserAuthForm showAdditionalFields={true} />
           <p className="px-8 text-center text-sm text-muted-foreground">
-            By clicking continue, you agree to our{" "}
-            <Link
-              href="/terms"
-              className="hover:text-brand underline underline-offset-4"
-            >
-              Terms of Service
-            </Link>{" "}
-            and{" "}
-            <Link
-              href="/privacy"
-              className="hover:text-brand underline underline-offset-4"
-            >
-              Privacy Policy
-            </Link>
-            .
+            მხოლოდ 1 წესია მნიშვნელოვანი: <br /> თუ სწავლას დაიწყებ, გაჩერება არ მოსულა!
           </p>
         </div>
       </div>
