@@ -1,0 +1,12 @@
+
+POST https://platform.bitcamp.ge/enroll
+Content-Type: application/json
+Authorization: Token {token}
+
+{
+  "user_id": "2",
+  "service_id": "1",
+  "program_id": "1",
+  "mentor_id": "1",
+  "status": "Pending"
+}

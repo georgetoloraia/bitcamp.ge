@@ -1,0 +1,7 @@
+POST https://platform.bitcamp.ge/auth/login
+Content-Type: application/json
+
+{
+  "username": "oto1@bitcamp.ge",
+  "password": "1234"
+}

@@ -34,12 +34,6 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
   const searchParams = useSearchParams()
 
-  React.useEffect(() => {
-    if (!showAdditionalFields) {
-      setValue("email", "none@example.com");
-      setValue("phone_number", "000000000");
-    }
-  }, [showAdditionalFields, setValue]);
 
   async function onSubmit(data: FormData) {
     setIsLoading(true)
@@ -80,70 +74,125 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
             <Input
               id="username"
               placeholder="username"
-              type="text"
+              type="hidden"
               autoCapitalize="none"
               autoCorrect="off"
-              disabled={isLoading || isGitHubLoading}
+              disabled
               {...register("username")}
             />
           </div>
+
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="email">
+              ელ.ფოსტა
+            </Label>
+            <Input
+              id="email"
+              placeholder="ელ.ფოსტის მისამართი"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading || isGitHubLoading}
+              {...register("email")}
+              onChange={(e) => { setValue("username", e.target.value); }}
+            />
+            {errors?.email && (
+              <p className="px-1 text-xs text-red-600">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
           {showAdditionalFields && (
             <>
               <div className="grid gap-1">
-                <Label className="sr-only" htmlFor="email">
-                  Email
+                <Label className="sr-only" htmlFor="first_name">
+                  სახელი
                 </Label>
                 <Input
-                  id="email"
-                  placeholder="name@example.com"
-                  type="email"
+                  id="first_name"
+                  placeholder="თქვენი სახელი"
+                  type="text"
                   autoCapitalize="none"
-                  autoComplete="email"
+                  autoComplete="first_name"
                   autoCorrect="off"
                   disabled={isLoading || isGitHubLoading}
-                  {...register("email")}
+                  {...register("first_name")}
                 />
-                {errors?.email && (
+                {errors?.first_name && (
                   <p className="px-1 text-xs text-red-600">
-                    {errors.email.message}
+                    {errors.first_name.message}
                   </p>
                 )}
               </div>
               <div className="grid gap-1">
+                <Label className="sr-only" htmlFor="last_name">
+                  გვარი
+                </Label>
+                <Input
+                  id="last_name"
+                  placeholder="თქვენი გვარი"
+                  type="text"
+                  autoCapitalize="none"
+                  autoComplete="last_name"
+                  autoCorrect="off"
+                  disabled={isLoading || isGitHubLoading}
+                  {...register("last_name")}
+                />
+                {errors?.last_name && (
+                  <p className="px-1 text-xs text-red-600">
+                    {errors.last_name.message}
+                  </p>
+                )}
+              </div>
+
+              <div className="grid gap-1">
                 <Label className="sr-only" htmlFor="phone_number">
-                  Phone Number
+                  ტელეფონი
                 </Label>
                 <Input
                   id="phone_number"
-                  placeholder="xxx xx xx xx"
+                  placeholder="ტელეფონის ნომერი"
                   type="text"
                   autoCapitalize="none"
                   autoCorrect="off"
                   disabled={isLoading || isGitHubLoading}
                   {...register("phone_number")}
                 />
+                {errors?.phone_number && (
+                  <p className="px-1 text-xs text-red-600">
+                    {errors.phone_number.message}
+                  </p>
+                )}
               </div>
             </>
           )}
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="password">
-              Password
+              პაროლი
             </Label>
             <Input
               id="password"
-              placeholder="password"
+              placeholder="პაროლი"
               type="password"
               autoCapitalize="none"
               autoCorrect="off"
               disabled={isLoading || isGitHubLoading}
               {...register("password")}
             />
+            {errors?.password && (
+              <p className="px-1 text-xs text-red-600">
+                {errors.password.message}
+              </p>
+            )}
           </div>
+
           <button className={cn(buttonVariants())} disabled={isLoading}>
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Sign Up
+            {showAdditionalFields ? "რეგისტრაცია" : "შესვლა"}
           </button>
         </div>
       </form>

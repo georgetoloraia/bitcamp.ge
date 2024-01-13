@@ -1,0 +1,3 @@
+GET https://platform.bitcamp.ge/enrollments
+Content-Type: application/json
+Authorization: Token  {token}

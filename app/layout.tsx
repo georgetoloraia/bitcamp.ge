@@ -11,6 +11,8 @@ import FacebookPixel from "@/components/FacebookPixel"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SessionProvider } from "next-auth/react";
+import NextAuthSessionProvider from "./SessionProvider"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -47,10 +49,6 @@ export const metadata = {
     },
   ],
   creator: "shadcn",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "black" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -86,7 +84,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <NextAuthSessionProvider>
+            {children}
+          </NextAuthSessionProvider>
           <Analytics />
           <Toaster />
           <TailwindIndicator />
