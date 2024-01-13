@@ -1,0 +1,17 @@
+POST https://payze.io/v2/api/product HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Authorization: {Key:Secret}
+
+{
+    "name": "TestMe 1GEL - Over API",
+    "description": "This product was created using API request.",
+    "imageUrl": "https://www.bitcamp.ge/images/logo.jpg",
+    "price": "1",
+    "currency": "GEL",
+    "occurrenceType": "Month",
+    "occurrenceNumber": "1",
+    "occurrenceDuration": "10",
+    "freeTrial": 0,
+    "numberOfFailedRetry": 5
+}

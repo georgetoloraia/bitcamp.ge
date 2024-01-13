@@ -1,4 +1,4 @@
 
 GET http://localhost/auth/profile
 Content-Type: application/json
-Authorization: Token 46898005350336ba116eb052dda659b973bf82e9
+Authorization: Token {token}

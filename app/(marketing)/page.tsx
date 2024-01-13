@@ -57,10 +57,6 @@ export default async function IndexPage() {
       >
         <Hero />
         <div className="mx-auto flex flex-col  space-y-4">
-          <h2 className="inline-block font-heading text-3xl tracking-tight lg:text-5xl">
-            ბლოგი
-          </h2>
-          <BlogComponent columns="2" postsLimit={2} />
         </div>
         <Separator />
         <div className="mx-auto flex flex-col  space-y-4">

@@ -33,7 +33,6 @@ async function getUserProfile(token) {
   return profileResponse.json();
 }
 
-
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -53,11 +52,12 @@ export const authOptions: NextAuthOptions = {
           const token = await loginUser(credentials);
           const profile = await getUserProfile(token);
 
+
           return {
             accessToken: token,
             id: profile.id,
             name: profile.username,
-            email: profile.email
+            email: profile.email,
           };
         } catch (error) {
           console.error('Login error:', error);
@@ -67,23 +67,26 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, token }) {
+    async session({ session, token, ...params }) {
       if (token) {
         session.user = {
           ...session.user,
           id: token.id ?? session.user.id,
           name: token.name ?? session.user.name,
           email: token.email ?? session.user.email,
+          accessToken: token.accessToken
         };
       }
       return session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, ...params }) {
       if (user) {
         token.id = user.id;
         token.name = user.name;
         token.email = user.email;
+        token.accessToken = user.accessToken;
       }
+
       return token;
     },
   },

@@ -1,0 +1,27 @@
+PUT https://payze.io/v2/api/payment HTTP/1.1
+Content-Type: application/*+json
+Accept: application/json
+Authorization: Token {token}
+
+{
+    "source": "Card",
+    "amount": "1",
+    "currency": "GEL",
+    "language": "KA",
+    //TOKEN IS OPTIONAL and can be used to create payment with saved card
+    //"token": "8191CBB4E5E34E7F8FBEC1F0C",
+    "cardPayment": {
+        "tokenizeCard": true
+    },
+    "hooks": {
+        "webhookGateway": "https://platform.bitcamp.ge",
+        "successRedirectGateway": "https://platform.bitcamp.ge/success",
+        "errorRedirectGateway": "https://platform.bitcamp.ge/error"
+    },
+    "metadata": {
+        "extraAttributes": [
+            { "key": "kids", "value": "kids 50" },
+            { "key": "email", "value": "oto@bitcamp.ge" }
+        ]
+    }
+}

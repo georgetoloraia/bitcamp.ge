@@ -1,0 +1,5 @@
+
+GET https://platform.bitcamp.ge/enrollments/1/check-payze-subscription-status
+# enrollments/<int:id>/check-payze-subscription-status
+Content-Type: application/json
+Authorization: Token {token}

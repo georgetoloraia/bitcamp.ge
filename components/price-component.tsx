@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ReactNode, useEffect } from "react"
+import React, { ReactNode, useEffect, useState } from "react"
 import { CheckCircle2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -20,6 +20,92 @@ import { ModalDrawer } from "./modal-drawer"
 import { UserAuthForm } from "./user-auth-form"
 import { useSession } from "next-auth/react"
 import local from "next/font/local"
+import { useRouter } from "next/router"
+
+
+
+const plans = [
+  {
+    machine_name: "free",
+    title: "უფასო",
+    monthlyPrice: "0",
+    yearlyPrice: "0",
+    description: "დაიწყე პროგრამირების სწავლა უფასოდ",
+    features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
+    actionLabel: "რეგისტრაცია",
+    loggedInActionLabel: "დაწყება",
+  },
+  {
+    machine_name: "common",
+    title: "საერთო სამენტორო",
+    monthlyPrice: 100,
+    yearlyPrice: "?",
+    description: "გახდი Front-end/Back-end დეველოპერი თვეში 100 ლარად",
+    features: [
+      "კვირაში ერთი თეორიული და ორი პრაქტიკული სემინარი",
+      "მენტორის მომსახურეობა კვირაში სამჯერ 2 საათით",
+    ],
+    actionLabel: "რეგისტრაცია",
+    actionData: {
+      // Kids plan
+        "service_id": "1",
+        "program_id": "1",
+        "mentor_id": "1",
+        "status": "Pending"
+    },
+    loggedInActionLabel: "შეძენა",
+  },
+  {
+    machine_name: "private",
+    title: "პირადი მენტორი",
+    monthlyPrice: 350,
+    yearlyPrice: "?",
+    description: "აიყვანე პირადი მენტორი",
+    features: [
+      "თეორიული და პრაქტიკული სემინარები",
+      "ყოველდღიური კომუნიკაცია მენტორთან",
+    ],
+    actionLabel: "რეგისტრაცია",
+    loggedInActionLabel: "შეძენა",
+    popular: true,
+  },
+  {
+    machine_name: "pro",
+    title: "PRO",
+    monthlyPrice: 2000,
+    description: "PRO - სუპერ ინტენსიური პროგრამა",
+    features: [
+      "10 საათიანი სამენტორო მომსახურება მთელი დღის განმალვობაში",
+      "რეზიუმეს/CV - ს და სამოტივაციო წერილის მომზადებაში დახმარებ",
+      "რეალურ პროექტში ჩართვის შესაძლებლობა",
+      "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
+    ],
+    actionLabel: "რეგისტრაცია",
+    loggedInActionLabel: "შეძენა",
+    exclusive: true,
+  },
+  {
+    machine_name: "kids",
+    title: "BitCamp Kids",
+    monthlyPrice: "50",
+    yearlyPrice: "0",
+    description: "დაიწყე პროგრამირების სწავლა უფასოდ",
+    features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
+    actionLabel: "რეგისტრაცია",
+    loggedInActionLabel: "შეძენა",
+    actionData: {
+      // Kids plan
+        service_id: "1",
+        program_id: "1",
+        mentor_id: "1",
+        status: "Pending"
+    },
+  },
+];
+
+const getPlanByMachineName = (machineName) => {
+  return plans.find((plan) => plan.machine_name === machineName);
+}
 
 
 type PricingCardProps = {
@@ -31,6 +117,7 @@ type PricingCardProps = {
   features: string[]
   actionLabel: string
   loggedInActionLabel: string
+  actionData?: any,
   popular?: boolean
   exclusive?: boolean
 }
@@ -75,6 +162,7 @@ const PricingCard = ({
   features,
   actionLabel,
   loggedInActionLabel,
+  actionData,
   popular,
   exclusive,
 }: PricingCardProps) => {
@@ -84,6 +172,22 @@ const PricingCard = ({
   }
 
   const { status, data } = useSession();
+
+  const createEnrollment = async (actionData) => {
+    const res = await fetch('https://platform.bitcamp.ge/enroll', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${data?.user.accessToken}`
+      },
+      body: JSON.stringify({ user_id: data?.user.id, ...actionData}),
+    })
+
+    const result = await res.json();
+
+    if (result?.success) {
+    }
+  }
 
   return (
     <Card
@@ -148,7 +252,9 @@ const PricingCard = ({
       </div>
       <CardFooter className="mt-2">
         {status === 'authenticated'
-          ? (<Button className="bg-green-700 text-white">
+          ? (<Button className="bg-green-700 text-white" onClick={() => {
+            createEnrollment(actionData)
+          }}>
             {loggedInActionLabel}
           </Button>)
           : (
@@ -206,70 +312,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
 
 
 
-  const plans = [
-    {
-      machine_name: "free",
-      title: "უფასო",
-      monthlyPrice: "0",
-      yearlyPrice: "0",
-      description: "დაიწყე პროგრამირების სწავლა უფასოდ",
-      features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-      actionLabel: "რეგისტრაცია",
-      loggedInActionLabel: "დაწყება",
-    },
-    {
-      machine_name: "common",
-      title: "საერთო სამენტორო",
-      monthlyPrice: 100,
-      yearlyPrice: "?",
-      description: "გახდი Front-end/Back-end დეველოპერი თვეში 100 ლარად",
-      features: [
-        "კვირაში ერთი თეორიული და ორი პრაქტიკული სემინარი",
-        "მენტორის მომსახურეობა კვირაში სამჯერ 2 საათით",
-      ],
-      actionLabel: "რეგისტრაცია",
-      loggedInActionLabel: "შეძენა",
-    },
-    {
-      machine_name: "private",
-      title: "პირადი მენტორი",
-      monthlyPrice: 350,
-      yearlyPrice: "?",
-      description: "აიყვანე პირადი მენტორი",
-      features: [
-        "თეორიული და პრაქტიკული სემინარები",
-        "ყოველდღიური კომუნიკაცია მენტორთან",
-      ],
-      actionLabel: "რეგისტრაცია",
-      loggedInActionLabel: "შეძენა",
-      popular: true,
-    },
-    {
-      machine_name: "pro",
-      title: "PRO",
-      monthlyPrice: 2000,
-      description: "PRO - სუპერ ინტენსიური პროგრამა",
-      features: [
-        "10 საათიანი სამენტორო მომსახურება მთელი დღის განმალვობაში",
-        "რეზიუმეს/CV - ს და სამოტივაციო წერილის მომზადებაში დახმარებ",
-        "რეალურ პროექტში ჩართვის შესაძლებლობა",
-        "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
-      ],
-      actionLabel: "რეგისტრაცია",
-      loggedInActionLabel: "შეძენა",
-      exclusive: true,
-    },
-    {
-      machine_name: "kids",
-      title: "BitCamp Kids",
-      monthlyPrice: "50",
-      yearlyPrice: "0",
-      description: "დაიწყე პროგრამირების სწავლა უფასოდ",
-      features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-      actionLabel: "რეგისტრაცია",
-      loggedInActionLabel: "შეძენა",
-    },
-  ];
+ 
 
   const filteredPlans = filter?.map((machineName) => {
     const plan = plans.find((p) => p.machine_name === machineName);
@@ -278,7 +321,6 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
     }
     return null;
   })
-
 
   let sections: [any] = [{ width: 'full', plans: [] }];
   let sectionIndex = 0;
@@ -298,7 +340,6 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
 
   const finalSections = sections.filter((section) => Object.keys(section).length > 0);
 
-  console.log(finalSections);
 
   return (
     <div className="py-8">
