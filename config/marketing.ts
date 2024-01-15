@@ -7,8 +7,8 @@ export const marketingConfig: MarketingConfig = {
       href: "/programs",
     },
     {
-      title: "ფასები და სერვისები",
-      href: "/services",
+      title: "სერვისები და ფასები",
+      href: "/servisebi-da-fasebi",
     },
     {
       title: "ბლოგი",

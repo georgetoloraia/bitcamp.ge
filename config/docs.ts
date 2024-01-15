@@ -63,10 +63,6 @@ export const docsConfig: DocsConfig = {
           href: "/programs/about/piradi-mentoris-momsaxureba",
         },
         {
-          title: "საფასური",
-          href: "/programs/about/pricing",
-        },
-        {
           title: "მენტორები",
           href: "/mentors",
         },
@@ -79,10 +75,6 @@ export const docsConfig: DocsConfig = {
         //   title: "სწავლის დაწყება",
         //   href: "/programs/about/start",
         // },
-        {
-          title: "რეგისტრაცია",
-          href: "/programs/about/registration",
-        },
       ],
     },
   ],

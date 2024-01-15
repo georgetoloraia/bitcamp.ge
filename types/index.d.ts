@@ -123,3 +123,25 @@ declare global {
     fbq: Function
   }
 }
+
+
+export type IntentItem = {
+  machine_name: string
+  description: string
+  url: string
+  service_id: number
+  program_id: number
+  mentor_id: number
+  status: string
+  action: string
+  actionLabel: string
+}
+
+export type IntentItems = {
+  free: IntentItem
+  common: IntentItem
+  private: IntentItem
+  pro: IntentItem
+  kids: IntentItem
+  none: IntentItem
+}

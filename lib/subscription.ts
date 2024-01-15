@@ -37,3 +37,4 @@ export async function getUserSubscriptionPlan(
     isPro,
   }
 }
+

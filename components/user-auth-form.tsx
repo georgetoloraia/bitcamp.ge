@@ -58,8 +58,8 @@ export function UserAuthForm({ className, showAdditionalFields = true, ...props 
     setIsLoading(false)
 
     return toast({
-      title: "Check your email",
-      description: "We sent you a login link. Be sure to check your spam too.",
+      title: "გამარჯობა 👋",
+      description: "კეთილი იყოს შენი მობრძანება 🎉",
     })
   }
 

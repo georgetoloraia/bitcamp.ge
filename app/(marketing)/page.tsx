@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils"
 import { env } from "@/env.mjs"
 import { programs } from "@/config/programs"
 import { siteConfig } from "@/config/site"
-import { subjects } from "@/config/subjects"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
@@ -111,7 +110,7 @@ export default async function IndexPage() {
           })}
         </div>
 
-        {/* <PricingCardComponent /> */}
+        <PricingCardComponent />
 
       </section>
 

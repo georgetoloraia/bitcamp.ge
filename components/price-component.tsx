@@ -21,105 +21,24 @@ import { UserAuthForm } from "./user-auth-form"
 import { useSession } from "next-auth/react"
 import local from "next/font/local"
 import { useRouter } from "next/router"
-
-
-
-const plans = [
-  {
-    machine_name: "free",
-    title: "უფასო",
-    monthlyPrice: "0",
-    yearlyPrice: "0",
-    description: "დაიწყე პროგრამირების სწავლა უფასოდ",
-    features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-    actionLabel: "რეგისტრაცია",
-    loggedInActionLabel: "დაწყება",
-  },
-  {
-    machine_name: "common",
-    title: "საერთო სამენტორო",
-    monthlyPrice: 100,
-    yearlyPrice: "?",
-    description: "გახდი Front-end/Back-end დეველოპერი თვეში 100 ლარად",
-    features: [
-      "კვირაში ერთი თეორიული და ორი პრაქტიკული სემინარი",
-      "მენტორის მომსახურეობა კვირაში სამჯერ 2 საათით",
-    ],
-    actionLabel: "რეგისტრაცია",
-    actionData: {
-      // Kids plan
-        "service_id": "1",
-        "program_id": "1",
-        "mentor_id": "1",
-        "status": "Pending"
-    },
-    loggedInActionLabel: "შეძენა",
-  },
-  {
-    machine_name: "private",
-    title: "პირადი მენტორი",
-    monthlyPrice: 350,
-    yearlyPrice: "?",
-    description: "აიყვანე პირადი მენტორი",
-    features: [
-      "თეორიული და პრაქტიკული სემინარები",
-      "ყოველდღიური კომუნიკაცია მენტორთან",
-    ],
-    actionLabel: "რეგისტრაცია",
-    loggedInActionLabel: "შეძენა",
-    popular: true,
-  },
-  {
-    machine_name: "pro",
-    title: "PRO",
-    monthlyPrice: 2000,
-    description: "PRO - სუპერ ინტენსიური პროგრამა",
-    features: [
-      "10 საათიანი სამენტორო მომსახურება მთელი დღის განმალვობაში",
-      "რეზიუმეს/CV - ს და სამოტივაციო წერილის მომზადებაში დახმარებ",
-      "რეალურ პროექტში ჩართვის შესაძლებლობა",
-      "საკუთარი სტარტაპის წამოწყების შესაძლებლობა",
-    ],
-    actionLabel: "რეგისტრაცია",
-    loggedInActionLabel: "შეძენა",
-    exclusive: true,
-  },
-  {
-    machine_name: "kids",
-    title: "BitCamp Kids",
-    monthlyPrice: "50",
-    yearlyPrice: "0",
-    description: "დაიწყე პროგრამირების სწავლა უფასოდ",
-    features: ["გასაჯაროებული ლექციები JavaScript,React,Python "],
-    actionLabel: "რეგისტრაცია",
-    loggedInActionLabel: "შეძენა",
-    actionData: {
-      // Kids plan
-        service_id: "1",
-        program_id: "1",
-        mentor_id: "1",
-        status: "Pending"
-    },
-  },
-];
-
-const getPlanByMachineName = (machineName) => {
-  return plans.find((plan) => plan.machine_name === machineName);
-}
+import { CrossCircledIcon } from "@radix-ui/react-icons"
+import { services } from "@/config/site"
 
 
 type PricingCardProps = {
+  machine_name: string
   isYearly?: boolean
   title: string
   monthlyPrice?: number | string
   yearlyPrice?: number | string
   description: string
-  features: string[]
+  features: Array<{ text: string | ReactNode, checked?: boolean, crossed?: boolean }>
   actionLabel: string
   loggedInActionLabel: string
   actionData?: any,
-  popular?: boolean
-  exclusive?: boolean
+  popular?: boolean,
+  exclusive?: boolean,
+  disabled?: boolean,
 }
 
 
@@ -142,18 +61,19 @@ const getFilterByIntent = (intent) => {
     case "pro":
       return ["pro", "private", "common", "kids"]
     case "common":
-      return ["common", "private", "pro", "kids"]
+      return ["common", "private", "kids", "pro"]
     case "private":
-      return ["private", "common", "pro", "kids"]
+      return ["private", "common", "kids", "pro"]
     case "kids":
       return ["kids", "common", "private", "pro"]
     default:
-      return ["free", "common", "private", "pro", "kids"]
+      return ["free", "common", "private", "kids", "pro"]
   }
 }
 
 
 const PricingCard = ({
+  machine_name,
   isYearly,
   title,
   monthlyPrice,
@@ -165,6 +85,7 @@ const PricingCard = ({
   actionData,
   popular,
   exclusive,
+  disabled
 }: PricingCardProps) => {
   const [isSignUpModalOpen, setIsSignUpModalOpen] = React.useState(false);
   const toggleSignUpModal = () => {
@@ -173,28 +94,21 @@ const PricingCard = ({
 
   const { status, data } = useSession();
 
-  const createEnrollment = async (actionData) => {
-    const res = await fetch('https://platform.bitcamp.ge/enroll', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Token ${data?.user.accessToken}`
-      },
-      body: JSON.stringify({ user_id: data?.user.id, ...actionData}),
-    })
-
-    const result = await res.json();
-
-    if (result?.success) {
-    }
+  const startEnrollment = async () => {
+    localStorage.setItem("intent", machine_name);
+    window.location.href = "/dashboard";
   }
+
+  // In case it's popular
+  let borderColor = popular ? "border-rose-400" : "border-zinc-700";
+  // In case it's for kids
+  borderColor = machine_name === "kids" ? "border-violet-700" : borderColor;
 
   return (
     <Card
       className={cn(
         `flex w-full ${title === "BitCamp Kids" || title === "PRO"
-        } flex-col justify-between py-1 ${popular ? "border-rose-400" : "border-zinc-700"
-        } mx-auto sm:mx-0`,
+        } flex-col justify-between py-1 ${borderColor} mx-auto sm:mx-0`,
         {
           "animate-background-shine bg-white dark:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors":
             exclusive,
@@ -202,77 +116,99 @@ const PricingCard = ({
       )}
     >
       <div>
-        <CardHeader
-          className={`w-full ${title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
-            } pt-4`}
-        >
-          {isYearly && yearlyPrice && monthlyPrice ? (
-            <div className="flex justify-between">
+
+        {machine_name != "kids" && (
+          <CardHeader
+            className={`w-full ${title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
+              } pt-4`}
+          >
+            <>
               <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
                 {title}
               </CardTitle>
-              <div
-                className={cn(
-                  "h-fit rounded-xl bg-zinc-200 px-2.5 py-1 text-sm text-black dark:bg-zinc-800 dark:text-white",
-                  {
-                    "bg-gradient-to-r from-orange-400 to-rose-400 dark:text-black ":
-                      popular,
-                  }
-                )}
-              >
-                Save ₾{Number(monthlyPrice) * 12 - Number(yearlyPrice)}
+              <div className="flex gap-0.5">
+                <h3 className="text-3xl font-bold">
+                  {yearlyPrice && isYearly
+                    ? "₾" + yearlyPrice
+                    : monthlyPrice
+                      ? "₾" + monthlyPrice
+                      : "Custom"}
+                </h3>
+                <span className="mb-1 flex flex-col justify-end text-sm">
+                  {yearlyPrice && isYearly ? "/year" : monthlyPrice ? "/თვეში" : null}
+                </span>
               </div>
-            </div>
-          ) : (
-            <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
-              {title}
-            </CardTitle>
-          )}
-          <div className="flex gap-0.5">
-            <h3 className="text-3xl font-bold">
-              {yearlyPrice && isYearly
-                ? "₾" + yearlyPrice
-                : monthlyPrice
-                  ? "₾" + monthlyPrice
-                  : "Custom"}
-            </h3>
-            <span className="mb-1 flex flex-col justify-end text-sm">
-              {yearlyPrice && isYearly ? "/year" : monthlyPrice ? "/თვეში" : null}
-            </span>
+              <CardDescription className="h-12 pt-1.5">{description}</CardDescription>
+            </>
+          </CardHeader>
+        )}
+
+        {machine_name === "kids" && (
+          <div className="relative flex flex-row">
+            <CardHeader
+              className={`w-full ${title === "BitCamp Kids" || title === "PRO" ? "pb-1" : "pb-8"
+                } pt-4`}
+            >
+              <CardTitle className="text-lg text-zinc-700 dark:text-zinc-300">
+                {title}
+              </CardTitle>
+              <div className="flex gap-0.5">
+                <h3 className="text-3xl font-bold">
+                  {yearlyPrice && isYearly
+                    ? "₾" + yearlyPrice
+                    : monthlyPrice
+                      ? "₾" + monthlyPrice
+                      : "Custom"}
+                </h3>
+                <span className="mb-1 flex flex-col justify-end text-sm">
+                  {yearlyPrice && isYearly ? "/year" : monthlyPrice ? "/თვეში" : null}
+                </span>
+              </div>
+              <CardDescription className="h-12 pt-1.5">{description}</CardDescription>
+            </CardHeader>
+            <img className="absolute right-1 h-28 sm:h-60 md:h-96" src="/images/astro-laptop.png" />
           </div>
-          <CardDescription className="h-12 pt-1.5">{description}</CardDescription>
-        </CardHeader>
+        )}
+
         <CardContent className="flex flex-col gap-2">
           {features &&
             Array.isArray(features) &&
-            features.map((feature: string | ReactNode, index: number) => (
-              <CheckItem key={index} text={feature} />
-            ))}
+            features.map((feature, index) => {
+              if (feature.checked) {
+                return (<CheckItem key={index} text={feature.text} />)
+              }
+
+              if (feature.crossed) {
+                return (<CrossItem key={index} text={feature.text} />)
+              }
+            })}
         </CardContent>
       </div>
-      <CardFooter className="mt-2">
-        {status === 'authenticated'
-          ? (<Button className="bg-green-700 text-white" onClick={() => {
-            createEnrollment(actionData)
-          }}>
-            {loggedInActionLabel}
-          </Button>)
-          : (
-            <>
-              <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black px-6 font-medium text-white transition-colors  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-white dark:text-black" variant="outline" onClick={toggleSignUpModal}>{actionLabel}</Button>
+      {!disabled && (
+        <CardFooter className="mt-2">
+          {status === 'authenticated'
+            ? (<Button className="bg-green-700 text-white" onClick={() => {
+              startEnrollment()
+            }}>
+              {loggedInActionLabel}
+            </Button>)
+            : (
+              <>
+                <Button className="relative inline-flex w-full items-center justify-center rounded-md bg-black px-6 font-medium text-white transition-colors  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-white dark:text-black" variant="outline" onClick={toggleSignUpModal}>{actionLabel}</Button>
 
-              <ModalDrawer
-                content={<UserAuthForm showAdditionalFields={true} />}
-                modalTitle="რეგისტრაცია"
-                modalDescription={"გთხოვთ შეიყვანოთ თქვენი მონაცემები"}
-                open={isSignUpModalOpen}
-                setOpen={setIsSignUpModalOpen}
-              />
-            </>
+                <ModalDrawer
+                  content={<UserAuthForm showAdditionalFields={true} />}
+                  modalTitle="რეგისტრაცია"
+                  modalDescription={"გთხოვთ შეიყვანოთ თქვენი მონაცემები"}
+                  open={isSignUpModalOpen}
+                  setOpen={setIsSignUpModalOpen}
+                />
+              </>
 
-          )
-        }
-      </CardFooter>
+            )
+          }
+        </CardFooter>
+      )}
     </Card>
   )
 }
@@ -281,6 +217,17 @@ const CheckItem = ({ text }: { text: string | React.ReactNode }) => (
   <div className="flex gap-2">
     <div className="my-auto">
       <CheckCircle2 size={18} className="my-auto text-green-400" />
+    </div>
+    <span className="pt-0.5 text-sm text-zinc-700 dark:text-zinc-300">
+      {text}
+    </span>
+  </div>
+)
+
+const CrossItem = ({ text }: { text: string | React.ReactNode }) => (
+  <div className="flex gap-2">
+    <div className="my-auto">
+      <CrossCircledIcon className="my-auto text-red-400" />
     </div>
     <span className="pt-0.5 text-sm text-zinc-700 dark:text-zinc-300">
       {text}
@@ -312,28 +259,28 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
 
 
 
- 
 
-  const filteredPlans = filter?.map((machineName) => {
-    const plan = plans.find((p) => p.machine_name === machineName);
+
+  const filteredservices = filter?.map((machineName) => {
+    const plan = services.find((p) => p.machine_name === machineName);
     if (plan) {
       return plan;
     }
     return null;
   })
 
-  let sections: [any] = [{ width: 'full', plans: [] }];
+  let sections: [any] = [{ width: 'full', services: [] }];
   let sectionIndex = 0;
 
-  if (filteredPlans) {
-    for (let plan of filteredPlans) {
+  if (filteredservices) {
+    for (let plan of filteredservices) {
       if (plan?.machine_name === 'pro' || plan?.machine_name === 'kids') {
         sectionIndex++;
-        sections[sectionIndex] = { width: 'full', plans: [plan] };
+        sections[sectionIndex] = { width: 'full', services: [plan] };
         sectionIndex++;
       } else {
-        if (!sections[sectionIndex]) sections[sectionIndex] = { width: 'col', plans: [] };
-        sections[sectionIndex].plans.push(plan);
+        if (!sections[sectionIndex]) sections[sectionIndex] = { width: 'col', services: [] };
+        sections[sectionIndex].services.push(plan);
       }
     }
   }
@@ -343,7 +290,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
 
   return (
     <div className="py-8">
-      <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
+      <div className="flex w-full flex-col gap-4 md:max-w-[58rem]">
         <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
           BitCamp - ის სერვისები
         </h2>
@@ -355,7 +302,7 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
       {finalSections.map((section) => {
         return (
           <section className="mt-8 flex flex-col gap-4  md:flex-row lg:flex-row ">
-            {section.plans.map((plan) => {
+            {section.services.map((plan) => {
               if (plan) {
                 return (
                   <PricingCard
