@@ -96,8 +96,8 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                         გამოყენების ინსტრუქცია
                     </AccordionTrigger>
                     <AccordionContent>
-                        სწვალა იწყება 22 დეკემბერს. <br/>
-                        გამოყენების ინსტრუქცია დაემატება 22 დეკემბერს, ამ გვერდზე. <br/><br/>
+                        სწვალა იწყება 22 იანვარს. <br/>
+                        გამოყენების ინსტრუქცია დაემატება 22 იანვარს, ამ გვერდზე. <br/><br/>
                         დამატებითი კითხვებისთვის მიმართეთ BitCamp - ის Facebook გვერდს: 
                         <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
                         https://www.facebook.com/bitcamp.ge

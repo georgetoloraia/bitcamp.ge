@@ -10,12 +10,12 @@ export const planets = [
 
 export const programs = [
     {
-      url: "/programs/about/saerto-samentoro",
+      url: "/servisebi-da-fasebi?intent=common",
       title: "საერთო სამენტორო მომსახურება",
     },
     {
-      url: "/programs/about/piradi-mentoris-momsaxureba",
+      url: "/servisebi-da-fasebi?intent=private",
       title: "პირადი მენტორის აყვანა",
     },
-    { url: "/blog/bitcamp-kids-iwyeba", title: "საბავშვო პროგრამა" },
+    { url: "/servisebi-da-fasebi?intent=kids", title: "საბავშვო პროგრამა" },
  ]
