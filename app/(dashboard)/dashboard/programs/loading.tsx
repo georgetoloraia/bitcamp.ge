@@ -7,7 +7,7 @@ export default function DashboardLoading() {
   return (
     <DashboardShell>
       <DashboardHeader heading="Posts" text="Create and manage posts.">
-        <PostCreateButton />
+        
       </DashboardHeader>
       <div className="divide-border-200 divide-y rounded-md border">
         <PostItem.Skeleton />

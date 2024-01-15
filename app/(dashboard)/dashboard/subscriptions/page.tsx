@@ -27,7 +27,6 @@ export default async function DashboardPage() {
         heading="შეძენილი სერვისები"
         text="ქვემოთ მოცემულია შენს მიერ შეძენილი აქტიური სერვისები."
       >
-        {/* <PostCreateButton /> */}
       </DashboardHeader>
       <div>
         <section

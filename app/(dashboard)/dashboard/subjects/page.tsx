@@ -49,7 +49,6 @@ export default async function DashboardPage() {
         heading="საგნები"
         text="თუ ზუსტად იცი რისი სწავლა გინდა, შეარჩიე სასურველი საგანი ან საგნები."
       >
-        {/* <PostCreateButton /> */}
       </DashboardHeader>
       <div>
         <section

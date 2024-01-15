@@ -50,7 +50,6 @@ export default async function DashboardPage() {
         heading="სრული პროგრამები"
         text="სრული პროგრამები შენთვისაა თუ სრულიად 0 - დან იწყებ. თუ არ გქონია პროგრამირების გამოცდილება და ვებ ტექნოლოგიებსაც ახლა უდნა გაეცნო მაშინ სწორ ადგილას ხარ."
       >
-        {/* <PostCreateButton /> */}
       </DashboardHeader>
       <div>
         <section
