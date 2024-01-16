@@ -63,11 +63,11 @@ export const docsConfig: DocsConfig = {
           href: "/programs/about/piradi-mentoris-momsaxureba",
         },
         {
-          title: "ლაივ კოდინგი",
+          title: "Live Coding გასაუბრება",
           href: "/programs/about/live-coding",
         },
         {
-          title: "კოლაბორაციული პროექტები",
+          title: "კოლაბორაციული/გუნდური პროექტები",
           href: "/programs/about/kolaboraciuli-proeqtebi",
         },
         {
