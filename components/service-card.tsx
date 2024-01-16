@@ -37,7 +37,8 @@ import {
 import Link from "next/link"
 
 
-export function ServiceCard({ cardTitle, cardDescription, payments, service, program, status }) {
+export function ServiceCard({ cardTitle, cardDescription, payments, service, program, status, triggerEnrollment, triggerCancel, enrollmentId }) {
+    console.log("enrollmentId - ServiceCard", enrollmentId)
     return cardTitle && (<Card>
         <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
             <div className="space-y-1">
@@ -46,11 +47,18 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                     {service.price} ₾
                 </CardDescription>
             </div>
-            <div className="flex items-center">
-                {status === "Pending" && (
-                    <Link href={payments[0].paymentUrl} target="_blank">
-                    <Button variant="default">გადახდა</Button>
-                    </Link>
+            <div className="flex flex-col items-center">
+                {(status === "Pending" ) && (
+                        <Button 
+                            variant="default" 
+                            className="my-2"
+                            onClick={triggerEnrollment}>გადახდა</Button>
+                )}
+                {(status === "Pending" || status === "Active") && (
+                     <Button 
+                        variant="destructive" 
+                        className="my-2"
+                        onClick={() => triggerCancel(enrollmentId)}>გაუქმება</Button>
                 )}
             </div>
         </CardHeader>
@@ -59,22 +67,22 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                 {status === "Pending" && (
                     <div className="flex items-center">
                         <CircleIcon className="mr-1 h-3 w-3 text-yellow-400" />
-                        სტატუსი: {status}
+                        სტატუსი: გადასახდელი
                     </div>
                 )}
 
                 {status === "Active" && (
                     <div className="flex items-center">
                         <CircleIcon className="mr-1 h-3 w-3 text-green-400" />
-                        სტატუსი: {status}
+                        სტატუსი: გადახდილი / აქტიური
                     </div>
                 )}
 
 
-                {status === "Canceled" && (
+                {status === "Cancelled" && (
                     <div className="flex items-center">
                         <CircleIcon className="mr-1 h-3 w-3 text-red-400" />
-                        სტატუსი: {status}
+                        სტატუსი: გაუქმებული
                     </div>
                 )}
 
@@ -96,11 +104,11 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                         გამოყენების ინსტრუქცია
                     </AccordionTrigger>
                     <AccordionContent>
-                        სწვალა იწყება 22 იანვარს. <br/>
-                        გამოყენების ინსტრუქცია დაემატება 22 იანვარს, ამ გვერდზე. <br/><br/>
-                        დამატებითი კითხვებისთვის მიმართეთ BitCamp - ის Facebook გვერდს: 
+                        სწვალა იწყება 22 იანვარს. <br />
+                        გამოყენების ინსტრუქცია დაემატება 22 იანვარს, ამ გვერდზე. <br /><br />
+                        დამატებითი კითხვებისთვის მიმართეთ BitCamp - ის Facebook გვერდს:
                         <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
-                        https://www.facebook.com/bitcamp.ge
+                            https://www.facebook.com/bitcamp.ge
                         </Link>
                     </AccordionContent>
                 </AccordionItem>

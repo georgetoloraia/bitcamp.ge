@@ -13,7 +13,7 @@ import Link from "next/link"
 import { Button } from "./ui/button"
 import { useSession } from "next-auth/react"
 
-export default function IntentNavigator({ triggerEnrollment }) {
+export default function IntentNavigator({ triggerEnrollment, payload }) {
     const [intent, setIntent] = React.useState<IntentItem>(intentItems.none);
     const { data: user } = useSession();
 
@@ -25,12 +25,6 @@ export default function IntentNavigator({ triggerEnrollment }) {
     }, [])
 
     const currentService = getServiceByMachineName(intent.machine_name);
-    const payload = {
-        service_id: intent.program_id,
-        program_id: intent.service_id,
-        mentor_id: intent.mentor_id,
-        status: intent.status,
-    }
 
     return (
         <>
@@ -52,7 +46,7 @@ export default function IntentNavigator({ triggerEnrollment }) {
 
                         {intent.action === 'buy' && (
                             <Button className="my-4" onClick={() => {
-                                triggerEnrollment(payload, true);
+                                triggerEnrollment(true);
                             }}>
                                 {intent.actionLabel}
                             </Button>
