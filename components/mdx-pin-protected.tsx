@@ -11,7 +11,7 @@ const PinProtected = ({
   disabled,
   ...props
 }) => {
-  const pinCode = "5578" // Pin code definition
+  const pinCode = "3535" // Pin code definition
 
   const [pin, setPin] = useState("")
   const [isVerified, setIsVerified] = useState(false)
