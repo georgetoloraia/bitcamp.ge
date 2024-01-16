@@ -1,17 +1,16 @@
-import { notFound } from "next/navigation"
-import { allMentors } from "contentlayer/generated"
+import "@/styles/mdx.css"
 
-import { getTableOfContents } from "@/lib/toc"
-import { Mdx } from "@/components/mdx-components"
+import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
+
+import { DashboardTableOfContents } from "@/components/toc"
 import { DocsPageHeader } from "@/components/page-header"
 import { DocsPager } from "@/components/pager"
-import { DashboardTableOfContents } from "@/components/toc"
-
-import "@/styles/mdx.css"
+import { Mdx } from "@/components/mdx-components"
 import { Metadata } from "next"
-
+import { allMentors } from "contentlayer/generated"
 import { env } from "@/env.mjs"
-import { absoluteUrl, generateDefaultMetaData } from "@/lib/utils"
+import { getTableOfContents } from "@/lib/toc"
+import { notFound } from "next/navigation"
 
 interface MentorPageProps {
   params: {
@@ -60,18 +59,18 @@ export default async function DocPage({ params }: MentorPageProps) {
   const toc = await getTableOfContents(mentor.body.raw)
 
   return (
-    <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]">
+    <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid">
       <div className="mx-auto w-full min-w-0">
         <DocsPageHeader heading={mentor.title} text={mentor.description} />
         <Mdx code={mentor.body.code} />
         <hr className="my-4 md:my-6" />
         <DocsPager doc={mentor} />
       </div>
-      <div className="hidden text-sm xl:block">
+      {/* <div className="hidden text-sm xl:block">
         <div className="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
           <DashboardTableOfContents toc={toc} />
         </div>
-      </div>
+      </div> */}
     </main>
   )
 }

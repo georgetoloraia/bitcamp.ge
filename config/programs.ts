@@ -145,7 +145,7 @@ export const programs: Program[] = [
         name: "BitCamp Kids",
         badge: "საბავშვო",
         description: "BitCamp - ის საბავშვო პროგრამა მორგებულია 10 - დან 14 წლამდე მოსწავლეებზე და აზიარებს ბავშვებს პროგრამირების საფუძვლებს.",
-        url: '/programs/kids',
+        url: '/blog/bitcamp-kids-iwyeba',
         icon: 'kids',
         technologies: ['პროგრამირების საფუძვლები', 'JavaScript', 'HTML', 'CSS'],
         products: [
