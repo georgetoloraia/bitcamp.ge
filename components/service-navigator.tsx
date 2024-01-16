@@ -10,11 +10,11 @@ import { intentItems } from "@/config/site"
 import { IntentItem } from "@/types"
 import { getServiceByMachineName } from "@/lib/services"
 import Link from "next/link"
-import { Button } from "./ui/button"
 import { useSession } from "next-auth/react"
 import IntentNavigator from "./intent-navigator"
 import { ServiceCard } from "./service-card"
 import { useState, useEffect } from "react"
+import { set } from "date-fns"
 
 type Enrollment = {
     id: number;
@@ -32,6 +32,8 @@ export default function ServiceNavigator() {
     const user = useSession().data?.user;
     const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
     const [intent, setIntent] = useState<IntentItem>(intentItems.none);
+    const [fetching, setFetching] = useState<any>(false);
+
 
 
     // I need to find Enrollments with status "Active" and set this to true
@@ -69,6 +71,7 @@ export default function ServiceNavigator() {
     }
 
     const fetchEnrollments = async (user) => {
+        setFetching(true);
         const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/enrollments`, {
             method: 'GET',
             headers: {
@@ -77,12 +80,13 @@ export default function ServiceNavigator() {
             }
         });
         const enrollments = await res.json();
-
+        setFetching(false);
         return enrollments;
     }
 
     const triggerEnrollment = async (openPaymentUrl = false) => {
         console.log("Triggered");
+        setFetching(true);
         const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/enroll`, {
             method: 'POST',
             headers: {
@@ -106,10 +110,14 @@ export default function ServiceNavigator() {
             const paymentUrl = firstEnrollment.payments[0].paymentUrl;
             window.open(paymentUrl, "_blank");
         }
+
+        setFetching(false);
+        return firstEnrollment;
     }
 
     const triggerCancel = async (id) => {
         console.log("Triggered - Cancel", id);
+        setFetching(true);
         const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/enrollments/${id}`, {
             method: 'PUT',
             headers: {
@@ -126,6 +134,9 @@ export default function ServiceNavigator() {
         setEnrollments(enrollmentsWithoutCanceled);
 
         console.log("enrollmentsWithoutCanceled", enrollmentsWithoutCanceled);
+
+        setFetching(false);
+        return enrollmentsWithoutCanceled;
     }
 
     console.log("enrollments", enrollments.length === 0)
