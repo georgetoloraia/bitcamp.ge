@@ -28,7 +28,6 @@ import { Label } from "@/components/ui/label"
 export function ModalDrawer({modalTitle, modalDescription, content, open, setOpen }) {
   const isDesktop = useMediaQuery("(min-width: 768px)")
 
-  if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-[425px]">
@@ -42,26 +41,4 @@ export function ModalDrawer({modalTitle, modalDescription, content, open, setOpe
         </DialogContent>
       </Dialog>
     )
-  }
-
-  return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>{modalTitle}</DrawerTitle>
-          <DrawerDescription>
-            {modalDescription}
-          </DrawerDescription>
-        </DrawerHeader>
-        <div className="p-4">
-          {content}
-        </div>
-        <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
-  )
 }
