@@ -46,14 +46,14 @@ export const docsConfig: DocsConfig = {
     {
       title: "სასწავლო პროცესი",
       items: [
-        {
-          title: "სტრუქტურა",
-          href: "/programs/about/structure",
-        },
-        {
-          title: "ხანგრძლივობა",
-          href: "/programs/about/duration",
-        },
+        // {
+        //   title: "სტრუქტურა",
+        //   href: "/programs/about/structure",
+        // },
+        // {
+        //   title: "ხანგრძლივობა",
+        //   href: "/programs/about/duration",
+        // },
         {
           title: "საერთო სამენტორო მომსახურება",
           href: "/programs/about/saerto-samentoro",
@@ -70,10 +70,10 @@ export const docsConfig: DocsConfig = {
           title: "კოლაბორაციული/გუნდური პროექტები",
           href: "/programs/about/kolaboraciuli-proeqtebi",
         },
-        {
-          title: "მენტორები",
-          href: "/mentors",
-        },
+        // {
+        //   title: "მენტორები",
+        //   href: "/mentors",
+        // },
         // {
         //   title: "ლექტორები",
         //   href: "/programs/about/lecturers",
@@ -144,7 +144,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "👾 BitCamp Kids",
-          href: "/programs/kids",
+          href: "/blog/bitcamp-kids-iwyeba",
         },
       ],
     },
