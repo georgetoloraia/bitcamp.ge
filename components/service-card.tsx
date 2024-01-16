@@ -3,6 +3,7 @@ import {
     CircleIcon,
     DoubleArrowRightIcon,
     PlusIcon,
+    ReloadIcon,
     StarIcon,
 } from "@radix-ui/react-icons"
 
@@ -35,10 +36,13 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import Link from "next/link"
+import { useState } from "react"
 
 
 export function ServiceCard({ cardTitle, cardDescription, payments, service, program, status, triggerEnrollment, triggerCancel, enrollmentId }) {
     console.log("enrollmentId - ServiceCard", enrollmentId)
+    const [fetchingEnrollment, setFetchingEnrollment] = useState<any>(false);
+    const [cancellingEnrollment, setCancellingEnrollment] = useState<any>(false);
     return cardTitle && (<Card>
         <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
             <div className="space-y-1">
@@ -48,17 +52,53 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                 </CardDescription>
             </div>
             <div className="flex flex-col items-center">
-                {(status === "Pending" ) && (
-                        <Button 
-                            variant="default" 
-                            className="my-2"
-                            onClick={triggerEnrollment}>გადახდა</Button>
+                {(status === "Pending") && (
+                    <Button
+                        variant="default"
+                        className="my-2"
+                        disabled={fetchingEnrollment}
+                        onClick={async () => {
+                            setFetchingEnrollment(true);
+                            await triggerEnrollment(enrollmentId);
+                            setFetchingEnrollment(false);
+                            }}>
+                        {fetchingEnrollment && (
+                            <>
+                                <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
+                            </>
+                        )}
+                        {!fetchingEnrollment && (
+                            <>
+                                გადახდა
+                            </>
+                        )}
+
+                    </Button>
                 )}
                 {(status === "Pending" || status === "Active") && (
-                     <Button 
-                        variant="destructive" 
+                    <Button
+                        variant="destructive"
                         className="my-2"
-                        onClick={() => triggerCancel(enrollmentId)}>გაუქმება</Button>
+                        disabled={cancellingEnrollment}
+                        onClick={async () => {
+                            setCancellingEnrollment(true);
+                            await triggerCancel(enrollmentId);
+                            setCancellingEnrollment(false);
+                            }}>
+
+                        {cancellingEnrollment && (
+                            <>
+                                <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
+                            </>
+                        )}
+                        {!cancellingEnrollment && (
+                            <>
+                                გაუქმება
+                            </>
+                        )}
+
+
+                    </Button>
                 )}
             </div>
         </CardHeader>

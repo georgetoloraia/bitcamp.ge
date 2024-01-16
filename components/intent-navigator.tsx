@@ -12,10 +12,12 @@ import { getServiceByMachineName } from "@/lib/services"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { useSession } from "next-auth/react"
+import { ReloadIcon } from "@radix-ui/react-icons"
 
 export default function IntentNavigator({ triggerEnrollment, payload }) {
     const [intent, setIntent] = React.useState<IntentItem>(intentItems.none);
     const { data: user } = useSession();
+    const [fetchingEnrollment, setFetchingEnrollment] = React.useState<any>(false);
 
     React.useEffect(() => {
         const currentIntent = localStorage.getItem("intent");
@@ -38,17 +40,37 @@ export default function IntentNavigator({ triggerEnrollment, payload }) {
                         <br />
                         {intent.action === 'link' && (
                             <Link href={intent.url}>
-                                <Button className="my-4">
-                                    {intent.actionLabel}
+                                <Button className="my-4" disabled={fetchingEnrollment}>
+                                    {fetchingEnrollment && (
+                                        <>
+                                            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
+                                        </>
+                                    )}
+                                    {!fetchingEnrollment && (
+                                        <>
+                                            {intent.actionLabel}
+                                        </>
+                                    )}
                                 </Button>
                             </Link>
                         )}
 
                         {intent.action === 'buy' && (
-                            <Button className="my-4" onClick={() => {
-                                triggerEnrollment(true);
-                            }}>
-                                {intent.actionLabel}
+                            <Button disabled={fetchingEnrollment} className="my-4" onClick={async () => {
+                                setFetchingEnrollment(true);
+                                await triggerEnrollment(true);
+                                setFetchingEnrollment(false);
+                                }}>
+                            {fetchingEnrollment && (
+                                <>
+                                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
+                                </>
+                            )}
+                            {!fetchingEnrollment && (
+                                <>
+                                    გადახდა
+                                </>
+                            )}
                             </Button>
                         )}
                     </AlertDescription>
@@ -62,19 +84,19 @@ export default function IntentNavigator({ triggerEnrollment, payload }) {
                     <AlertTitle>ყურადღება!</AlertTitle>
                     <AlertDescription>
                         <div className="text-white">
-                        <br />
-                        BitCamp Kids - ის საბავშვო პროგრამაში გაკვეთლების ჩატარების სტანდარტული დრო არის საღამოს 4 საათი (16:00). ორშაბათს, ოთხშაბათს და პარასკევს.
-                        <br />
-                        <br />
-                        თუმცა თუ ვერ მოახერხებთ ასეთ დროს გაკვეთილებზე დასწრებას, გთხოვთ მოგვწეროთ თქვენთვის სასურველი დროები ჩვენს Facebook გვერდზე და თუ საკმარისი რაოდენობის მოსწავლეები მოგროვდებიან თქვენთვის სასურველ დროს, გავხსნით ახალ ჯგუფებს 🙏
-                        <br />
-                        <br />
+                            <br />
+                            BitCamp Kids - ის საბავშვო პროგრამაში გაკვეთლების ჩატარების სტანდარტული დრო არის საღამოს 4 საათი (16:00). ორშაბათს, ოთხშაბათს და პარასკევს.
+                            <br />
+                            <br />
+                            თუმცა თუ ვერ მოახერხებთ ასეთ დროს გაკვეთილებზე დასწრებას, გთხოვთ მოგვწეროთ თქვენთვის სასურველი დროები ჩვენს Facebook გვერდზე და თუ საკმარისი რაოდენობის მოსწავლეები მოგროვდებიან თქვენთვის სასურველ დროს, გავხსნით ახალ ჯგუფებს 🙏
+                            <br />
+                            <br />
 
-                        <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
-                            <Button variant="destructive" className="my-4">
-                                Facebook გვერდი
-                            </Button>
-                        </Link>
+                            <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
+                                <Button variant="destructive" className="my-4">
+                                    Facebook გვერდი
+                                </Button>
+                            </Link>
                         </div>
 
                     </AlertDescription>
