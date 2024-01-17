@@ -144,7 +144,7 @@ export const docsConfig: DocsConfig = {
       items: [
         {
           title: "👾 BitCamp Kids",
-          href: "/blog/bitcamp-kids-iwyeba",
+          href: "/programs/kids",
         },
       ],
     },
