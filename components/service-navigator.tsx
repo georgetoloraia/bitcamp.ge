@@ -108,7 +108,7 @@ export default function ServiceNavigator() {
 
         if (openPaymentUrl) {
             const paymentUrl = firstEnrollment.payments[0].paymentUrl;
-            window.open(paymentUrl, "_blank");
+            window.location.replace(paymentUrl);
         }
 
         setFetching(false);
