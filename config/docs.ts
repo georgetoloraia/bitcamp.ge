@@ -185,6 +185,10 @@ export const docsConfig: DocsConfig = {
           title: "ნოდარ სვანიძე",
           href: "/mentors/nodar-svanidze",
         },
+        {
+          title: "საბა ფიფია",
+          href: "/mentors/saba-pipia",
+        },
       ],
     },
   ],
