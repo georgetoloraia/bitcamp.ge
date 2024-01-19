@@ -1,0 +1,153 @@
+---
+title: რა არის Styled-Components?
+description: პოპულარული ბიბლიოთეკა React კომპონენტების სტილიების დასაწერად. იყენებს CSS-in-JS მიდგომას. Styled-Components საშუალებას აძლევს დეველოპერებს დაწერონ CSS-ის კოდი თავიანთ JavaScript ფაილებში.
+image: /images/blog/ra-aris-styled-components.png
+ogImage: /images/blog/ra-aris-styled-components.png
+date: "2024-01-18"
+authors:
+  - sabapipia
+---
+
+Styled Components არის React და React Native ბიბლიოთეკა, რომლის გამოყენებითაც შეგიძლია CSS კოდი დაწეროთ კომპონენტში.
+CSS კოდის ჩაწერა კომპონენტში კი თავიდან გაცილებს .css-ის ფაილების შექმნას, შესაძლებლობას გაძლევს გაცილებით მარტივად მოახდინო მანიპულაცია ელემენტის სტილებზე props'ებით.
+
+ჩვეულებრივი მიდგომებისგან განსხვავებით, რომლებიც იყენებენ ცალკეულ CSS ფაილებს თითოეული კომპონენტისთვის,
+Styled-Components იძლევა საშვალებას დაიწეროს სტილები თავად კომპონენტში.
+
+##### პატარა მაგალითი თუ როგორ გამოვიყენოთ Styled-Components:
+
+1. დავაყენოთ Styled-Components ჩვენს პროექტში<br/>
+<b>npm-ის გამოყენებით:</b> ```npm install styled-components```<br />
+<b>yarn-ის გამოყენებით:</b> ```yarn add styled-components```<br />
+2. შემოაიმპორტეთ ```styled``` იმ კომპონენტში სადაც გინდათ რომ გამოიყენოთ:
+```jsx
+import styled from "styled-components";
+```
+
+3. როდესაც თქვენ ქმნით styled-components, თქვენ ქმნით ახალი კომპონენტს რომელსაც მინიჭებული აქვს თქვენს მიერ დაწერილი სტილები. მაგალითი თუ როგორ გამოვაცხადოთ styled-component.
+```jsx
+import styled from "styled-components";
+
+const Container = styled.div`
+    background-color: #444;
+    padding: 4px;
+    text-align:center;
+`;
+
+export default function CustomComponent(){
+   return(
+    <Container>
+      <h1>BitCamp!</h1>
+    </Container>
+   ) 
+}
+```
+```styled``` ის დახმარებით ვქმით styled component'ს ამიტომ მისი გამოყენება აუცილებელია. ```styled.div``` 'div' ის ადგილად ნებისმიერი HTML ელემენტი შეგვიძლია ჩავწეროთ.
+
+თუ ჩვენ ვქმინთ styled-components react-native'ში უნდა გამოვიყენოთ core components, მაგალითად View:
+
+```jsx
+import { View } from 'react-native';
+
+const Container = styled.View`
+    background-color: #444;
+    padding: 4px;
+    text-align:center;
+`;
+```
+
+
+##### როგორ გამოვიყენოთ პსეუდო კლასები styled-components'ში:
+
+პატარა მაგალითი :hover'ზე
+
+```jsx
+const CustomHeader = styled.h1`
+  font-size:30px;
+  color:blue;
+  &:hover{
+    color:red;
+  }
+`
+```
+
+'&:' გამოიყენება ფსეუდო კლასების გამოსაყენებლად styled-componentში, ნებისმიერი ფსეუდო კლასის გამოყენებაა შესაძლებელი.
+
+##### Media Query'ს გამოყენება styled-components'ში
+
+```jsx
+const CustomHeader = styled.h1`
+  font-size:30px;
+  color:blue;
+  @media (max-width: 1200px) {
+    color:red;
+    font-size:16px
+  }
+  @media (max-width: 600px) {
+    color:green;
+    font-size:32px
+  }
+`
+```
+
+რას აკეთებს ეს კოდი, 1200px-600px ```CustomHeader``` იქნება წითელი ფერის და ზომა ექნება 16px ხოლო 600px ის ქვევით იქნება მწვნაე და 32px.
+
+```@media``` გამოიყენება როგორც css'ში, განსხვავება მხოლოდ ის არის რომ css'ში ერთ ```@media```'ში იწერება კლასები, ხოლო
+styled-components'ში, კომპონენტისთვის თავისი უნდა დაიწეროს. 
+
+
+##### ასევე სტილებიზე მანიპულაცია props'ებით არის შესაძლებელი
+
+```jsx
+const CustomHeader = styled.h1`
+  font-size:30px;
+  color:${(props) => (props.primaryHeader ? 'green': 'red')};
+`
+  
+
+export default function CustomComponent(){
+   return(
+    <Container>
+      <CustomHeader>BitCamp!</CustomHeader>
+      <CustomHeader primaryHeader>BitCamp!</CustomHeader>
+    </Container>
+   ) 
+}
+```
+ამ კოდს ჩვენ თუ გავუშვებთ დავინახავთ რომ პირველი h1(CustomHeader) არის მწვანე, ხოლო მეორე წითელი.
+
+props'ებზე შეგვიძლია გამოვიყენოთ ```true/false```:
+```jsx
+<CustomHeader primaryHeader={true}>BitCamp!</CustomHeader>
+```
+რაც საშვალებას გვაძლებს useState'სთან ერთად დინამიური გავხადოთ ჩვენი საიტი:
+```jsx
+import { useState } from "react";
+
+const CustomHeader = styled.h1`
+  font-size:30px;
+  color:${(props) => (props.primaryHeader ? 'green': 'red')};
+`
+
+const CustomButton = styled.button`
+  font-size:14px;
+`
+
+export default function CustomComponent(){
+  const [isBackgroundVisible, setIsBackgroundVisible] = useState(false)
+
+   return(
+    <Container>
+      <CustomHeader primaryHeader={isBackgroundVisible}>BitCamp!</CustomHeader>
+      <CustomButton onClick={()=>setIsBackgroundVisible(!isBackgroundVisible)}>Click me!</CustomButton>
+    </Container>
+   ) 
+```
+
+ყოველ ```button```'ზე დაჭერით შევცვლით ```isBackgroundVisible```'ის მნიშვნელობას რაც ```props```'ებით გადასცემს ```CustomHeader```'ს მნიშვნელობას და შეცვლის ფერს.
+
+
+<PreRegistrationForm 
+    formTitle="დაინტერესდით? 🤔 გაიარეთ კონსულტაცია 🔥"
+    formDescription="თუ გსურთ პროგრამირების სწავლა, დაგვიტოვეთ თქვენი მონაცემები და ჩვენი წარმომადგენელი დაგიკავშირდებათ." 
+/>
