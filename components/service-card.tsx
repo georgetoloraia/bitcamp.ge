@@ -162,7 +162,7 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
 
                                 <Link href={"https://discord.gg/nUdZhhgUeG"} target="_blank">
                                     <Button variant="default">
-                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        <RocketIcon className="strong mr-1 h-3 w-3 text-green-400" />
                                         შემოგვიერდით Discord - ის სასწავლო სივრცეში
                                     </Button>
                                 </Link>
@@ -174,7 +174,7 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
 
                                 <Link href={"https://discord.gg/wx5cVHmrU6"} target="_blank">
                                     <Button variant="default">
-                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        <RocketIcon className="strong mr-1 h-3 w-3 text-green-400" />
                                         შემოგვიერდით Discord - ის სასწავლო სივრცეში
                                     </Button>
                                 </Link>
@@ -186,7 +186,7 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
 
                                 <Link href={"https://discord.gg/wx5cVHmrU6"} target="_blank">
                                     <Button variant="default">
-                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        <RocketIcon className="strong mr-1 h-3 w-3 text-green-400" />
                                         შემოგვიერდით Discord - ის სასწავლო სივრცეში
                                     </Button>
                                 </Link>
