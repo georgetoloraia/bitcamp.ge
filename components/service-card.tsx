@@ -37,12 +37,14 @@ import {
 } from "@/components/ui/accordion"
 import Link from "next/link"
 import { useState } from "react"
+import { CheckCheckIcon, RocketIcon } from "lucide-react"
 
 
 export function ServiceCard({ cardTitle, cardDescription, payments, service, program, status, triggerEnrollment, triggerCancel, enrollmentId }) {
     console.log("enrollmentId - ServiceCard", enrollmentId)
     const [fetchingEnrollment, setFetchingEnrollment] = useState<any>(false);
     const [cancellingEnrollment, setCancellingEnrollment] = useState<any>(false);
+
     return cardTitle && (<Card>
         <CardHeader className="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
             <div className="space-y-1">
@@ -61,7 +63,7 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                             setFetchingEnrollment(true);
                             await triggerEnrollment(enrollmentId);
                             setFetchingEnrollment(false);
-                            }}>
+                        }}>
                         {fetchingEnrollment && (
                             <>
                                 <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
@@ -84,7 +86,7 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                             setCancellingEnrollment(true);
                             await triggerCancel(enrollmentId);
                             setCancellingEnrollment(false);
-                            }}>
+                        }}>
 
                         {cancellingEnrollment && (
                             <>
@@ -144,12 +146,52 @@ export function ServiceCard({ cardTitle, cardDescription, payments, service, pro
                         გამოყენების ინსტრუქცია
                     </AccordionTrigger>
                     <AccordionContent>
-                        სწვალა იწყება 22 იანვარს. <br />
-                        გამოყენების ინსტრუქცია დაემატება 22 იანვარს, ამ გვერდზე. <br /><br />
-                        დამატებითი კითხვებისთვის მიმართეთ BitCamp - ის Facebook გვერდს:
-                        <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
-                            https://www.facebook.com/bitcamp.ge
-                        </Link>
+                        {status === "Pending" && (
+                            <>
+                                გამოყენების ინსტრუქცია გამოჩნდება გადახდის შემდეგ.
+                                <br /><br />
+                                დამატებითი კითხვებისთვის მიმართეთ BitCamp - ის Facebook გვერდს:
+                                <Link href="https://www.facebook.com/bitcamp.ge" target="_blank">
+                                    https://www.facebook.com/bitcamp.ge
+                                </Link>
+                            </>
+                        )}
+
+                        {(status === "Active" && program.title === "BitCamp Kids") && (
+                            <div className="flex items-center">
+
+                                <Link href={"https://discord.gg/nUdZhhgUeG"} target="_blank">
+                                    <Button variant="default">
+                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        შემოგვიერდით Discord - ის სასწავლო სივრცეში
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
+
+                        {(status === "Active" && program.title === "პირადი მენტორის აყვანა") && (
+                            <div className="flex items-center">
+
+                                <Link href={"https://discord.gg/wx5cVHmrU6"} target="_blank">
+                                    <Button variant="default">
+                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        შემოგვიერდით Discord - ის სასწავლო სივრცეში
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
+
+                        {(status === "Active" && program.title === "საერთო სამენტორო მომსახურება") && (
+                            <div className="flex items-center">
+
+                                <Link href={"https://discord.gg/wx5cVHmrU6"} target="_blank">
+                                    <Button variant="default">
+                                        <RocketIcon className="mr-1 h-3 w-3 text-green-400 strong" />
+                                        შემოგვიერდით Discord - ის სასწავლო სივრცეში
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
