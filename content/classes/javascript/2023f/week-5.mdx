@@ -69,7 +69,7 @@ description: სასწავლო რესურსები
 
 ვალუტის კონცერტაციის ფორმულაა:
 
-amount to = (amount from × rate from ) / rate to
+amount to = (amount from * rate from ) / rate to
 
 სადაც: 
 * Amount to არის თანხა დოლარში
@@ -114,7 +114,7 @@ amount to = (amount from × rate from ) / rate to
 
 #### პროექტი 20 - Deep Thought - ღრმა ფიქრი
 “All right,” said the computer, and settled into silence again. The two men fidgeted. The tension was unbearable.
-“You’re really not going to like it,” observed Deep Thought.
+“You're really not going to like it,” observed Deep Thought.
 “Tell us!”
 “All right,” said Deep Thought. “The Answer to the Great Question…”
 “Yes…!”
@@ -125,7 +125,7 @@ amount to = (amount from × rate from ) / rate to
 “Is…”
 “Yes…!!!…?”
 “Forty-two,” said Deep Thought, with infinite majesty and calm.”
-— The Hitchhiker’s Guide to the Galaxy, Douglas Adams
+— The Hitchhiker's Guide to the Galaxy, Douglas Adams
 
 შექმენით პროგრამა, რომელიც მომხმარებელს ცხოვრებაზე, სამყაროსაა და ყველაფერზე მნიშვნელოვან კითხვას დაუსვამს. თუ მომხმარებელი input-ად 42-ს შეიყვანს, რიცხვითი ან სტრიქონის ტიპით - forty-two ან forty two, პროგრამამ Yes უნდა დაბეჭდოს, ყველა სხვა შემთხვევაში კი - No.
 
@@ -159,10 +159,10 @@ Example Output
 * Input-ში იგნორირება გაუკეთეთ დასაწყისში არსებულ ცარიელ სივრცეს (whitespeace).
 * დიდ თუ პატარა ასოებს მნიშვნელობა არ უნდა ჰქონდეს.
 
-#### პროექტი 22 - Felipe’s Taqueria - ფელიპეს სასადილო
+#### პროექტი 22 - Felipe's Taqueria - ფელიპეს სასადილო
 
 ჰარვარდის მოედანზე ერთ-ერთი ყველაზე პოპულარული საკვები ადგილია Felipe's Taqueria, რომელიც გთავაზობთ მენიუს, სადაც თითოეული დასახელების ღირებულება კერძის ფასია:
-
+```shell
 {
     "Baja Taco": 4.25,
     "Burrito": 7.50,
@@ -174,7 +174,7 @@ Example Output
     "Taco": 3.00,
     "Tortilla Salad": 8.00
 }
-
+```
 შექმენით პროგრამა, რომელიც მომხმარებელს საშუალებას აძლევს, განათავსოს შეკვეთა - სთხოვს მას თითო კერძს თითო ხაზზე, სანამ მომხმარებელი არ შეიყვანს control-d-ს (რაც არის პროგრამაში input-ის შეყვანის დასრულების საშუალება). ყოველი ჩაწერილი ელემენტის შემდეგ, აჩვენეთ აქამდე ჩაწერილი ყველა კერძის ჯამური ღირებულება, პრეფიქსით - დოლარის ნიშნით ($) და ასწილადად დაფორმატებული. მომხმარებლის input-თან მოპყრობისას არ პროგრამამ დიდი და პატარა რეგისტრის სიმბოლოები არ უნდა გაითვალისწინოს (case-insensitive). უგულებელყოთ ნებისმიერი ისეთი input, რომელიც არ ემთხვევა კერძის სახელს.
 
 მაგალითად:
