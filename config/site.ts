@@ -140,7 +140,7 @@ export const services = [
   {
     machine_name: "private",
     title: "პირადი მენტორი",
-    monthlyPrice: 350,
+    monthlyPrice: 200,
     yearlyPrice: "?",
     description: "აიყვანე პირადი მენტორი",
     features: [
