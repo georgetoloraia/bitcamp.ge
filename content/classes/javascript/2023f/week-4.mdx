@@ -145,6 +145,81 @@ F: 0-59
 > Each person gets 1 piece of pizza.
 ```
 
+#### პროექტი 15 - Grocery List - სასურსათო სია 
+
+დავუშვათ, რომ თქვენ სურსათის ყიდვამდე ყოველთვის ადგენთ საჭირო ნივთების სიას.
+
+დაწერეთ პროგრამა, რომელიც მოუწოდებს მომხმარებელს, შეიყვანოს თითო ნივთი ახალ სტრიქონზე, მანამ, სანამ მომხმარებელი არ დააჭერს control-d-ს. შემდეგ გამოიტანეთ მომხმარებლის სასურსათო სია - დიდი ასოებით, დალაგებული ანბანურად ერთეულის მიხედვით, თითოეულს კი წინ უნდა უძღვოდეს რიცხვი, თუ რამდენჯერ ჩაწერა მომხმარებელმა ეს ნივთი. ნივთების გამრავლება საჭირო არ არის. input-ების  შემთხვევაში, მნიშვნელობა არ აქვს ასოების რეგისტრს.
+
+მაგალითად:
+
+```shell
+< apple                                                                           
+< banana                                                                          
+< banana                                                                          
+< ice cream                                                                       
+                                                                                
+< 1 APPLE                                                                         
+< 2 BANANA                                                                        
+< 1 ICE CREAM  
+
+< lettuce                                                                         
+< tomato                                                                          
+< tomato                                                                          
+< carrot                                                                          
+< tomato                                                                          
+                                                                                
+< 1 CARROT                                                                        
+< 1 LETTUCE                                                                       
+< 3 TOMATO 
+```
+
+#### პროექტი 16 - Adieu, adieu - მშვიდობით, მშვიდობით
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qy9_lfjQopU?si=RA6_z9ATk5q18LHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+The Sound of Music-ში არის სიმღერა, რომელიც ძირითადად ინგლისურადაა შესრულებული, So Long, Farewell - ამ ტექსტით, სადაც "adieu" ფრანგულად ნიშნავს "მშვიდობით":
+
+Adieu, adieu, to yieu and yieu and yieu
+
+რა თქმა უნდა, ტექსტი გრამატიკულად სწორი არ არის, რადგან ის ჩვეულებრივ დაიწერება მძიმეებით, როგორც:
+
+არც "yieu"-ა სიტყვა - ის უბრალოდ, "you"-სთან ირითმება!
+
+შექმენით პროგრამა, რომელიც სთხოვს მომხმარებელს სახელებს, თითოს თითო ხაზზე, სანამ მომხმარებელი არ დაწერს control-d-ს (თუ control-d არ მოქმედებს, შეგიძლიათ გამოიყენოთ ცარიელი სტრიქონი პროგრამის მიერ მომხმარებლისთვის კითხვის დასმის შესაწყვეტად). დაუშვით, რომ მომხმარებელი ჩაწერს მინიმუმ ერთ სახელს. შემდეგ "დაემშვიდობეთ" ამ სახელებს, გამოჰყავით ორი სახელი ერთი, ხოლო სამი სახელი - ორი მძიმით და ერთი "და"' კავშირით, როგორც ქვემოთაა მითითებული:
+
+Adieu, adieu, to Liesl
+Adieu, adieu, to Liesl and Friedrich
+Adieu, adieu, to Liesl, Friedrich, and Louisa
+Adieu, adieu, to Liesl, Friedrich, Louisa, and Kurt
+Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, and Brigitta
+Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, Brigitta, and Marta
+Adieu, adieu, to Liesl, Friedrich, Louisa, Kurt, Brigitta, Marta, and Gretl
+
+მაგალითად: 
+
+```shell
+< Name: Liesl                                                                     
+< Name:                                                                           
+< Adieu, adieu, to Liesl                                                          
+                                                       
+< Name: Liesl                                                                     
+< Name: Friedrich                                                                 
+< Name:                                                                           
+< Adieu, adieu, to Liesl and Friedrich 
+
+< Name: Liesl                                                                     
+< Name: Friedrich                                                                 
+< Name: Louisa                                                                    
+< Name:                                                                           
+< Adieu, adieu, to Liesl, Friedrich, and Louisa
+```
+
+
+
+
+
+
 ### სავარჯიშოები
 1. დაწერეთ პროგრამა, რომ იპოვოთ მასივის ყველა რიცხვის ჯამი.
 1. დაწერეთ პროგრამა მასივში რიცხვების საშუალოს საპოვნელად.
