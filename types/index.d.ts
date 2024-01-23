@@ -92,6 +92,7 @@ export type DocsConfig = {
   mentorsNav: SidebarNavItem[]
   classesNav: SidebarNavItem[]
   javasScript2023ClassNav: SidebarNavItem[]
+  javasScript2024ClassNav: SidebarNavItem[]
   frontEndBasics2023ClassNav: SidebarNavItem[]
   python2023ClassNav: SidebarNavItem[]
   react2022ClassNav: SidebarNavItem[]
@@ -124,7 +125,6 @@ declare global {
     fbq: Function
   }
 }
-
 
 export type IntentItem = {
   machine_name: string

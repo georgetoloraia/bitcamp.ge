@@ -267,6 +267,17 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
+  javasScript2024ClassNav: [
+    {
+      title: "JavaScript 2024W",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/javascript/2024w/week-1",
+        },
+      ],
+    },
+  ],
   frontEndBasics2023ClassNav: [
     {
       title: "Front-End Basics 2023F",
