@@ -456,4 +456,16 @@ export const docsConfig: DocsConfig = {
       ],
     },
   ],
+
+  python2024ClassNav: [
+    {
+      title: "Python 2024",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/python/2024w/week-1",
+        },
+      ],
+    },
+  ],
 }
