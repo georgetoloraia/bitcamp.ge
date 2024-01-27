@@ -60,23 +60,32 @@ export default function IntentNavigator({ triggerEnrollment, payload }) {
                                 setFetchingEnrollment(true);
                                 await triggerEnrollment(true);
                                 setFetchingEnrollment(false);
-                                }}>
-                            {fetchingEnrollment && (
-                                <>
-                                    <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
-                                </>
-                            )}
-                            {!fetchingEnrollment && (
-                                <>
-                                    გადახდა
-                                </>
-                            )}
+                            }}>
+                                {fetchingEnrollment && (
+                                    <>
+                                        <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />  მოითმინეთ
+                                    </>
+                                )}
+                                {!fetchingEnrollment && (
+                                    <>
+                                        გადახდა
+                                    </>
+                                )}
                             </Button>
                         )}
                     </AlertDescription>
                 </Alert>
             )}
 
+            {currentService && intent.machine_name === "minimal" && (
+                <div className="flex justify-center">
+                    <Button className="center my-4 bg-green-700 text-white hover:bg-green-500">
+                        <Link href={'/servisebi-da-fasebi?intent=private'}>
+                            გაეცანი პირადი მენტორის მომსახურების პირობებს
+                        </Link>
+                    </Button>
+                </div>
+            )}
 
             {currentService && intent.machine_name === "kids" && (
                 <Alert variant="destructive">
