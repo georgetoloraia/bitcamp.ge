@@ -1,0 +1,250 @@
+---
+title: თავი 2 - Functions, Conditionals - Python 2023F
+description: სასწავლო რესურსები
+---
+
+
+### ლექცია 2
+<iframe width="560" height="315" src="" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
+
+### პრაქტიკული სემინარები
+
+<Card>
+<PinCodeProtectedContent>
+    <Locked>
+        ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის.
+        პინ კოდი მოითხოვეთ მენტორთან!
+    </Locked>
+    <Unlocked>
+        - ოთხშაბათი: ჯერ არ ჩატარებულა
+        - პარასკევი: ჯერ არ ჩატარებულა
+    </Unlocked>
+</PinCodeProtectedContent>
+</Card>
+
+
+### რესურსები
+- [Python - ის დოკუმენტაცია](https://docs.python.org/3/library/)
+- [Harvard - ის კურსი](https://cs50.harvard.edu/python/2022/)
+- ედიტორი: [cs50.dev](https://cs50.dev/)
+
+### წასაკითხი
+- ჰარვარდის კონსპექტები - [კვირა 1](https://cs50.harvard.edu/python/2022/notes/1/)
+
+### დავალებები
+
+#### პროექტი 14 - Deep Thought
+https://cs50.harvard.edu/python/2022/psets/1/deep/
+
+#### პროექტი 15 - Home Federal Savings Bank
+https://cs50.harvard.edu/python/2022/psets/1/bank/
+
+#### პროექტი 16 - File Extensions
+https://cs50.harvard.edu/python/2022/psets/1/extensions/
+
+#### პროექტი 17 - Math Interpreter
+https://cs50.harvard.edu/python/2022/psets/1/interpreter/
+
+#### პროექტი 18 - Meal Time
+https://cs50.harvard.edu/python/2022/psets/1/meal/
+
+#### პროექტი 19 - Tax Calculator
+შექმენით პროგრამა, რომელიც შეეკითხება მომხმარებელს საერთო ჩეკის ღირებულებას, ხოლო შემდეგ, თუ მომხმარებელი უპასუხებს 'WI' (Wisconsin-ის მოსახლეობა), დააკისრებს მათ 5.5%-იან გადასახადს და გამოიტანს საერთო ჩეკის ღირებულებას გადასახადის ჩათვლით.
+ 
+
+მაგალითად:
+```shell
+$ What is the order amount? 10
+$ What is the state? WI
+$ The subtotal is $10.00.
+$ The tax is $0.55.
+$ The total is $10.55.
+```
+
+ან
+
+```shell
+$ What is the order amount? 10
+$ What is the state? MN
+$ The total is $10.00
+```
+
+აუცილებელი მოთხოვნები:
+1. დარწმუნდი, საერთო ჩეკი მრგვალდება უახლოეს ათეულამდე.
+1. გამოიყენე მხოლოდ ერთი output-ი.
+
+<ExerciseCard exerciseId="tax">
+</ExerciseCard>
+
+
+#### პროექტი 20 - Password Validation
+შექმენით მარტივი პაროლების ვალიდატორი. ჩათვალე, რომ გაქვს შენახული რაიმე პაროლი ცვლადად. შეეკითხე მომხმარებელს username და password, შემდეგ კი შეამოწმე ემთხვევა თუ არა მომხმარებლის მიერ შეყვანილი პაროლი შენს პაროლს, რომლიც ცვლადად გაქვს. თუ ემთხვევა, მაშინ გამოიტანე 'Welcome!', თუ არა - 'I don't know you.'
+
+
+მაგალითად:
+```shell
+$ What is the password? 12345
+$ I don't know you.
+```
+ან
+
+```shell
+$ What is the password? abc.123
+$ Welcome!
+```
+
+
+აუცილებელი მოთხოვნები:
+1. გამოიყენე if/else ბლოკი.
+1. არ აქვს მნიშვნელობა მომხმარებელი დიდი ასოებით შეიყვანს ინფუთს, თუ პატარა.
+
+დამატებითი გამოწვევები:
+1. მომავალში შვენ შევქმნით უფრო კომპლექსურ პაროლების ვალიდატორს, მაგრამ შეგიძლია დრო იხელთო და შენით გააკეთო. ცვლადის ნაცვლად მონაცემები ლექსიკონში შეინახე და ვალიდაცია გაართულე.
+
+<ExerciseCard exerciseId="password">
+</ExerciseCard>
+
+#### პროექტი 21 - Legal Driving Age
+შექმენით პროგრამა, რომელიც შეეკითხება მომხმარებელს მის ასაკზე. თუ მომხმარებელი 16 წლისაა ან მეტის, მაშინ პროგრამამ გამოიტანოს: 'You are old enough to legally drive.', თუ არადა მაშინ: 'You are not old enough to legally drive.'
+
+მაგალითად:
+```shell
+$ What is your age? 15
+$ You are not old enough to legally drive.
+```
+ან
+
+```shell
+$ What is your age? 35
+$ You are old enough to legally drive.
+```
+
+აუცილებელი მოთხოვნები:
+1. გამოიყენე if/else ბლოკი.
+1. გამოიყენე ერთი output-ი.
+1. შეფუთე კოდი ფუნქციებში.
+
+<ExerciseCard exerciseId="legal">
+</ExerciseCard>
+
+
+#### პროექტი 22 - Temperature Converter
+შექმენით პროგრამა, რომელიც გარდაქმნის ტემეპრატურას ფარენჰეიტიდან ცელსიუსში და პირიქით.
+პროგრამამ უნდა შეეკითხოს მომხმარებელს კონვერტაციის ტიპი და შემდეგ გარდაქმნას შესაბამისად.
+ფორმულები:
+- C = (F - 32)*5/9
+- F = (C * 9/5) + 32
+
+მაგალითად:
+```shell
+$ Press C to convert from Fahrenheit to Celsius.
+$ Press F to convert from Celsius to Fahrenheit.
+$ Your choice: C
+$ Please enter the temperature in Fahrenheit: 32
+$ The temperature in Celsius is 0.
+```
+
+აუცილებელი მოთხოვნები:
+1. C-იც და F-ის მნიშვნელობებიც დასაშვები უნდა იყოს, როგორც დიდი, ასევე პატარა ასოებით.
+1. გამოიყენე რაც შეიძლება ნაკლები output-ი.
+
+<ExerciseCard exerciseId="converter">
+</ExerciseCard>
+
+
+#### პროექტი 23 - BMI Calculator
+შექმენით პროგრამა, რომელიც დაითვლის სხეულის მასის ინდექსს (BMI). პროგრამამ უნდა შეეკითხოს მომხმარებელს სიმაღლე ინჩებში და წონა ფუნტებში.
+შემდეგ დაითვალოს BMI ამ ფორმულით:
+- bmi = (weight / (height * height)) * 703
+თუ BMI არის 18.5-სა და 25-ს შორის, მაშინ გამოიტანეთ output-ი, რომ ეს ადამიანი ნორმალური წონისაა.
+თუ ამ შუალედის გარეთაა, მაშინ გამოიტანეთ output-ი, რომ ამ ადამიანს აქვს ან ჭარბი, ან ნორმაზე დაბალი წონა.
+
+მაგალითად:
+```shell
+$ Please, enter your height: 
+$ Please, enter your weight: 
+$ Your BMI is 19.5.
+$ You are within the ideal weight range.
+```
+ან
+```shell
+$ Please, enter your height: 
+$ Please, enter your weight: 
+$ Your BMI is 32.5.
+$ You are overweight. You should see your doctor.
+```
+
+დამატებითი გამოწვევები:
+1. თუ სურვილი გაქვს, შეგიძლია ინჩებისა და ფუნტების ნაცვლად მეტრები და კილოგრამები გამოიყენო, ოღონდ ფორმულაში სწორედ ჩასვი.
+
+<ExerciseCard exerciseId="bmi">
+</ExerciseCard>
+
+
+#### პროექტი 24 - Multistate Sales Tax Calculator
+შექმენით გადასახადების კალკულატორი. პროგრამამ მომხმარებელს უნდა კითხოს ქვითრის საერთო ღირებულება და შემდეგ თუ რომელ შტატში ცხოვრობს.
+თუ მომხმარებელი Wisconsin-ში ცხოვრობს, კითხეთ მას კონკრეტული საცხოვრებელი ადგილი.
+თუ გიპასუხებთ "Eau Claire"-ის დასახლებას, მაშინ საერთო ღირებულებას დაუმატეთ 5 პროცენტიანი გადასახადი.
+თუ გიპასხუებთ "Dunn"-ის დასახლებას, საერთო ღირებულებას დაუმატეთ 5 პროცენტიანი გადასახადი.
+თუ მომხმარებელი Wisconsin-ში არ ცხოვრობს და პირველ კითხვაზე 'Illinois'-ის შტატს გიპასუხებთ, 8%-იანი გადასახადი დააკისრეთ.
+სხვა დანარჩენ შტატებს და დასახლებებს გადასახადი არ დააკისროთ.
+
+მაგალითად:
+```shell
+$ What is the order amount? 10
+$ What state do you live in? Wisconsin
+$ Where? Eau Claire
+$ The tax is $0.50.
+$ The total is $10.50.
+```
+აუცილებელი მოთხოვნები:
+1. საბოლოო პასუხი ეცადეთ რომ ათეულებამდე დაამრგვალოთ.
+1. გამოიყენეთ ერთი output-ი.
+
+<ExerciseCard exerciseId="multistate">
+</ExerciseCard>
+
+
+#### პროექტი 25 - Numbers to Names
+შექმენით პროგრამა, რომელიც 1-იდან 12-მდე რიცხვებს გადაიყვანს შესაბამისი თვეების დასახელებაში. მომხმარებელს შეეკითხეთ რიცხვი და გამოიტანეთ ამ რიცხვის შესაბამისი თვე.
+გაითვალისწინეთ, რომ 1 არის იანვარი და 12 არის დეკემბერი. თუ მომხმარებელი შეიყვანს რამე სხვა რიცხვს, 1-იდან 12-მდე შუალედის გარეთ, გამოიტანეთ შესაბამისი შეცდომის შეტყობინება.
+
+მაგალითად:
+```shell
+$ Please enter the number of the month: 3
+$ The name of the month is March.
+```
+
+აუცილებელი მოთხოვნები:
+1. გამოიყენეთ match/case ბლოკები.
+1. გამოიყენეთ ერთი output-ი.
+
+დამატებითი გამოწვევა:
+1. ლექსიკონებთან მუშაობა ჯერ არ გვისწავლია, მაგრამ თუ სურვილი გაქვს შეგიძლია dictionary-ის გამოყენებით დაწერო ეს დავალება.
+
+<ExerciseCard exerciseId="names">
+</ExerciseCard>
+
+#### პროექტი 26 - Comparing Numbers
+შექმენით პროგრამა, რომელიც მომხმარებლისგან სამი input-ის გამოყენებით მიიღებს სამ სხვადასხვა რიცხვს და გამოიტანს მათ შორის უდიდესს.
+ჯერ შეამოწეთ ეს რიცხვები თუ არის ერთმანეთისგან განსხვავებული, თუ არ არის - მაშინ გამოიტანეთ შეცდომის შეტყობინება და დაასრულეთ პროგრამის მუშაობა.
+თუ რიცხვები განსხვავებულია ერთმანეთისგან, მაშინ გაიგეთ თუ რომელია მათგან უდიდესი და გამოიტანეთ ის.
+
+მაგალითად:
+```shell
+$ Enter the first number: 1
+$ Enter the second number: 51
+$ Enter the third number: 2
+$ The largest number is 51.
+```
+
+აუცილებელი მოთხოვნები:
+1. არ გამოიყენოთ რაიმე ჩაშენებული მეთოდი უდიდესი რიცხვის დასადგენად, გამოიყენეთ if/else ბლოკები.
+
+<ExerciseCard exerciseId="comparing">
+</ExerciseCard>
+
+#### პროექტი 27 - Troubleshooting Car Issues
+
+მალე დაემატება!
