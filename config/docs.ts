@@ -318,6 +318,10 @@ export const docsConfig: DocsConfig = {
           title: "თავი 7",
           href: "/classes/frontendbasics/2023f/week-7",
         },
+        {
+          title: "თავი 8",
+          href: "/classes/frontendbasics/2023f/week-8",
+        },
       ],
     },
   ],
