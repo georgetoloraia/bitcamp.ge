@@ -4,8 +4,7 @@ description: სასწავლო რესურსები
 ---
 
 ### ლექცია 19
-<iframe width="560" height="315" src="" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-4-RpUb-JKI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
 ### პრაქტიკული სემინარები
 
@@ -30,8 +29,55 @@ description: სასწავლო რესურსები
 ### წასაკითხი
 - [Django დოკუმენტაცია](https://docs.djangoproject.com/en/4.2/)
 - [Django Rest Framework დოკუმენტაცია](https://www.django-rest-framework.org/)
+- [Docker Crash Course](https://www.youtube.com/watch?v=pg19Z8LL06w)
+- [მიშას აკადემია - Docker](https://www.youtube.com/watch?v=MrHBdMWtFHA&list=PLbZtgfvYfOp0IHy5bvxgUFJkCWY4yVMp6)
+- [fullstackopen Docker](https://fullstackopen.com/en/part12/introduction_to_containers)
+- [ოთოს ლექცია](https://www.youtube.com/watch?v=TS95E1hHVxY)
+
 
 
 ### დავალებები
 
-მალე დაემატება
+#### პროექტი 114 - Dockerize a Simple Django Application
+
+დავალების მიზანი: ისწავლოთ მარტივი ჯანგოს აპლიკაციის კონტეინერიზაცია docker-ის გამოყენებით.
+
+1. შექმენით მარტივი ჯანგოს პროექტი, სადაც მთავარ გვერდზე, უბრალოდ response-ის სახით აბრუნებთ "Hello World"-ს.
+2. შექმენით Dockerfile თქვენი პროექტისთვის სადაც:
+- გამოიყენებთ ოფიციალურ პითონის image-ს, როგორც მშობელს (საბაზოს).
+- გააკეთებთ სივრცის გამართვის ოპერაციებს, მათ შორის ჯანგოს ინსტალაციას.
+- დააკოპირებთ პროექტის ფაილებს კონტეინერში.
+- გაუშვებთ ჯანგოს სერვერს კონტეინერად.
+3. Dockerfile-იდან შექმენით დოკერის image.
+4. დასტარტეთ კონტეინერი და დარწმუნდით, რომ წვდომა გაქვთ გაშვებულ ჯანგოს პროექტთან ბრაუზერიდან.
+
+#### პროექტი 115 - PostgreSQL with Django using Docker Compose
+
+დავალების მიზანი: ისწავლოთ Docker Compose -ის გამოყენება სხვადასხვა სერვისების კონტეინერების (ამ შემთხვევაში Django და Postgres) გასაშვებად ცალ-ცალკე.
+
+1. პირველი დავალება ისე შეცვალეთ, რომ ჩაშენებული SQLite-ის მაგივრად გამოიყენოთ PostgreSQL მონაცემთა ბაზა.
+2. შექმენით docker-compose.yml ფაილი, სადაც იქნება ორივე სერვისი:
+- პირველი, ჯანგოს აპლიკაციისთვის (გამოიყენეთ Dockerfile პირველი დავალებიდან)
+- მეორე, PostgreSQL კონტეინერისთვის. (გამოიყენეთ ოფიციალური PostgreSQL image-ი, dockerhub-იდან)
+3. გაწერეთ კონფიგურაცია ჯანგოს აპლიკაციისთვის, რათა დაუკავშირდეს PostgreSQL სერვისს.
+4. გამოიყენეთ Docker Compose რომ გაბილდოთ და დასტარტოთ ორივე სერვისი.
+5. დარწმუნდით, რომ ჯანგოს აპლიკაცია გამართულად მუშაობს PostgreSQL მონაცემთა ბაზასთან.
+
+#### პროექტი 116 - Adding Django Rest Framework to the Project
+
+დავალების მიზანი: ჯანგოს აპლიკაციას დაამატოთ DRF API.
+
+1. გაანახლეთ პროექტი, დაამატეთ Django Rest Framework გაფართოება.
+2. შექმენით მარტივი API DRF-ის გამოყენებით, რომელიც აბრუნებს რაიმე მონაცემებს (მაგალითად წიგნებს, სტატიებს, პოსტებს ან სხვა) JSON-ად.
+3. დარწმუნდით რომ API ხელმისაწვდომი იქნება დოკერის გაშვებულ კონტეინერში.
+4. გამოიყენეთ Docker Compose, რომ დასტარტოთ განახლებული აპლიკაცია PostgreSQL მონაცემთა ბაზასთან ერთად.
+
+
+#### პროექტი 117 - Implementing Environment Variables for Configuration
+
+დავალების მიზანი: ისწავლოთ environment variables გამოყენება დოკერის კონტეინერებში.
+
+1. გადააკეთეთ docker-compose.yml ისე, რომ გამოიყენოთ environment variables სენსიტიური ინფორმაციისთვის (მონაცემთა ბაზის იუზერი, პაროლი და ა.შ.)
+2. შეცვალეთ ჯანგოს პროექტის სეთინგები ისე, რომ მონაცემთა ბაზის კონფიგურაცია წაიკითხოს environment variables-იდან.
+3. მოგიწევთ შექმნათ .env ფაილი.
+4. დასტარტეთ სერვისები Docker Compose -ის გამოყენებით და დარწმუნდით რომ აპლიკაცია მუშაობს გამართულად აწ უკვე ჩაშენებული environment variables გამოყენებით.
