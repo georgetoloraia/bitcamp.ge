@@ -4,7 +4,7 @@ description: სასწავლო რესურსები
 ---
 
 ### ლექცია 20
-<iframe width="560" height="315" src="" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yJpbMu9EMOI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
 ### პრაქტიკული სემინარები
 
@@ -29,7 +29,47 @@ description: სასწავლო რესურსები
 ### წასაკითხი
 - [Django დოკუმენტაცია](https://docs.djangoproject.com/en/4.2/)
 - [Django Rest Framework დოკუმენტაცია](https://www.django-rest-framework.org/)
-
+- [Django Rest Framework testing](https://www.django-rest-framework.org/api-guide/testing/)
+- [Django Advanced Testing Topics](https://docs.djangoproject.com/en/5.0/topics/testing/advanced/)
+- [Django Testing](https://docs.djangoproject.com/en/5.0/topics/testing/)
+- [სტატია სატესტო მონაცემთა ბაზის შექმნაზე](https://medium.com/@akshatgadodia/testing-django-and-django-rest-framework-drf-ensuring-reliability-236f0fcbeee6)
 
 ### დავალებები
 
+#### პროექტი 118 - Testing Model Validation
+დავალების მიზანია დაწეროთ ტესტები, რათა დარწმუნდეთ თუ როგორ მუშაობს თქვენი მოდელებისთვის.
+
+ჩვენ გვაქვს მარტივი DRF პროექტი 'Product' მოდელით, რომელსაც სხვა ველებთან დამატებით ასევე აუცილებლად უნდა გააჩნდეს 'price' ველი.
+'price' ველი არ უნდა იღებდეს უარყოფით მნიშვნელობებს.
+
+დაწერეთ ტესტი, რომელიც ცდილობს შექმნას 'Product'-ი უარყოფითი ფასით. შექმნა არ უნდა განხორციელდეს მოდელის შესაბამისი ვალიდაციის გამო.
+
+
+#### პროექტი 119 - Testing API Response and Status Codes
+
+გატესტეთ API-ის კონკრეტული URL-ის response-ის სტრუქტურა და სტატუს კოდი.
+
+გვაქვს მარშუტი '/api/items/', რომელიც აბრუნებს ყველა ნივთს მონაცემთა ბაზაში. ეს მარშუტი უნდა აბრუნდებდეს 200 OK სტატუს კოდს და JSON-ს რომელიც ყველა მონაცემს შეიცავს.
+
+დაწერეთ ტესტი, რომელიც გააგზავნის GET მოთხოვნას '/api/items/'-ზე და დარწმუნდება რომ response სტატუს კოდი არის 200 OK და მონაცემები სასურველ ფორმატში ბრუნდება.
+
+#### პროექტი 120 - Testing Authentication and Permissions
+
+დაწერეთ ტესტები, რათა დარწმუნდეთ, რომ თქვენი API-ს აუტენტიფიკაციის სისტემა და უფლებათა ნაკრებები გამართულად მუშაობს.
+
+გვაქვს URL-ი 'api/private-items/' რომელიც უნდა იყოს მხოლოდ ავტორიზირებული მომხმარებლებისთვის. სხვა შემთხვევაში მოთხოვნები არ უნდა მიიღებოდეს 403 Forbidden სტატუს კოდით.
+
+დასაწერა ორი ტესტი. პირველი 'api/private-items/'-ზე არაავტორიზირებული მომხმარებლების გასატესტად. იგი 403 სტატუს კოდს უნდა აბრუნებდეს.
+მეორე ტესტი, რომელშიც ავტორიზირებული მოთხოვნა იგზავნება იგივე მისამართზე უნდა დაბრუნდეს 200 OK სტატუს კოდით.
+
+
+#### პროექტი 121 - Integration Test with External Services
+შექმენით ინტეგრირებული ტესტი, რომელიც ასევე მოიცავს ისეთ გარე სერვისს, როგორიცაა Redis.
+
+თქვენი DRF პროექტი უნდა იყენებდეს Redis-ს ქეშირებისთვის. გაქვთ view სახელად 'Events', რომლის მოთხოვნის ქეშირება ხდება 10 წუთით.
+
+დაწერეთ ტესტი, რომელიც:
+- აგზავნის GET მოთხოვნას მონაცემების წამოსაღებად და ადასტურებს ამ მოთხოვნას შესაბამისი სტატუს კოდით.
+- ანახლებს 'Event' ობიექტს პირდაპირ მონაცემთა ბაზაში.
+- აგზავნის მეორე GET მოთხოვნას და რწმუნდება, რომ ინფორმაცია უკვე ქეშიდან არის წამოღებული.
+- შეგიძლიათ დამატებით გამოიყენოთ ისეთი იარაღი, როგორიცაა django-redis ქეშის გასაწმენდად და მოთხოვნების თავიდან გასაგზავნად.
