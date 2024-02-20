@@ -512,6 +512,18 @@ export const docsConfig: DocsConfig = {
     },
   ],
 
+  react2023ClassNav: [
+    {
+      title: "React 2023F",
+      items: [
+        {
+          title: "თავი 1",
+          href: "/classes/react/2023f/week-1",
+        },
+      ]
+    }
+  ],
+
   python2024ClassNav: [
     {
       title: "Python 2024",
