@@ -92,9 +92,11 @@ export type DocsConfig = {
   mentorsNav: SidebarNavItem[]
   classesNav: SidebarNavItem[]
   javasScript2023ClassNav: SidebarNavItem[]
+  javasScript2024ClassNav: SidebarNavItem[]
   frontEndBasics2023ClassNav: SidebarNavItem[]
   python2023ClassNav: SidebarNavItem[]
   react2022ClassNav: SidebarNavItem[]
+  react2023ClassNav: SidebarNavItem[]
   python2024ClassNav: SidebarNavItem[]
 }
 
@@ -125,7 +127,6 @@ declare global {
   }
 }
 
-
 export type IntentItem = {
   machine_name: string
   description: string
@@ -140,6 +141,7 @@ export type IntentItem = {
 
 export type IntentItems = {
   free: IntentItem
+  minimal: IntentItem
   common: IntentItem
   private: IntentItem
   pro: IntentItem
