@@ -16,31 +16,31 @@ export const docsConfig: DocsConfig = {
     },
   ],
   sidebarNav: [
-    {
-      title: "HTML თავები",
-      items: [
-        {
-          title: "თავი 1 - შესავალი",
-          href: "/courses/html/1-shesavali",
-        },
-        {
-          title: "თავი 2 - ელემენტები",
-          href: "/courses/html/2-elementebi",
-        },
-        {
-          title: "თავი 3 - ატრიბუტები",
-          href: "/courses/html/3-atributebi",
-        },
-        {
-          title: "თავი 4 - ატრიბუტები",
-          href: "/courses/html/4-bmulebi",
-        },
-        {
-          title: "თავი 5 - სურათები",
-          href: "/courses/html/5-suratebi",
-        },
-      ],
-    },
+    // {
+    //   title: "HTML თავები",
+    //   items: [
+    //     {
+    //       title: "თავი 1 - შესავალი",
+    //       href: "/courses/html/1-shesavali",
+    //     },
+    //     {
+    //       title: "თავი 2 - ელემენტები",
+    //       href: "/courses/html/2-elementebi",
+    //     },
+    //     {
+    //       title: "თავი 3 - ატრიბუტები",
+    //       href: "/courses/html/3-atributebi",
+    //     },
+    //     {
+    //       title: "თავი 4 - ატრიბუტები",
+    //       href: "/courses/html/4-bmulebi",
+    //     },
+    //     {
+    //       title: "თავი 5 - სურათები",
+    //       href: "/courses/html/5-suratebi",
+    //     },
+    //   ],
+    // },
   ],
   aboutProgramsNav: [
     {
