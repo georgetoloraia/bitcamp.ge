@@ -16,7 +16,8 @@ description: სასწავლო რესურსები
       მენტორთან!
     </Locked>
     <Unlocked>
-      - ოთხშაბათი: ჯერ არ ჩატარებულა
+      - ოთხშაბათი: https://youtu.be/iSA6UE4Rdnk
+          - source code: [Stackblitz](https://stackblitz.com/edit/js-l2jp6w?file=index.js)
       - პარასკევი: ჯერ არ ჩატარებულა
     </Unlocked>
   </PinCodeProtectedContent>
@@ -174,10 +175,13 @@ Example Output
 4. დაამატეთ ობიექტში job.
 5. დაამატეთ ობიექტში ფუნქცია რომელიც დააბრუნებს ობიექტის job-ის სიგრძეს.
 6. ამის შემდეგ დაპრინტეთ უბრალოდ ობიექტში არსებული მეთოდების რაოდენობა.
-7. გაარკვიეთ ,აქვს თუარა ობიექტს gender property ,თუ არაქვს ,მაშინ შექმენით მეთოდი .
+7. დაადგინეთ, აქვს თუ არა ობიექტს gender ფროფერთი. თუ არ აქვს, მაშინ შექმენით მეთოდი რომელიც იმავე ობიექტს gender ფროფერთის შეუქმნის.
 8. გადაუარეთ for ციკლით ობიექტს და დაპრინტეთ ყველა property.
 9. გადაუარეთ for ციკლით ობიექტს და დაპრინტეთ ყველა value. 
-10. Object Deep Comparison: Write a function that compares two objects deeply and returns true if they are equal, and false otherwise. The function should handle nested objects and arrays. For example, given the objects \{ a: 1, b: \{ c: 2 \} \} and \{ a: 1, b: \{ c: 2 \} \}, the function should return true.
-11. Object Transformation: Write a function that takes an array of objects and transforms them into a single object. The transformation should use a specific property of each object as the key and another property as the value. For example, given the array \[\{ id: 1, name: 'Alice' \}, \{ id: 2, name: 'Bob' \}\], and using the id property as the key and the name property as the value, the function should return \{ 1: 'Alice', 2: 'Bob' \}.
-12. Object Serialization: Write a function that serializes an object into a string representation. The serialization should handle nested objects and arrays. For example, given the object \{ a: 1, b: \{ c: [2, 3] \} \}, the function should return the string "\{ a: 1, b: \{ c: \[2, 3\] \} \}".
-13. Object Prototype Extension: Write a function that extends an object's prototype with additional methods. The additional methods should perform specific operations on the object's properties. For example, extend the Array prototype with a method called sum() that calculates the sum of all elements in the array.
+10. გვაქვს სახელების მასივი. შექმენით ობიექტი, სადაც key-value წყვილებად იქნება სახელები და მათი რაოდენობები მასივში.
+11. შექმენით პროდუქტის პროტოტიპი, რომელსაც ექნება მეთოდი პროდუქტის ფასის საჩვენებლად. პროტოტიპზე დაყრდნობით შექმენით რამდენიმე პროდუქტის ობიექტი, რომელთაც ექნებათ სახელისა და ფასის ფროფერთები.
+შექმენით კალათის პროტოტიპი რომელზე დაყრდნობითაც შეიქმნება კალათის ობიექტები. კალათის ობიექტში უნდა გვქონდეს მასივი, სადაც შეგვეძლება პროდუქტის ობიექტების დამატება. პროტოტიპშივე უნდა იყოს მეთოდი, რომელიც დაამატებს მასივში ახალ პროდუქტებს და მეთოდი, რომელიც დაითვლის კალათაში არსებული ყველა პროდუქტის ჯამურ ფასს.
+12. Object Deep Comparison: Write a function that compares two objects deeply and returns true if they are equal, and false otherwise. The function should handle nested objects and arrays. For example, given the objects \{ a: 1, b: \{ c: 2 \} \} and \{ a: 1, b: \{ c: 2 \} \}, the function should return true.
+13. Object Transformation: Write a function that takes an array of objects and transforms them into a single object. The transformation should use a specific property of each object as the key and another property as the value. For example, given the array \[\{ id: 1, name: 'Alice' \}, \{ id: 2, name: 'Bob' \}\], and using the id property as the key and the name property as the value, the function should return \{ 1: 'Alice', 2: 'Bob' \}.
+14. Object Serialization: Write a function that serializes an object into a string representation. The serialization should handle nested objects and arrays. For example, given the object \{ a: 1, b: \{ c: [2, 3] \} \}, the function should return the string "\{ a: 1, b: \{ c: \[2, 3\] \} \}".
+15. Object Prototype Extension: Write a function that extends an object's prototype with additional methods. The additional methods should perform specific operations on the object's properties. For example, extend the Array prototype with a method called sum() that calculates the sum of all elements in the array.
