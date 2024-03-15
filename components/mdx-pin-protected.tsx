@@ -1,17 +1,12 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
+
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 
-const PinProtected = ({ 
-  href,
-  className,
-  children,
-  disabled,
-  ...props
-}) => {
-  const pinCode = "7585" // Pin code definition
+const PinProtected = ({ href, className, children, disabled, ...props }) => {
+  const pinCode = "0302" // Pin code definition
 
   const [pin, setPin] = useState("")
   const [isVerified, setIsVerified] = useState(false)
@@ -36,10 +31,7 @@ const PinProtected = ({
 
   return (
     <div
-      className={cn(
-        disabled && "cursor-not-allowed opacity-60",
-        className
-      )}
+      className={cn(disabled && "cursor-not-allowed opacity-60", className)}
       {...props}
     >
       {!isVerified ? (
