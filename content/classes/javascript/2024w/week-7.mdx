@@ -1,0 +1,188 @@
+---
+title: თავი 7 - ობიექტების საიდუმლო ცხოვრება - JavaScript 2024W
+description: სასწავლო რესურსები
+---
+
+### ლექცია 7
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/j2o6ggV8jOY?si=NTQLlK6lJo3mkBiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
+### პრაქტიკული სემინარები
+
+<Card>
+  <PinCodeProtectedContent>
+    <Locked>
+      ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის. პინ კოდი მოითხოვეთ
+      მენტორთან!
+    </Locked>
+    <Unlocked>
+      - ოთხშაბათი: https://youtu.be/iSA6UE4Rdnk
+          - source code: [Stackblitz](https://stackblitz.com/edit/js-l2jp6w?file=index.js)
+      - პარასკევი: https://youtu.be/qW1bYolEE4U
+          - source code: [Stackblitz](https://stackblitz.com/edit/js-m7spvz?file=index.js)
+    </Unlocked>
+  </PinCodeProtectedContent>
+</Card>
+
+### რესურსები
+
+- წიგნი: [Eloquent JavaScript](https://eloquentjavascript.net/)
+- ედიტორი: [stackblitz.com](https://stackblitz.com)
+- პრეზენტაცია: [Google Slide](https://docs.google.com/presentation/d/1H5RPIb4q21o2T5QDkqE8VEpwBYhgMAPzkrdvuDtIwJg/edit?usp=sharing)
+
+### წასაკითხი
+
+
+- წაიკითხეთ თავი VI - [Secret Life Of Objects](https://eloquentjavascript.net/06_object.html)
+
+
+### დავალებები
+
+#### პროექტი 28 - File Extensions - ფაილის ტიპები
+ფაილების უმეტესობას აქვს file extensions - სუფიქსები, რომელიც სახელწოდებაში წერტილის (.) შემდეგ წერია. მაგალითად, ფაილის სახელები GIF-ებისთვის მთავრდება .gif-ით, ხოლო JPEG-ების - .jpg ან .jpeg-ით.
+
+ვებ ბრაუზერები, თავის მხრივ, ეყრდნობიან მედიის ტიპებს, რომელიც ადრე ცნობილი იყო, როგორც MIME ტიპები - ამით დგინდება, როგორ უნდა იყოს ნაჩვენები ფაილები, რომლებიც ინტერნეტშია. როდესაც ვებ სერვერიდან ფაილს ტვირთავთ, ეს სერვერი ე.წ. HTTP header-ს თავად ფაილთან ერთად გზავნის, რომელიც ფაილის მედიის ტიპზე მიუთითებს. მაგალითად, მედიის ტიპი GIF-ისთვის არის image/gif, ხოლო მედიის ტიპი JPEG-ისთვის არის image/jpeg. ფაილის მედიის ტიპის დასადგენად, ვებ სერვერი, როგორც წესი, ფაილის გაფართოებას აკვირდება.
+
+იხილეთ developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types ფაილის ტიპები სიისთვის.
+
+შექმენით პროგრამა, რომელიც სთხოვს მომხმარებელს ფაილის სახელს და შემდეგ ბეჭდავს, იმ შემთხვევაში, თუ ფაილის სახელი ამ რომელიმე სუფისქით მთავრდება:
+
+* .gif
+* .jpg
+* .jpeg
+* .png
+* .pdf
+* .txt
+* .zip
+
+თუ ფაილის სახელი მთავრდება სხვა სუფიქსით ან საერთოდ არ აქვს სუფიქსი, დაბეჭდეთ application/octet-stream.
+
+Example Output
+```shell
+< File name: Cat.gif
+< image/gif
+< File name: Cat.jpg
+< image/jpeg
+< File name: Cat
+< application/octet-stream
+```
+
+* პროგრამისთვის დიდ თუ პატარა ასოებს მნიშვნელობა არ უნდა ჰქონდეს.
+
+#### პროექტი 29 - Math Interpreter - მათემატიკური ინტერპრეტატორი
+შექმენით პროგრამა, რომელიც მომხმარებლისგან იღებსარითმეტიკულ გამოთვლას, რომელსაც შემდეგ ახორციელებს და შედეგს ათწილადის სახით ბეჭდავს. დაუშვით, რომ მომხმარებლის input დაფორმატებული იქნება, როგორც x y z, თითო გამოტოვებით (space) x-სა და y-ს შორის, ისევე, როგორც y-სა და z-ს შორის. ამ გამოთვლაში:
+
+* x არის მთელი რიცხვი
+* y არის +, -, *, ან /
+* z არის მთელი რიცხვი
+
+მაგალითად, თუ input-ია 1 + 1, თქვენი პროგრამის output უნდა იყოს 2.0. დაუშვით, რომ თუ y არის /, მაშინ z არ იქნება 0.
+
+Example Output
+```shell
+< Expression: 1 + 1
+< 2.0
+< Expression: 4/3
+< 1.3
+< Expression: 100 - 1
+< 99.0
+```
+
+* პროგრამისთვის დიდ თუ პატარა ასოებს მნიშვნელობა არ უნდა ჰქონდეს.
+
+#### პროექტი 30 - Meal Time - კვების დრო
+დავუშვათ, იმყოფებით ქვეყანაში, სადაც ჩვეულებრივ, საუზმეს 7:00-დან 8:00 საათამდე მიირთმევენ, ლანჩს - 12:00-დან 13:00 საათამდე, ხოლო ვახშამს - 18:00-დან 19:00 საათამდე. იქნებ კარგი იყოს ისეთი პროგრამის ქონა, რომელიც გეტყვით, როდის რა ჭამოთ?
+
+შექმენით პროგრამა, რომელიც მომხმარებელს სთხოვს დროის შეყვანას და დაუბეჭდავს, საუზმის დროა, ლანჩის თუ - ვახშმის. თუ კვების დრო არაა, output საერთოდ არაფერი იქნება. ვივარაუდოთ, რომ მომხმარებლის input-ის ფორმატირება მოხდება 24 საათში, როგორც: #:## ან ##:##. ასევე, დაუშვით, რომ თითოეული კვების ინტერვალი ითვლება, ანუ, იქნება ეს 7:00, 7:01, 7:59, თუ 8:00, ან 7:00-სა და 8:00 საათს შორის ნებისმიერ დროს, თითოეულ შემთხვევაში საუზმის დროა.
+
+შექმენით თქვენი პროგრამა ქვემოთ მოცემულის მიხედვით, სადაც კონვერტირება არის ფუნქცია (რომელიც შეიძლება გამოიძახოს main-ით), რომელიც გარდაქმნის დროს, str 24-საათიან ფორმატში, საათების შესაბამის რაოდენობაზე, როგორც float. მაგალითად, „7:30“ მსგავსი დროის გათვალისწინებით (ანუ 7 საათი და 30 წუთი), კონვერტაცია უნდა დააბრუნოს 7.5 (ანუ 7.5 საათი).
+
+პროგრამაში შექმენით ფუნქცია სახელწოდებით convert, რომელიც დროის დაკონვერტირებაზე იზრუნებს - 24-საათიანი ფორმატის სტრიქონს (string) გადაიყვანს შესაბამის საათობრივ რიცხვში, ათწილადის გამოყენებით. მაგალითად, "7:30" - 7 საათი და 30 წუთი, კონვერტაციის დროს 7.5 უნდა გახდეს.
+
+Example Output
+```shell
+< What time is it? 7:00
+< Breakfast time
+< What time is it? 8:01
+< What time is it? 18:01
+< Dinner time
+< What time is it? 18:59
+< Dinner time
+```
+
+#### პროექტი 31 Adding Numbers
+Write a program that prompts the user for five numbers and
+computes the total of the numbers.
+Example Output
+```shell
+Enter a number: 1
+Enter a number: 2
+Enter a number: 3
+Enter a number: 4
+Enter a number: 5
+The total is 15.
+```
+
+* he prompting must use repetition, such as a counted
+loop, not three separate prompts.
+* Create a flowchart before writing the program.
+
+#### პროექტი 32 - Tax Calculator - გადასახადის კალკულატორი
+მარტივი პრობლემების გადასაჭრელად ყოველთვის ჩახლართული საკონტროლო სტრუქტურა არაა საჭირო. ზოგჯერ პროგრამა ერთ შემთხვევაში დამატებით ნაბიჯს მოითხოვს, მაგრამ ყველა სხვა შემთხვევაში სხვა არაფერია გასაკეთებელი. დაწერეთ მარტივი პროგრამა შეკვეთის ოდენობისთვის დამატებითი გადასახადის (tax) გამოსათვლელად. პროგრამამ უნდა მოითხოვოს შეკვეთის ოდენობა და შტატი. თუ შტატი არის „WI“, მაშინ შეკვეთას უნდა დაერიცხოს 5.5% გადასახადი. პროგრამამ უნდა დაბეჭდოს ქვეჯამი, გადასახადი და ჯამური გადასახდელი თანხა ვისკონსინის მცხოვრებლებისთვის, ხოლო სხვებისთვის - მხოლოდ ჯამური თანხა.
+
+Example Output
+```shell
+< What is the order amount? 10
+< What is the state? WI
+< The subtotal is $10.00.
+< The tax is $0.55.
+< The total is $10.55.
+
+< What is the order amount? 10
+< What is the state? MN
+< The total is $10.00
+```
+
+#### პროექტი 33 - Password Validation - პაროლის ვალიდაცია
+პაროლის ვალიდაცია ხდება მომხმარებლის მიერ მოწოდებული მნიშვნელობის შედარებით შენახულ მნიშვნელობასთან. პაროლი ან სწორია, ან არა. შექმენით მარტივი პროგრამა, რომელიც პაროლის ვალიდაციას აკეთებს. პროგრამამ უნდა მოითხოვოს მომხმარებლის სახელი და პაროლი, უნდა შეადაროს მომხმარებლის მიერ ჩაწერილი პაროლი ცნობილ პაროლს. თუ ეს ორი ერთმანეთს ემთხვევა, პროგრამამ უნდა აჩვენოს "Welcome!",  თუ არ ემთხვევა, უნდა გამოჩნდეს „I don't know you“.
+
+Example Output
+```shell
+< What is the password? 12345
+< I don't know you.
+
+< What is the password? abc$123
+< Welcome!
+```
+
+#### პროექტი 34 - Legal Driving Age - მართვის კანონიერი ასაკი
+თქვენ შეგიძლიათ შეამოწმოთ, თანაბარია თუ არა ორი რიცხვი, მაგრამ შეიძლება დაგჭირდეთ ასევე იმის გატესტვა, როგორ დარდება input-ის რიცხვი ცნობილ მნიშვნელობას, ხოლო ამის მიხედვით აჩვენოთ შეტყობინება, მოცემული რიცხვი მეტისმეტად დაბალია თუ - მაღალი. დაწერეთ პროგრამა, რომელიც კითხულობს მომხმარებელს ასაკს და შეადარეთ ის კანონიერად მართვის ასაკს - 16-ს. თუ მომხმარებელი არის 16 წლის ან მეტის, მაშინ პროგრამაში უნდა გამოჩნდეს „You are old enough to legally drive.“. თუ მომხმარებელი 16 წელზე ნაკლები ასაკისაა, პროგრამამ უნდა აჩვენოს: „You are not old enough to legally drive.“
+
+Example Output
+```shell
+< What is your age? 15
+< You are not old enough to legally drive.
+
+< What is your age? 35
+< You are old enough to legally drive.
+```
+
+### სავარჯიშოები
+
+1. შექმენით ობიექტი სახელად Person,ობიექტს ექნება სახელი,გვარი,ასაკი.
+2. დაამატეთ ობიექტში  ფუნქცია სახელად  sayHello რომელიც დაპრინტავს ობიექტში 
+სახელის values.
+3. წაშალეთ ასაკის property.
+4. დაამატეთ ობიექტში job.
+5. დაამატეთ ობიექტში ფუნქცია რომელიც დააბრუნებს ობიექტის job-ის სიგრძეს.
+6. ამის შემდეგ დაპრინტეთ უბრალოდ ობიექტში არსებული მეთოდების რაოდენობა.
+7. დაადგინეთ, აქვს თუ არა ობიექტს gender ფროფერთი. თუ არ აქვს, მაშინ შექმენით მეთოდი რომელიც იმავე ობიექტს gender ფროფერთის შეუქმნის.
+8. გადაუარეთ for ციკლით ობიექტს და დაპრინტეთ ყველა property.
+9. გადაუარეთ for ციკლით ობიექტს და დაპრინტეთ ყველა value. 
+10. გვაქვს სახელების მასივი. შექმენით ობიექტი, სადაც key-value წყვილებად იქნება სახელები და მათი რაოდენობები მასივში.
+11. შექმენით პროდუქტის პროტოტიპი, რომელსაც ექნება მეთოდი პროდუქტის ფასის საჩვენებლად. პროტოტიპზე დაყრდნობით შექმენით რამდენიმე პროდუქტის ობიექტი, რომელთაც ექნებათ სახელისა და ფასის ფროფერთები.
+შექმენით კალათის პროტოტიპი რომელზე დაყრდნობითაც შეიქმნება კალათის ობიექტები. კალათის ობიექტში უნდა გვქონდეს მასივი, სადაც შეგვეძლება პროდუქტის ობიექტების დამატება. პროტოტიპშივე უნდა იყოს მეთოდი, რომელიც დაამატებს მასივში ახალ პროდუქტებს და მეთოდი, რომელიც დაითვლის კალათაში არსებული ყველა პროდუქტის ჯამურ ფასს.
+12. Object Deep Comparison: Write a function that compares two objects deeply and returns true if they are equal, and false otherwise. The function should handle nested objects and arrays. For example, given the objects \{ a: 1, b: \{ c: 2 \} \} and \{ a: 1, b: \{ c: 2 \} \}, the function should return true.
+13. Object Transformation: Write a function that takes an array of objects and transforms them into a single object. The transformation should use a specific property of each object as the key and another property as the value. For example, given the array \[\{ id: 1, name: 'Alice' \}, \{ id: 2, name: 'Bob' \}\], and using the id property as the key and the name property as the value, the function should return \{ 1: 'Alice', 2: 'Bob' \}.
+14. Object Serialization: Write a function that serializes an object into a string representation. The serialization should handle nested objects and arrays. For example, given the object \{ a: 1, b: \{ c: [2, 3] \} \}, the function should return the string "\{ a: 1, b: \{ c: \[2, 3\] \} \}".
+15. Object Prototype Extension: Write a function that extends an object's prototype with additional methods. The additional methods should perform specific operations on the object's properties. For example, extend the Array prototype with a method called sum() that calculates the sum of all elements in the array.
