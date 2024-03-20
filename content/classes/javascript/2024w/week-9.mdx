@@ -1,5 +1,5 @@
 ---
-title: თავი 9 - ასინქრონული პროგრამირება - JavaScript 2024W
+title: თავი 9 - Bugs And Errors - JavaScript 2024W
 description: სასწავლო რესურსები
 ---
 
@@ -16,7 +16,7 @@ description: სასწავლო რესურსები
       მენტორთან!
     </Locked>
     <Unlocked>
-      - ოთხშაბათი: ჯერ არ ჩატარებულა
+      - ოთხშაბათი: https://youtu.be/G1xjnkySGbQ
       - პარასკევი: ჯერ არ ჩატარებულა
     </Unlocked>
   </PinCodeProtectedContent>
@@ -176,6 +176,82 @@ Example Output
 
 1. დაწერეთ ფუნქცია, რომელიც პარამეტრად მიიღებს ობიექტს და დააბრუნებს მის name ფროფერთის მნიშვნელობას. თუ name ფროფერთი არ გააჩნია, დაარეთარნეთ null.
 2. გადააწყეთ პირველი დავალება try/catch-ის გამოყენებით. თუ name ფროფერთი არ გააჩნია, გაისროლეთ ერორი და შემდეგ გაუმკლავდით.
-3. დაწერეთ ფუნქცია, რომელიც ცდილობს JSON სტრინგის პარსინგს (მაგალითად სტრინგად ჩაწერილ ობიექტს გადაიყვანს ობიექტში). გამოიყენეთ try/catch იმ ქეისებისთვის, როცა JSON სტრინგი არავალიდურია.
-4. დაწერეთ ფუნქცია, რომელიც აგზავნის რექვესთს GitHub-ის API-ზე და მოაქვს გითჰაბის იუზერის დატა. (მაგალითად: https://api.github.com/users/temuritsutskiridze). თუ სასურველი პასუხი ვერ მიიღეთ (როცა response.ok არის false), გაისროლეთ ერორი და გამკლავდით მას. გამოიყენეთ async/await სინტაქსი.
+3. დაწერეთ ფუნქცია, რომელიც იღებს ორ რიცხვს პარამეტრებად და ცდილობს მათ გაყოფას. თუ რომელიმე რიცხვის ტიპის არაა, გაისროლეთ ერორი. ასევე გაუმკლავდით იმ შემთხვევასაც, როცა მეორე რიცხვი 0-ია (0-ზე გაყოფა არ შეიძლება).
+4. დაწერეთ ფუნქცია სახელად promptAge, რომელიც შეეკითხება მომხმარებელს თავის ასაკს და თუ არასწორად იქნება ასაკი შემოყვანილი, გასივრის ერორს. ეს ფუნქცია გამოიძახეთ isAdult ფუნქციაში, რომელიც ადგენს არის თუ არა მომხმარებელი სრულწლოვანი. გამოიყენეთ try/catch ერორების გასამკლავებლად.
+5. დაწერეთ ფუნქცია, რომელიც ცდილობს JSON სტრინგის პარსინგს (მაგალითად სტრინგად ჩაწერილ ობიექტს გადაიყვანს ობიექტში). გამოიყენეთ try/catch იმ ქეისებისთვის, როცა JSON სტრინგი არავალიდურია.
+6. დაწერეთ ფუნქცია, რომელიც აგზავნის რექვესთს GitHub-ის API-ზე და მოაქვს გითჰაბის იუზერის დატა. (მაგალითად: https://api.github.com/users/temuritsutskiridze). თუ სასურველი პასუხი ვერ მიიღეთ (როცა response.ok არის false), გაისროლეთ ერორი და გამკლავდით მას. გამოიყენეთ async/await სინტაქსი.
 
+
+#### 5. Retry
+Say you have a function primitiveMultiply that in 20 percent of cases multiplies two numbers and in the other 80 percent of cases raises an exception of type MultiplicatorUnitFailure. Write a function that wraps this clunky function and just keeps trying until a call succeeds, after which it returns the result.
+
+Make sure you handle only the exceptions you are trying to handle.
+```shell
+class MultiplicatorUnitFailure extends Error {}
+
+function primitiveMultiply(a, b) {
+  if (Math.random() < 0.2) {
+    return a * b;
+  } else {
+    throw new MultiplicatorUnitFailure("Klunk");
+  }
+}
+
+function reliableMultiply(a, b) {
+  // Your code here.
+}
+
+console.log(reliableMultiply(8, 8));
+// → 64
+```
+
+#### The locked box
+Consider the following (rather contrived) object:
+```shell
+const box = {
+  locked: true,
+  unlock() { this.locked = false; },
+  lock() { this.locked = true;  },
+  _content: [],
+  get content() {
+    if (this.locked) throw new Error("Locked!");
+    return this._content;
+  }
+};
+```
+It is a box with a lock. There is an array in the box, but you can get at it only when the box is unlocked. Directly accessing the private _content property is forbidden.
+
+Write a function called withBoxUnlocked that takes a function value as argument, unlocks the box, runs the function, and then ensures that the box is locked again before returning, regardless of whether the argument function returned normally or threw an exception.
+
+```shell
+const box = {
+  locked: true,
+  unlock() { this.locked = false; },
+  lock() { this.locked = true;  },
+  _content: [],
+  get content() {
+    if (this.locked) throw new Error("Locked!");
+    return this._content;
+  }
+};
+
+function withBoxUnlocked(body) {
+  // Your code here.
+}
+
+withBoxUnlocked(function() {
+  box.content.push("gold piece");
+});
+
+try {
+  withBoxUnlocked(function() {
+    throw new Error("Pirates on the horizon! Abort!");
+  });
+} catch (e) {
+  console.log("Error raised: " + e);
+}
+console.log(box.locked);
+// → true
+```
+
+For extra points, make sure that if you call withBoxUnlocked when the box is already unlocked, the box stays unlocked.
