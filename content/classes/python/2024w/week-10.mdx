@@ -1,0 +1,79 @@
+---
+title: თავი 10 - შესავალი ვებში - Python 2024W
+description: სასწავლო რესურსები
+---
+
+### ლექცია 10
+<iframe width="560" height="315" src="" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
+### პრაქტიკული სემინარები
+
+<Card>
+<PinCodeProtectedContent>
+    <Locked>
+        ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის.
+        პინ კოდი მოითხოვეთ მენტორთან!
+    </Locked>
+    <Unlocked>
+        - ოთხშაბათი: 
+        - პარასკევი: 
+    </Unlocked>
+</PinCodeProtectedContent>
+</Card>
+
+### რესურსები
+- [Python - ის დოკუმენტაცია](https://docs.python.org/3/library/)
+- [ლექციის პრეზენტაცია]()
+
+### წასაკითხი
+- [mdn](https://developer.mozilla.org/en-US/)
+- [Django დოკუმენტაცია](https://docs.djangoproject.com/en/4.2/)
+
+- [რა არის ვებ-სერვერი?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/Pages_sites_servers_and_search_engines)
+- [როგორ მუშაობს ინტერნეტი?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work)
+- [რა არის კლიენტი და სერვერი?](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works#clients_and_servers)
+- [რა არის ბრაუზერი?](https://www.youtube.com/watch?v=BrXPcaRlBqo)
+
+### დავალებები
+
+#### პროექტი 87 - Basic Routing
+ჯანგოს პროექტში შექმენით სამი სხვადასხვა views (მაგ: Home, About, Contact).
+დააკონფიგურირეთ URL-ები ისე, რომ თითოეული ბმულისთვის მუშავდებოდეს შესაბამისი view.
+თითოეული view უნდა აბრუნებდეს მარტივ HttpResponse ტექსტს, რომელიც აღწერს ამ გვერდს (მაგ: "This is the home page").
+
+URL-ების საბოლოო შედეგი უნდა იყოს განსაზღვრული ასე:
+```shell
+http://127.0.0.1:8000/website/home
+http://127.0.0.1:8000/website/about
+http://127.0.0.1:8000/website/contact
+http://127.0.0.1:8000/website
+```
+
+აუცილებელი მოთხოვნები:
+1. შექმენით მხოლოდ ერთი ქვეაპლიკაცია
+
+
+#### პროექტი 88 - Dynamic URL Patterns
+
+ჯანგოს პროექტში განსაზღვრეთ დინამიური URL. ანუ, მაგალითად: 
+
+```shell
+http://127.0.0.1:8000/website/John
+```
+
+უნდა გიბრუნებდეთ Hello, John HttpResponse-ს. ხოლო სხვა შეყვანილ სახელზე, უნდა ბრუნდებოდეს იგივე შეტყობინება, შესაბამისი სახელით.
+არ შექმნათ სხვადასხვა URl-ები, სხვადასხვა სახელებისთვის. უნდა იყოს განსაზვრული მხოლოდ ერთი, დინამიური URL.
+
+მინიშნება:
+1. წაიკითხეთ დოკუმენტაცია URL-ზე: https://docs.djangoproject.com/en/4.2/topics/http/urls/
+
+#### პროექტი 89 - View Calculator
+
+ჯანგოს პროექტში, შექმენით დინამიური URL, რომელიც ბმულში იღებს რიცხვს. ამ url-ის შესაბამისი view ისე დაამუშავეთ, რომ პასუხად HttpResponse-ში გვიბრუნებდეს ეს რიცხვი კენტია, თუ ლუწი.
+
+მაგალითად:
+```shell
+http://127.0.0.1:8000/odd_or_even/6
+```
+
+პასუხად უნდა გვიბრუნებდეს "This number is even".
