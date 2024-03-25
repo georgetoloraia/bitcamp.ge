@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 
 const PinProtected = ({ href, className, children, disabled, ...props }) => {
-  const pinCode = "0302" // Pin code definition
+  const pinCode = "2503" // Pin code definition
 
   const [pin, setPin] = useState("")
   const [isVerified, setIsVerified] = useState(false)
