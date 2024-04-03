@@ -584,6 +584,10 @@ export const docsConfig: DocsConfig = {
           title: "თავი 6",
           href: "/classes/react/2023f/week-6",
         },
+        {
+          title: "თავი 7",
+          href: "/classes/react/2023f/week-7",
+        },
       ]
     }
   ],
