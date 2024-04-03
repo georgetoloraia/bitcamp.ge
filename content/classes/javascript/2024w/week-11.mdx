@@ -16,7 +16,7 @@ description: სასწავლო რესურსები
       მენტორთან!
     </Locked>
     <Unlocked>
-      - ოთხშაბათი: ჯერ არ ჩატარებულა
+      - ოთხშაბათი: https://youtu.be/bUW3mUn6meM
       - პარასკევი: ჯერ არ ჩატარებულა
     </Unlocked>
   </PinCodeProtectedContent>
@@ -200,3 +200,19 @@ $ aurn2$1s#
 >  2                                                           
 > $77,522.1666 
 ```
+
+### სავარჯიშოები
+
+1. შექმენით კლასი სახელად "Person". დააგენერირეთ ობიექტი, რომელსაც ექნება "name" და "age" ფროფერთები და "sayHello" მეთოდი(ეს ყველაფერი კლასშივე უნდა გაუწეროთ). გამოაკონსოლეთ ობიექტის ფროფერთები.
+2. მემკვიდრეობითობა: შექმენით კლასი "Student", რომელიც იქნება "Person"-ის შთამომავალი. დაამატეთ ახალი "grade" ფროფერთი.
+3. ენკაფსულაცია: შექმენით კლასი სახელად "BankAccount" private ფროფერთით - "balance". დაამატეთ მეთოდები "deposit" და "withdraw" თანხის შეტანა-გამოტანისთვის. შესატან ან გამოსატან თანხას მეთორები უნდა იღებდნენ პარამეტრად. bonus: თუ გამოსატანი თანხა მეტია  არსებულ ბალანსზე, გმოიტანეთ შესაბამისი შეტყობინება.
+4. პოლიმორფიზმი:  შემქენით კლასი "Shape", რომელშიც იქნება მეთოდი სახელად "calculateArea". შექმენით ქვეკლასები "Circle" და "Rectangle", რომლებშიც ახლადშექმნილ მეთოდს გადააწერთ მშობლის მეთოდს.
+5. სტატიკური მეთოდი: შექმენით კლასი "Calculator" სტატიკური მეთოდით, რომელიც პარამეტრად მიიღებს ორ რიცხვს და დააბრუნებს მათ ჯამს.
+6. Getter and Setter: შექმენით კლასი "Temperature" private ფორფერთით - "celsius". დაამატეთ getter და setter მეთოდები. getter მეთოდი უნდა აბრუნებდეს celsius ფროფერთის. setter მეთოდი პარამეტრად უნდა იღებდეს ფარენჰეიტს, გადაჰყავდეს ცელსიუსში და ანიჭებდეს მიღებულ მნიშვნელობას celsius ფროფერთის.
+7. შექმენით კლასი - "ArrayHelper" მეთოდით "reverseArray", რომელიც პარამეტრად იღებს მასივს და აბრუნებს მის შებრუნებულ ვერსიას.
+8. შექმენით კლასი "Circle", რომელიც დააგენერირებს ობიექტებს "radius" ფროფერთით. დაამატეთ მეთოდები წრის ფართობისა და პერიმეტრის გასაგებად. შექმენით "createCircle" მეთოდი, რომელიც დააბრუნებს რაიმე რადიუსის მქონე წრის ობიექტს. (ახალი წრე შექმენით Circle კლასიდან)
+9. Shopping Cart:
+
+- Create a Product class with properties id, name, price, and quantity. Implement a method getTotalPrice() that calculates the total price for the product (price \* quantity).
+- Create a ShoppingCart class that includes an array to store products. Implement methods to add a product to the cart, remove a product by id, and calculate the total price of all products in the cart.
+- Extend the ShoppingCart class by adding a method checkout() that logs the products in the cart and the total price. Implement a method emptyCart() to clear all products from the cart.
