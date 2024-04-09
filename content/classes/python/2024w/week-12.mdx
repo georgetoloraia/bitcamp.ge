@@ -1,0 +1,117 @@
+---
+title: თავი 12 - მონაცემთა ბაზები - Python 2024w
+description: სასწავლო რესურსები
+---
+
+### ლექცია 12
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lqItrR8PjLI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
+### პრაქტიკული სემინარები
+
+<Card>
+<PinCodeProtectedContent>
+    <Locked>
+        ეს კონტენტი განკუთვნილია აქტიური სტუდენტებისთვის.
+        პინ კოდი მოითხოვეთ მენტორთან!
+    </Locked>
+    <Unlocked>
+        - ოთხშაბათი:
+        - პარასკევი:
+    </Unlocked>
+</PinCodeProtectedContent>
+</Card>
+
+### რესურსები
+- [Python - ის დოკუმენტაცია](https://docs.python.org/3/library/)
+- [ლექციის პრეზენტაცია](https://docs.google.com/presentation/d/1a9i8JFdfRI0hzwIoE8WA3QGGw-cg_lW6Z4DRKc0cr04/edit?usp=sharing)
+
+### წასაკითხი
+- [Django დოკუმენტაცია](https://docs.djangoproject.com/en/4.2/)
+- [Django მოდელები](https://docs.djangoproject.com/en/5.0/topics/db/models/)
+- [Making queries](https://docs.djangoproject.com/en/5.0/topics/db/queries/)
+- [ხანის აკადემიის კურსი SQL-ში](https://www.khanacademy.org/computing/computer-programming/sql)
+- [Django Databases](https://docs.djangoproject.com/en/5.0/ref/databases/)
+- [Sqlitestudio (თუ გსურთ დაყენება)](https://sqlitestudio.pl/)
+- [Fields](https://docs.djangoproject.com/en/5.0/ref/models/fields/)
+- [Ipython დოკუმენტაცია](https://ipython.org/ipython-doc/3/install/install.html)
+- [Django extensions ბიბლიოთეკა](https://django-extensions.readthedocs.io/en/latest/)
+- [Field Lookups](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#field-lookups)
+- [მეტა კლასები](https://docs.djangoproject.com/en/4.2/ref/models/options/)
+
+
+### დავალებები
+
+#### პროექტი 94 -  Local Event Planner
+შექმენით მარტივი ვებ აპლიკაცია, ლოკალური ღონისძიებების მენეჯმენტისთვის. მომხმარებელს უნდა შეეძლოს ახალი ღონისძიების შექმნა, არსებული ღონისძიებების ნახვა და კონკრეტული ღონისძიებების მოძებნა.
+
+მოდელი:
+- 'Event' მოდელში შექმენით ველები: 'title', 'description', 'date', 'location' (CharField).
+
+პროექტის აღწერა:
+- როდესაც მომხმარებელი '/events/TITLE' url-ზე გადავა, სადაც TITLE კონკრეტული ღონისძიების დასახელებაა, გამოიტანეთ ინფორმაცია ამ კონკრეტულ ღონისძიებაზე.
+- view-მ უნდა წამოიღოს კონკრეტულ ღონისძიებაზე ინფორმაცია მონაცემთა ბაზიდან.
+- თუ ღონისძიება მითითებული TITLE-ით არ არსებობს, მაშინ გამოიტანეთ შეცდომის გვერდი შეტყობინებით.
+- 'index.html' გვერდზე (მთავარ გვერდზე), უნდა ჩანდეს ყველა არსებული ღონისძიება შესაბამისი ინფორომაციული ერთეულებით.
+- 'add_event.html' გვერდზე უნდა იყოს განსაზღვრული შესაბამისი ფორმა, რომლის მეშვეობითან მომხმარებელს შეეძლება ახალი ღონისძიების დამატება.
+
+
+
+#### პროექტი 95 -  Simple Note-Taking App
+შექმენით მარტივი ვებ აპლიკაცია, რომლის მეშვეობით მომხმარებლებს შეეძლებათ ტექსტური ჩანაწერების (note-ების) ნახვა, დამატება, შეცვლა, წაშლა.
+ასევე თიოთოეულ ჩანაწერს უნდა ჰქონდეს განსაზღვრული კონკრეტული თარიღი და შექმნის დრო.
+
+მოდელი:
+- შექმენით მოდელი 'Note', ველებით: 'title', 'content', 'date_created'
+Views და Template-ები:
+- უნდა იყოს განსაზღვრული ერთი მთავარი გვერდი, სადაც იქნება ჩამოთვლილი ყველა ჩანაწერი შესაბამისი ინფორმაციებით.
+- განსაზღვრეთ view თითოეული ჩანაწერის სანახავად.
+- შექმენით ფორმები ახალი ჩანაწერის დასამატებლად და შესაცვლელად.
+- დაამატეთ პირდაპირ მთავარი გვერდიდან ჩანაწერი წაშლის ფუნქციონალი.
+
+#### პროექტი 96 - Basic Recipe Manager
+შექმენით მარტივი ვებ აპლიკაცია, რომელიც დაეხმარება მომხმარებელს, რომ შეინახოს კერძების რეცეპტები.
+
+მოდელი:
+- შექმენით მოდელი 'Recipe', ველებით: 'name', 'ingredients' (text ველი), 'instructions' (text ველი)
+Views და Template-ები:
+- უნდა იყოს განსაზღვრული ერთი მთავარი გვერდი, სადაც იქნება ჩამოთვლილი ყველა არსებული კერძის რეცეპტი.
+- განსაზღვრეთ view თითოეული რეცეპტის და მისი მომზადების ინსტრუქციების სანახავად.
+- შექმენით ფორმები ახალი რეცეპტების დასამატებლად და შესაცვლელად.
+
+#### პროექტი 97 - URL Shortener
+შექმენით ვებ აპლიკაცია, რომელიც მომხმარებლის მიერ შეყვანილ გრძელ URl-ს გარდაქმნის შემოკლებულ URL-ში.
+მაგალითად https://goo.gl/.
+- პროგრამას უნდა ჰქონდეს ფორმა (შესაყვანი ველი), რომელშიც იწერება გრძელი URL
+- პროგრამამ უნდა დააგენერიროს მოკლედ URL როგორიცაა /abc1234 და შეინახოს მოკლე URL და გრძელი ერთად მონაცემთა რაიმე წყაროში
+- პროგრამამ უნდა გადაამისამართოს მომხმარებელი, რომელიც გრძელ URL-ზე შემოვა, მოკლე URL-ზე.
+- პროგრამამ უნდა დაითვალოს თუ რამდენი ვიზიტი ჰქონდა პატარა URL-ს.
+- პროგრამას ასევე უნდა ჰქონდეს სტატისტიკის გვერდი მოკლე URL-ისთვის. მაგალითად /abc1234/stats.
+როდესაც ამ გვერდზე გადავა მომხმარებელი, უნდა ჩანდეს მოკლედ URL, გრძელი URL და რაოდენობა მოკლედ URL-ზე ვიზიტებისა.
+
+### სავარჯიშოები (SQL)
+
+1. შექმენით ცხრილი. (დაწერეთ SQL ბრძანება)
+შექმენით ცხრილი, სახელად 'Students' შემდეგი ველებით:
+- StudentID (integer, primary key)
+- FirstName (varchar)
+- LastName (varchar)
+- BirthDate (date)
+- Major (varchar)
+
+1. შეიყვანეთ მონაცემები 'Students' ცხრილში.
+დაწერეთ ბრძანება, რომელიც შექმნით ცხრილში შეიყვანს შემდეგ მონაცემებს:
+- StudentID: 101, FirstName: Alice, LastName: Smith, BirthDate: 2001-05-14, Major: Computer Science
+- StudentID: 102, FirstName: Bob, LastName: Johnson, BirthDate: 2002-09-23, Major: Mathematics
+
+1. დაწერეთ SQL ბრძანება, რომელიც გამოიტანს სახელებს, გვარებსა და კურსებს იმ სტუდენტებისა, რომლებიც დაიბადნენ პირველი იანვრის 2002 წლის შემდეგ.
+
+1. შეცვალეთ ინფორმაცია ცხრილში. დაწერეთ ბრძანება, რომელიც Bob-ის კურსს შეცვლის 'Physics'-ზე.
+
+1. შექმენით მეორე ცხრილი, სახელად 'Enrollments' და დაამყარეთ კავშირი ცხრილებს შორის.
+ველები:
+- EnrollmentID (integer, primary key)
+- StudentID (integer, გასაღები Students-ის)
+- CourseName (varchar)
+- Semester (varchar)
+
+1. დაწერეთ ბრძანება, რომელიც გამოიტანს ყველა სტუდენტის სახელს, ვინც არის ჩარიცხული 'Computer Science 101'-ში 'Fall 2023' სემესტრში.
