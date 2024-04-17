@@ -45,7 +45,9 @@ function getDynamicMenuItems(pathname: string | null): SidebarNavItem[] {
   if (pathname?.includes("frontendbasics/2023f")) {
     items = docsConfig.frontEndBasics2023ClassNav
   }
-
+  if (pathname?.includes("frontendbasics/2024w")) {
+    items = docsConfig.frontEndBasics2024ClassNav
+  }
   if (pathname?.includes("python/2023f")) {
     items = docsConfig.python2023ClassNav
   }
