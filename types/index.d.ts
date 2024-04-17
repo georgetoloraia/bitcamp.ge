@@ -94,6 +94,7 @@ export type DocsConfig = {
   javasScript2023ClassNav: SidebarNavItem[]
   javasScript2024ClassNav: SidebarNavItem[]
   frontEndBasics2023ClassNav: SidebarNavItem[]
+  frontEndBasics2024ClassNav: SidebarNavItem[]
   python2023ClassNav: SidebarNavItem[]
   react2022ClassNav: SidebarNavItem[]
   react2023ClassNav: SidebarNavItem[]
