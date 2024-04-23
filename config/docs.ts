@@ -667,6 +667,10 @@ export const docsConfig: DocsConfig = {
           title: "თავი 13",
           href: "/classes/python/2024w/week-13",
         },
+        {
+          title: "თავი 14",
+          href: "/classes/python/2024w/week-14",
+        },
       ],
     },
   ],
