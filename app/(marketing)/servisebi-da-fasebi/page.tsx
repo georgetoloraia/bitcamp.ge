@@ -1,7 +1,7 @@
 import PricingCardComponent from "@/components/price-component"
 
 export const metadata = {
-  title: "Pricing",
+  title: "ისწავლე პროგრამირება",
 }
 
 export default function PricingPage({ searchParams }) {
@@ -9,13 +9,14 @@ export default function PricingPage({ searchParams }) {
     <section className="container flex flex-col  gap-6 py-8 md:max-w-[64rem] md:py-12 lg:py-24">
       <PricingCardComponent intent={searchParams.intent} />
       <div className="mx-auto flex w-full max-w-[58rem] flex-col gap-4">
+        <h4>თანხის დაბრუნების პოლიტიკა</h4>
         <p className="max-w-[85%] leading-normal text-muted-foreground sm:leading-7">
-          გაითვალისწინეთ რომ თანხის დაბრუნება შესაძლებელია <strong> შეძენიდან მხოლოდ 1 კვირის განმავლობაში</strong>  და მხოლოდ <strong> პირადი მენტორის</strong> ან <strong>PRO - ს</strong> შეძენის შემთხვევაში.{" "}
+          <ul>
+            <li>50 ლარიან სერვისებზე თანხის დაბრუნება არ ხდება</li>
+            <li>200 ლარიან სერვისზე თანხის დაბრუნება შესაძლებელია შეძენიდან მხოლოდ 1 კვირის განმავლობაში.</li>
+          </ul>
           <br />
-          <br />
-          თანხა არ ბრუნდება <strong>საერთო სამენტოროს</strong> ან <strong> Kids - ის</strong> მომსახურებების შეძენისას.
-          <br />
-          <br />
+          
           თუ შეიძენთ რომელიმე სერვისს, მაშინ ავტომატურად ეთანხმებით ამ წესებს.
         </p>
       </div>

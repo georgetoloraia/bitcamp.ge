@@ -143,7 +143,6 @@ export type IntentItem = {
 export type IntentItems = {
   free: IntentItem
   minimal: IntentItem
-  common: IntentItem
   private: IntentItem
   pro: IntentItem
   kids: IntentItem

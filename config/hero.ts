@@ -11,10 +11,6 @@ export const planets = [
 export const programs = [
   { url: "/servisebi-da-fasebi?intent=minimal", title: "მინიმალური (50₾)" },
   {
-    url: "/servisebi-da-fasebi?intent=common",
-    title: "საერთო სამენტორო (100₾)",
-  },
-  {
     url: "/servisebi-da-fasebi?intent=private",
     title: "პირადი მენტორი (200₾)",
   },

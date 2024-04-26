@@ -1,7 +1,7 @@
 "use client"
 
 import React, { ReactNode, useEffect, useState } from "react"
-import { CheckCircle2 } from "lucide-react"
+import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -23,6 +23,7 @@ import local from "next/font/local"
 import { useRouter } from "next/router"
 import { CrossCircledIcon } from "@radix-ui/react-icons"
 import { services } from "@/config/site"
+import Link from "next/link"
 
 
 type PricingCardProps = {
@@ -292,7 +293,13 @@ export default function PricingCardComponent({ intent }: PricingCardComponentPro
         </h2>
         <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
           შეარჩიე შენთვის კომფორტული მომსახურება და დაიწყე პროგრამირების სწავლა.
+
+          <br/>
+          <br/>
+          არ იცი საიდან დაიწყო? ჩაეწერე კონსულტაციაზე და ჩვენი მენტორი პირადად დაგირეკავს, გაგესაუბრება, მოგცემს რჩევებს და დაგაკვალიანებს დეტალურად.
         </p>
+
+        <Link href="https://forms.gle/DTX4izVVWaCBpaYi6" target="_blank" className="relative inline-flex h-11 items-center justify-center rounded-md  bg-primary px-8 font-medium text-primary-foreground  transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:bg-white dark:text-black" >კონსულტაციაზე ჩაწერა <ArrowUpRight></ArrowUpRight></Link>
       </div>
 
       {finalSections.map((section) => {
